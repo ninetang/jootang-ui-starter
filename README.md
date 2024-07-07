@@ -34,7 +34,7 @@ However, if you wish to get actual prop types in `.vue` imports (for example to 
 ## 安装依赖
 
 ```sh
-npm install
+npm install --legacy-peer-deps
 ```
 
 ### 开发、编译和热重载
