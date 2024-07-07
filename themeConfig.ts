@@ -13,13 +13,16 @@ export const { themeConfig, layoutConfig } = defineThemeConfig({
     title: 'JooTang',
 
     // ❗ if you have SVG logo and want it to adapt according to theme color, you have to apply color as `color: rgb(var(--v-global-theme-primary))`
-    logo: h('div', { innerHTML: logo, style: 'line-height:0; color: rgb(var(--v-global-theme-primary))' }),
+    logo: h('div', {
+      innerHTML: logo,
+      style: 'line-height:0; color: rgb(var(--v-global-theme-primary))',
+    }),
     contentWidth: ContentWidth.Boxed,
     contentLayoutNav: AppContentLayoutNav.Horizontal,
     overlayNavFromBreakpoint: breakpointsVuetify.md + 16, // 16 for scrollbar. Docs: https://next.vuetifyjs.com/en/features/display-and-platform/
     i18n: {
-      enable: false,
-      defaultLocale: 'zh-CN',
+      enable: true,
+      defaultLocale: 'cn-zh',
       langConfig: [
         {
           label: 'English',
@@ -27,18 +30,19 @@ export const { themeConfig, layoutConfig } = defineThemeConfig({
           isRTL: false,
         },
         {
-          label: '中文',
-          i18nLang: 'cn',
+          label: '简体中文',
+          i18nLang: 'cn-zh',
           isRTL: false,
         },
         {
-          label: 'Arabic',
-          i18nLang: 'ar',
-          isRTL: true,
+          label: '繁体中文',
+          i18nLang: 'cn-tw',
+          isRTL: false,
         },
+
       ],
     },
-    theme: 'system',
+    theme: 'light',
     skin: Skins.Default,
     iconRenderer: VIcon,
   },
