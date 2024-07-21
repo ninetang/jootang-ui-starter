@@ -14,6 +14,11 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   isSubItem: false,
 })
+
+onMounted(() => {
+  // console.log(props.item)
+  console.log('HorizontalNavLink mounted')
+})
 </script>
 
 <template>

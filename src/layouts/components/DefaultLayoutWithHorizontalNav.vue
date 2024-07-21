@@ -84,4 +84,9 @@ watch([isFallbackStateActive, refLoadingIndicator], () => {
 .index-logo {
   height: 48px;
 }
+
+.site-name {
+  line-height: 48px !important;
+  font-size: 1.5rem;
+}
 </style>
