@@ -10,7 +10,7 @@ import { AppContentLayoutNav, ContentWidth, FooterType, NavbarType } from '@layo
 
 export const { themeConfig, layoutConfig } = defineThemeConfig({
   app: {
-    title: 'Belling Test & Cert',
+    title: '深圳贝岭能效技术',
 
     // ❗ if you have SVG logo and want it to adapt according to theme color, you have to apply color as `color: rgb(var(--v-global-theme-primary))`
     logo: h('div', {
@@ -22,11 +22,11 @@ export const { themeConfig, layoutConfig } = defineThemeConfig({
     overlayNavFromBreakpoint: breakpointsVuetify.md + 16, // 16 for scrollbar. Docs: https://next.vuetifyjs.com/en/features/display-and-platform/
     i18n: {
       enable: true,
-      defaultLocale: 'cn-zh',
+      defaultLocale: 'zh-cn',
       langConfig: [
         {
           label: '简体中文',
-          i18nLang: 'cn-zh',
+          i18nLang: 'zh-cn',
           isRTL: false,
         },
         {
@@ -36,7 +36,7 @@ export const { themeConfig, layoutConfig } = defineThemeConfig({
         },
         {
           label: '繁体中文',
-          i18nLang: 'cn-tw',
+          i18nLang: 'zh-hk',
           isRTL: false,
         },
 
