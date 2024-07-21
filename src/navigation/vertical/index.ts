@@ -5,8 +5,8 @@ export default [
     icon: { icon: 'ri-home-smile-line' },
   },
   {
-    title: 'Second page',
-    to: { name: 'second-page' },
+    title: 'About',
+    to: { name: 'about' },
     icon: { icon: 'ri-file-text-line' },
   },
 ]
