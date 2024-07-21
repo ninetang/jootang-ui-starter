@@ -1,15 +1,16 @@
 <script lang="ts" setup>
-import navItems from '@/navigation/horizontal'
-
-import { themeConfig } from '@themeConfig'
-
-// Components
 import Footer from '@/layouts/components/Footer.vue'
 import NavbarThemeSwitcher from '@/layouts/components/NavbarThemeSwitcher.vue'
 import UserProfile from '@/layouts/components/UserProfile.vue'
+import navItems from '@/navigation/horizontal'
 import NavBarI18n from '@core/components/I18n.vue'
+
+import logo65 from '@images/logo/belling-logo-65.png'
 import { HorizontalNavLayout } from '@layouts'
-import { VNodeRenderer } from '@layouts/components/VNodeRenderer'
+
+// import { VNodeRenderer } from '@layouts/components/VNodeRenderer'
+
+import { themeConfig } from '@themeConfig'
 
 // SECTION: Loading Indicator
 const isFallbackStateActive = ref(false)
@@ -34,7 +35,12 @@ watch([isFallbackStateActive, refLoadingIndicator], () => {
         to="/"
         class="d-flex align-start gap-x-4"
       >
-        <VNodeRenderer :nodes="themeConfig.app.logo" />
+        <!--        <VNodeRenderer :nodes="themeConfig.app.logo" /> -->
+        <img
+          :src="logo65"
+          alt="Belling Logo"
+          class="index-logo"
+        >
 
         <h1 class="leading-normal text-xl text-uppercase">
           {{ themeConfig.app.title }}
@@ -73,3 +79,9 @@ watch([isFallbackStateActive, refLoadingIndicator], () => {
     <!-- <TheCustomizer /> -->
   </HorizontalNavLayout>
 </template>
+
+<style lang="scss">
+.index-logo {
+  height: 48px;
+}
+</style>
