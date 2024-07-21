@@ -10,7 +10,7 @@ import { AppContentLayoutNav, ContentWidth, FooterType, NavbarType } from '@layo
 
 export const { themeConfig, layoutConfig } = defineThemeConfig({
   app: {
-    title: 'JooTang',
+    title: 'Belling Test & Cert',
 
     // ❗ if you have SVG logo and want it to adapt according to theme color, you have to apply color as `color: rgb(var(--v-global-theme-primary))`
     logo: h('div', {
@@ -25,13 +25,13 @@ export const { themeConfig, layoutConfig } = defineThemeConfig({
       defaultLocale: 'cn-zh',
       langConfig: [
         {
-          label: 'English',
-          i18nLang: 'en',
+          label: '简体中文',
+          i18nLang: 'cn-zh',
           isRTL: false,
         },
         {
-          label: '简体中文',
-          i18nLang: 'cn-zh',
+          label: 'English',
+          i18nLang: 'en',
           isRTL: false,
         },
         {
