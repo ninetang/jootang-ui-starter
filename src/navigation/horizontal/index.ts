@@ -6,7 +6,7 @@ export default [
   },
   {
     title: 'About',
-    to: { name: 'second-page' },
+    to: { name: 'about' },
     icon: { icon: 'ri-file-text-line' },
   },
 ]
