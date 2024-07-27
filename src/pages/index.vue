@@ -6,7 +6,7 @@ console.log('pages/index.vue setup script')
   <div>
     <VCard
       class="mb-6"
-      title="Company Profile"
+      :title="$t('pages.index.Company Profile')"
     >
       <VCardText>
         Shenzhen Belling Energy Efficiency Technology Co., Ltd. (referred to as Belling) was
