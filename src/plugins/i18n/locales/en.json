@@ -1,7 +1,12 @@
 {
   "SiteName": "Belling Test & Cert",
   "Home": "Home",
-  "About": "About-Us",
+  "About": "About Us",
+  "pages": {
+    "index": {
+      "Company Profile": "Company Profile"
+    }
+  },
   "UI Elements": "UI Elements",
   "Forms & Tables": "Forms & Tables",
   "Pages": "Pages",
