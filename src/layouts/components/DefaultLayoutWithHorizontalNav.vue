@@ -41,9 +41,8 @@ watch([isFallbackStateActive, refLoadingIndicator], () => {
           alt="Belling Logo"
           class="index-logo"
         >
-
-        <h1 class="leading-normal text-xl text-uppercase">
-          {{ themeConfig.app.title }}
+        <h1 class="leading-normal text-xl text-uppercase site-name ">
+          {{ $t(themeConfig.app.title) }}
         </h1>
       </RouterLink>
       <VSpacer />
