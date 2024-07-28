@@ -1,9 +1,16 @@
 <script setup lang="ts">
-console.log('pages/index.vue setup script')
+import Banner from '@/views/pages/index/Banner.vue'
+import Clients from '@/views/pages/index/Clients.vue'
 </script>
 
 <template>
-  <div>
+  <VRow>
+    <VCol class="banner">
+      <Banner />
+    </VCol>
+  </VRow>
+
+  <VRow>
     <VCard
       class="mb-6"
       :title="$t('pages.index.Company Profile')"
@@ -38,5 +45,23 @@ console.log('pages/index.vue setup script')
         achieve accelerated business growth and strengthened core competitiveness.
       </VCardText>
     </VCard>
-  </div>
+  </VRow>
+
+  <VRow>
+    <VCard title="部分客户案例">
+      <Clients />
+    </VCard>
+  </VRow>
 </template>
+
+<style lang="scss">
+@use "@core/scss/template/libs/swiper.scss";
+
+.v-row {
+  margin-top: -1.5rem;
+
+  .banner {
+    padding: 0
+  }
+}
+</style>
