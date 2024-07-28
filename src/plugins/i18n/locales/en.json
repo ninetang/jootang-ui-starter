@@ -1,9 +1,13 @@
 {
-  "SiteName": "Belling Test & Cert",
+  "Belling Cert": "Belling Test & Cert",
   "Home": "Home",
   "About": "About Us",
+  "Testing Services": "Testing Services",
   "pages": {
     "index": {
+      "nav": {
+
+      },
       "Company Profile": "Company Profile"
     }
   },
