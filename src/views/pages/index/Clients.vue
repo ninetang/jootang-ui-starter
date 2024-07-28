@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { register } from 'swiper/element/bundle'
-import swiper31 from '@images/clients/unilumin.png'
-import swiper32 from '@images/clients/hans.png'
+import swiper31 from '@images/clients/unilumin.webp'
+import swiper32 from '@images/clients/hans.webp'
 
 register()
 </script>
@@ -11,6 +11,7 @@ register()
     pagination-clickable="true"
     slides-per-view="5"
     space-between="50"
+    autoplay-delay="3000"
     events-prefix="swiper-"
     :breakpoints="{
       1024: {
