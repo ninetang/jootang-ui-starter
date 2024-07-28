@@ -48,7 +48,7 @@ import Clients from '@/views/pages/index/Clients.vue'
   </VRow>
 
   <VRow>
-    <VCard title="部分客户案例">
+    <VCard title="客户案例">
       <Clients />
     </VCard>
   </VRow>
