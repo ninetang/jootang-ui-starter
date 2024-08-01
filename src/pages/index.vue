@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Banner from '@/views/pages/index/Banner.vue'
 import Clients from '@/views/pages/index/Clients.vue'
+import News from '@/views/pages/index/News.vue'
 import angui1 from '@images/laboratorys/angui1.png'
 import nenxiao2 from '@images/laboratorys/nenxiao2.png'
 import pages5 from '@images/pages/5.jpg'
@@ -147,6 +148,13 @@ import Certificates from '@/views/pages/index/Certificates.vue'
     </VCard>
   </VRow>
   <VRow>
+    <VCard title="新闻资讯">
+      <VRow class="ma-auto">
+        <News />
+      </VRow>
+    </VCard>
+  </VRow>
+  <VRow>
     <VCard title="客户案例">
       <Clients />
     </VCard>
@@ -157,7 +165,7 @@ import Certificates from '@/views/pages/index/Certificates.vue'
 @use "@core/scss/template/libs/swiper.scss";
 
 .v-row {
-  margin-block: 3rem !important;
+  margin-block: 1rem;
   .banner {
     padding: 0
   }
