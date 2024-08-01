@@ -33,4 +33,3 @@ register()
     </swiper-slide>
   </swiper-container>
 </template>
-
