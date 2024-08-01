@@ -2,6 +2,7 @@
 import Banner from '@/views/pages/index/Banner.vue'
 import Clients from '@/views/pages/index/Clients.vue'
 import pages5 from '@images/pages/5.jpg'
+import Certificates from '@/views/pages/index/Certificates.vue'
 </script>
 
 <template>
@@ -12,7 +13,7 @@ import pages5 from '@images/pages/5.jpg'
   </VRow>
 
   <VRow class="introduction">
-    <VCol>
+    <VCol cols="12">
       <VCard>
         <div class="d-flex flex-column-reverse flex-md-row">
           <div>
@@ -49,6 +50,55 @@ import pages5 from '@images/pages/5.jpg'
               :src="pages5"
               class="rounded"
             />
+          </div>
+        </div>
+      </VCard>
+    </VCol>
+    <VCol cols="12">
+      <VCard>
+        <div class="d-flex flex-column-reverse flex-md-row">
+          <div class="ma-auto pa-2">
+            <VImg
+              :width="250"
+              :src="pages5"
+              class="rounded"
+            />
+          </div>
+          <div class="ma-auto pa-5">
+            <VImg
+              :width="250"
+              :src="pages5"
+              class="rounded"
+            />
+          </div>
+          <div>
+            <VCardItem>
+              <VCardTitle>资历证书</VCardTitle>
+            </VCardItem>
+
+            <VCardText class="d-flex align-center flex-wrap text-body-1">
+              <span>Certifications</span>
+            </VCardText>
+
+            <VCardText>
+              获得了UL、Intertek、CSA、MET、TUV- RH 、TUV-SUD、SGS、NEMKO、FCC、IC等众多国际认证机构的资质认可，能为
+              客户提供专业权威的一站式检测认证服务。
+            </VCardText>
+
+            <VCardActions>
+              <VBtn>
+                了解更多
+                <VIcon
+                  end
+                  icon="ri-arrow-right-line"
+                />
+              </VBtn>
+            </VCardActions>
+          </div>
+          <div>
+            <VCard class="ma-5 certificate">
+              <Certificates />
+            </VCard>
           </div>
         </div>
       </VCard>
@@ -106,5 +156,8 @@ import pages5 from '@images/pages/5.jpg'
 }
 .introduction {
   background-color: pink;
+}
+.certificate {
+  width: 20rem;
 }
 </style>
