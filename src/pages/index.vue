@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import Banner from '@/views/pages/index/Banner.vue'
 import Clients from '@/views/pages/index/Clients.vue'
+import angui1 from '@images/laboratorys/angui1.png'
+import nenxiao2 from '@images/laboratorys/nenxiao2.png'
 import pages5 from '@images/pages/5.jpg'
 import Certificates from '@/views/pages/index/Certificates.vue'
 </script>
@@ -12,7 +14,7 @@ import Certificates from '@/views/pages/index/Certificates.vue'
     </VCol>
   </VRow>
 
-  <VRow class="introduction">
+  <VRow>
     <VCol cols="12">
       <VCard>
         <div class="d-flex flex-column-reverse flex-md-row">
@@ -57,19 +59,25 @@ import Certificates from '@/views/pages/index/Certificates.vue'
     <VCol cols="12">
       <VCard>
         <div class="d-flex flex-column-reverse flex-md-row">
-          <div class="ma-auto pa-2">
+          <div class="ma-auto pa-2 d-flex flex-column justify-center align-center">
             <VImg
               :width="250"
-              :src="pages5"
+              :height="250"
+              :src="angui1"
+              cover
               class="rounded"
             />
+            <span class="pa-5">安规实验室</span>
           </div>
-          <div class="ma-auto pa-5">
+          <div class="ma-auto pa-5 d-flex flex-column justify-center align-center">
             <VImg
               :width="250"
-              :src="pages5"
+              :height="250"
+              cover
+              :src="nenxiao2"
               class="rounded"
             />
+            <span class="pa-5">能效实验室</span>
           </div>
           <div>
             <VCardItem>
@@ -153,9 +161,6 @@ import Certificates from '@/views/pages/index/Certificates.vue'
   .banner {
     padding: 0
   }
-}
-.introduction {
-  background-color: pink;
 }
 .certificate {
   width: 20rem;
