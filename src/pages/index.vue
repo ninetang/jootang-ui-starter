@@ -6,6 +6,7 @@ import angui1 from '@images/laboratorys/angui1.png'
 import nenxiao2 from '@images/laboratorys/nenxiao2.png'
 import pages5 from '@images/pages/5.jpg'
 import Certificates from '@/views/pages/index/Certificates.vue'
+import Business from '@/views/pages/index/Business.vue'
 </script>
 
 <template>
@@ -148,7 +149,12 @@ import Certificates from '@/views/pages/index/Certificates.vue'
     </VCard>
   </VRow>
   <VRow>
-    <VCard title="新闻资讯">
+    <VCard title="主要业务" class="w-100">
+      <Business />
+    </VCard>
+  </VRow>
+  <VRow>
+    <VCard title="新闻动态">
       <VRow class="ma-auto">
         <News />
       </VRow>
