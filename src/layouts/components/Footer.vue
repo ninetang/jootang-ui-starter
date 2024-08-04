@@ -36,7 +36,7 @@ const abouts: Menu[] = [
   { name: '团队介绍', to: { name: '' } },
 ]
 
-const contects: Menu[] = [
+const contacts: Menu[] = [
   { name: '联系方式', to: { name: '' } },
   { name: '在线留言', to: { name: '' } },
   { name: '公司地址', to: { name: '' } },
@@ -163,7 +163,7 @@ const contects: Menu[] = [
                 </div>
                 <ul style="list-style: none;">
                   <li
-                    v-for="(item, index) in contects"
+                    v-for="(item, index) in contacts"
                     :key="index"
                     class="mb-4"
                   >

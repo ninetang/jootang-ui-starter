@@ -17,8 +17,7 @@ import Business from '@/views/pages/index/Business.vue'
   </VRow>
 
   <VRow>
-    <VCol cols="12">
-      <VCard>
+    <VCard>
         <div class="d-flex flex-column-reverse flex-md-row">
           <div>
             <VCardItem>
@@ -57,99 +56,64 @@ import Business from '@/views/pages/index/Business.vue'
           </div>
         </div>
       </VCard>
-    </VCol>
-    <VCol cols="12">
-      <VCard>
-        <div class="d-flex flex-column-reverse flex-md-row">
-          <div class="ma-auto pa-2 d-flex flex-column justify-center align-center">
-            <VImg
-              :width="250"
-              :height="250"
-              :src="angui1"
-              cover
-              class="rounded"
-            />
-            <span class="pa-5">安规实验室</span>
-          </div>
-          <div class="ma-auto pa-5 d-flex flex-column justify-center align-center">
-            <VImg
-              :width="250"
-              :height="250"
-              cover
-              :src="nenxiao2"
-              class="rounded"
-            />
-            <span class="pa-5">能效实验室</span>
-          </div>
-          <div>
-            <VCardItem>
-              <VCardTitle>资历证书</VCardTitle>
-            </VCardItem>
-
-            <VCardText class="d-flex align-center flex-wrap text-body-1">
-              <span>Certifications</span>
-            </VCardText>
-
-            <VCardText>
-              获得了UL、Intertek、CSA、MET、TUV- RH 、TUV-SUD、SGS、NEMKO、FCC、IC等众多国际认证机构的资质认可，能为
-              客户提供专业权威的一站式检测认证服务。
-            </VCardText>
-
-            <VCardActions>
-              <VBtn>
-                了解更多
-                <VIcon
-                  end
-                  icon="ri-arrow-right-line"
-                />
-              </VBtn>
-            </VCardActions>
-          </div>
-          <div>
-            <VCard class="ma-5 certificate">
-              <Certificates />
-            </VCard>
-          </div>
+  </VRow>
+  <VRow>
+    <VCard>
+      <div class="d-flex flex-column-reverse flex-md-row">
+        <div class="ma-auto pa-2 d-flex flex-column justify-center align-center">
+          <VImg
+            :width="250"
+            :height="250"
+            :src="angui1"
+            cover
+            class="rounded"
+          />
+          <span class="pa-5">安规实验室</span>
         </div>
-      </VCard>
-    </VCol>
-    <VCard
-      class="mb-6"
-      :title="$t('pages.index.Company Profile')"
-    >
-      <VCardText>
-        Shenzhen Belling Energy Efficiency Technology Co., Ltd. (referred to as Belling) was
-        established in 2015 and has consistently provided advanced quality assurance solutions for
-        our clients. Our business is always customer-centric, focusing on creating a first-class
-        customer service experience. Located in Longhua, Shenzhen, we are a pioneer in the domestic
-        third-party testing and certification technical service industry. Our company is established
-        in strict accordance with the requirements of ISO/IEC 17025:2017 and has obtained
-        recognition from the China National Accreditation Service for Conformity Assessment (CNAS)
-        and the China Metrology Accreditation (CMA), as well as the National Voluntary Laboratory
-        Accreditation Program (NVLAP) in the United States.
-      </VCardText>
-    </VCard>
-    <VCard
-      title="Efficient, Authoritative, and Impartial Third-Party Testing and Certification Technical
-        Service Institution"
-    >
-      <VCardText>
-        Currently, our company primarily focuses on the testing and international certification of
-        lighting, household appliances, audio-visual, and other electronic and electrical products.
-        We have been accredited by numerous international certification bodies such as UL, Intertek,
-        CSA, MET, TUV-RH, TUV-SUD, SGS, NEMKO, FCC, and IC, enabling us to provide professional and
-        authoritative one-stop testing and certification services for our clients.
-      </VCardText>
-      <VCardText>
-        Looking to the future, we will continue to innovate and enhance our expertise, offering
-        comprehensive services from testing to certification. We will persist in our efforts to
-        deliver high-quality service value, earn the trust of our clients, and help each client
-        achieve accelerated business growth and strengthened core competitiveness.
-      </VCardText>
+        <div class="ma-auto pa-5 d-flex flex-column justify-center align-center">
+          <VImg
+            :width="250"
+            :height="250"
+            cover
+            :src="nenxiao2"
+            class="rounded"
+          />
+          <span class="pa-5">能效实验室</span>
+        </div>
+        <div>
+          <VCardItem>
+            <VCardTitle>资历证书</VCardTitle>
+          </VCardItem>
+
+          <VCardText class="d-flex align-center flex-wrap text-body-1">
+            <span>Certifications</span>
+          </VCardText>
+
+          <VCardText>
+            获得了UL、Intertek、CSA、MET、TUV- RH 、TUV-SUD、SGS、NEMKO、FCC、IC等众多国际认证机构的资质认可，能为
+            客户提供专业权威的一站式检测认证服务。
+          </VCardText>
+
+          <VCardActions>
+            <VBtn>
+              了解更多
+              <VIcon
+                end
+                icon="ri-arrow-right-line"
+              />
+            </VBtn>
+          </VCardActions>
+        </div>
+        <div>
+          <VCard class="ma-5 certificate">
+            <Certificates />
+          </VCard>
+        </div>
+      </div>
     </VCard>
   </VRow>
   <VRow>
-    <VCard title="主要业务" class="w-100">
+    <VCard title="主要业务" class="w-100 text-center">
       <Business />
     </VCard>
   </VRow>
@@ -173,6 +137,7 @@ import Business from '@/views/pages/index/Business.vue'
 .v-row {
   margin-block: 1rem;
   .banner {
+    margin-top: -2rem;
     padding: 0
   }
 }

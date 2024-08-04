@@ -89,7 +89,7 @@ const tabItems = ['测试服务', '技术服务', '认证服务']
 
 <template>
   <VCol cols="12">
-    <VCard>
+    <VCard class="business">
       <VTabs
         v-model="navigationTab2"
         align-tabs="center"
@@ -225,5 +225,8 @@ const tabItems = ['测试服务', '技术服务', '认证服务']
       }
     }
   }
+}
+.business {
+  box-shadow: none;
 }
 </style>
