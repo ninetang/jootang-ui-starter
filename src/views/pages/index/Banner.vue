@@ -6,7 +6,6 @@ import swiper13 from '@images/banner/banner-13.jpg'
 import swiper15 from '@images/banner/banner-15.jpg'
 import swiper16 from '@images/banner/banner-16.jpg'
 
-debugger
 register()
 </script>
 
@@ -21,6 +20,19 @@ register()
     centered-slides="true"
     space-between="5"
     events-prefix="swiper-"
+    :injectStyles="[
+        `
+        .swiper-button-next, .swiper-button-prev{
+          background: transparent !important;
+          color: #fff !important;
+          padding-inline: 0.45rem !important;
+          padding-block: 0.45rem !important;
+          inline-size: 3.5rem !important;
+          block-size: 3.5rem !important;
+          border-radius: 50%
+        }
+        `,
+      ]"
   >
     <swiper-slide
       v-for="swiperImg in [
@@ -69,13 +81,13 @@ register()
 swiper-container {
   background-color: #FFF;
 }
-
 .mySwiper2 {
   swiper-slide {
     border: 1px solid white;
     block-size: 100%;
     inline-size: 25%;
     opacity: 0.8;
+    background-color: transparent;
   }
 
   .swiper-slide-thumb-active {

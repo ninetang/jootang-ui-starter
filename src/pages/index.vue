@@ -113,7 +113,7 @@ import Business from '@/views/pages/index/Business.vue'
     </VCard>
   </VRow>
   <VRow>
-    <VCard title="主要业务" class="w-100 text-center">
+    <VCard title="主营业务" class="w-100 text-center">
       <Business />
     </VCard>
   </VRow>
