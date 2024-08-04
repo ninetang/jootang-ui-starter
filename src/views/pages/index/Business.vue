@@ -5,6 +5,14 @@ import GoogleDocs from '@images/svg/google-docs.svg'
 import LaptopCharging from '@images/svg/laptop-charging.svg'
 import Lifebelt from '@images/svg/lifebelt.svg'
 import TransitionUp from '@images/svg/transition-up.svg'
+import china from '@images/areas/china.webp'
+import north from '@images/areas/north-america.webp'
+import eourape from '@images/areas/eourape.webp'
+import australia from '@images/areas/australia.webp'
+import zhongdong from '@images/areas/zhongdong.webp'
+import more from '@images/areas/more.webp'
+import japan from '@images/areas/china.webp'
+import korea from '@images/areas/china.webp'
 
 const testService = [
   {
@@ -55,35 +63,35 @@ const technologyService = [
 const authentication = [
   {
     title: '北美',
-    img: LaptopCharging,
+    img: north,
   },
   {
     title: '欧盟',
-    img: TransitionUp,
+    img: eourape,
   },
   {
     title: '中国',
-    img: Edit,
+    img: china,
   },
   {
     title: '澳洲',
-    img: SelectSolid,
+    img: australia,
   },
   {
     title: '日本',
-    img: Lifebelt,
+    img: japan,
   },
   {
     title: '韩国',
-    img: Lifebelt,
+    img: korea,
   },
   {
     title: '东盟',
-    img: Lifebelt,
+    img: zhongdong,
   },
   {
     title: '更多',
-    img: Lifebelt,
+    img: more,
   },
 ]
 
@@ -196,7 +204,7 @@ const tabItems = ['测试服务', '技术服务', '认证服务']
                       color="primary"
                       class="mb-2"
                     >
-                      <Component :is="data.img"/>
+                      <v-img :src="data.img"/>
                     </VAvatar>
 
                     <h5 class="text-h5">
