@@ -12,12 +12,12 @@ export default [
     children: [
       {
         title: '公司简介',
-        icon: { icon: 'ri-profile-line' },
+        icon: { icon: 'ri-id-card-line' },
         to: null,
       },
       {
         title: '公司理念',
-        icon: { icon: 'ri-file-list-3-line' },
+        icon: { icon: 'ri-shield-user-line' },
         to: null,
       },
       {
