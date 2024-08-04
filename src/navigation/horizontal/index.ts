@@ -5,18 +5,18 @@ export default [
     icon: { icon: 'ri-home-smile-line' },
   },
   {
-    title: '关于我们',
+    title: 'About',
     to: { name: 'about' },
     icon: { icon: 'ri-team-line' },
 
     children: [
       {
-        title: '公司简介',
+        title: 'Company Profile',
         icon: { icon: 'ri-id-card-line' },
         to: null,
       },
       {
-        title: '公司理念',
+        title: 'Company Mission',
         icon: { icon: 'ri-shield-user-line' },
         to: null,
       },
@@ -75,11 +75,11 @@ export default [
   },
   {
     title: 'Information Query',
-    to: { name: 'about' },
+    to: { name: 'info-query' },
     icon: { icon: 'ri-search-line' },
   },
   {
-    title: '联系我们',
+    title: 'Contact',
     to: { name: 'contact' },
     icon: { icon: 'ri-contacts-line' },
   },
