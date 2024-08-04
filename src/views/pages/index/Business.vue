@@ -27,6 +27,10 @@ const testService = [
     title: 'Reliability可靠性测试',
     img: Lifebelt,
   },
+  {
+    title: '更多测试',
+    img: Lifebelt,
+  },
 ]
 
 const technologyService = [
@@ -117,7 +121,7 @@ const tabItems = ['测试服务', '技术服务', '认证服务']
                   :key="index"
                   cols="12"
                   sm="6"
-                  md="4"
+                  md="2"
                 >
                   <div class="feature d-flex flex-column gap-y-2 align-center justify-center mt-2">
                     <VAvatar

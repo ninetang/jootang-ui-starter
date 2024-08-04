@@ -19,12 +19,13 @@ register()
     autoplay-delay="3000"
     centered-slides="true"
     space-between="5"
+    effect="flip"
     events-prefix="swiper-"
     :injectStyles="[
         `
         .swiper-button-next, .swiper-button-prev{
           background: transparent !important;
-          color: #fff !important;
+          color: rgb(var(--v-theme-primary)) !important;
           padding-inline: 0.45rem !important;
           padding-block: 0.45rem !important;
           inline-size: 3.5rem !important;
