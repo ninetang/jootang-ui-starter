@@ -20,7 +20,6 @@ register()
     autoplay-delay="3000"
     centered-slides="true"
     space-between="5"
-    effect="flip"
     events-prefix="swiper-"
     :injectStyles="[
         `

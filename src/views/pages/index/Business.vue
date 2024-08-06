@@ -11,8 +11,8 @@ import eourape from '@images/areas/eourape.webp'
 import australia from '@images/areas/australia.webp'
 import zhongdong from '@images/areas/zhongdong.webp'
 import more from '@images/areas/more.webp'
-import japan from '@images/areas/china.webp'
-import korea from '@images/areas/china.webp'
+import japan from '@images/areas/japan.webp'
+import korea from '@images/areas/korea.webp'
 
 const testService = [
   {
@@ -86,7 +86,7 @@ const authentication = [
     img: korea,
   },
   {
-    title: '东盟',
+    title: '中东',
     img: zhongdong,
   },
   {
