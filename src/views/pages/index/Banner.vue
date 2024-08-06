@@ -13,6 +13,7 @@ register()
   <swiper-container
     class="mySwiper"
     thumbs-swiper=".mySwiper2"
+    effect="flip"
     loop="true"
     pagination="true"
     navigation="true"

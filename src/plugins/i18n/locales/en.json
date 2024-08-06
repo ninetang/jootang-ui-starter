@@ -2,7 +2,8 @@
   "Belling Cert": "Belling Test & Cert",
   "Home": "Home",
   "About": "About Us",
-  "Testing Services": "Testing Services",
+  "Services": "Our Services",
+  "Contact": "Contact Us",
   "pages": {
     "index": {
       "nav": {
