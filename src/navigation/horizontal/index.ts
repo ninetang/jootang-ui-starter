@@ -13,7 +13,7 @@ export default [
       {
         title: 'Company Profile',
         icon: { icon: 'ri-id-card-line' },
-        to: null,
+        to: 'about',
       },
       {
         title: 'Company Mission',
