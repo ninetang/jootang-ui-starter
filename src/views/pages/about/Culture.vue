@@ -1,32 +1,49 @@
 <script setup lang="ts">
-
+const statData = ref([
+  { value: '合作', color: 'primary', isHover: false },
+  { value: '诚信', color: 'success', isHover: false },
+  { value: '品质', color: 'warning', isHover: false },
+  { value: '共赢', color: 'primary', isHover: false },
+  { value: '执行', color: 'success', isHover: false },
+  { value: '创新', color: 'warning', isHover: false },
+])
 </script>
 
 <template>
   <VRow>
-    <div>
-      <VCard title="公司理念">
-        <VCardText>
-          深圳市贝岭能效技术有限公司（简称Belling）成立于2015年，一直为客户提供更领先的质量保障整体
-          解决方案，我们的事业始终以“客户”为本，着重打造一流的客户服务体验。公司位于深圳市龙华，是
-          国内第三方检测认证技术服务机构的先行者，严格按照ISO/IEC 17025：2017的要求建立，并取得中
-          国合格评定国家认可委员会（CNAS）和中国计量认证(CMA)认可；以及美国国家实验室自愿认可程序
-          NVLAP的认可。
-        </VCardText>
-        <VCardText>
-          目前公司主要致力于照明、家电、音视频等电子电器产品的检测和国际认证业务，获得了UL、Intertek、
-          CSA、MET、TUV- RH 、TUV-SUD、SGS、NEMKO、FCC、IC等众多国际认证机构的资质认可，能为
-          客户提供专业权威的一站式检测认证服务。
-          展望未来，我们将继续从创新的技术出发，不断丰富我们的经验,提供从检测到认证的服务;我们会继
-          续努力，为更具品质的服务价值,不辜负客户的信任，让每一位客户实现“加速业务成长，强化核心竞
-          争力”。
-        </VCardText>
-      </VCard>
-    </div>
+    <VCard class="w-100">
+      <h2 class="text-center mt-15">
+        公司理念
+      </h2>
+      <div :style="{ 'background-color': 'rgb(var(--v-theme-surface))' }">
+        <VContainer>
+          <div class="py-1">
+            <VRow>
+              <VCol
+                v-for="(product, index) in statData"
+                :key="index"
+              >
+                <VCard flat>
+                  <VCardText class="text-center">
+                    <VAvatar
+                      size="100"
+                      :color="product.color"
+                      :variant="product.isHover ? 'elevated' : 'tonal'"
+                      class="mb-6 cursor-pointer"
+                      @mouseenter="() => product.isHover = true"
+                      @mouseleave="product.isHover = false"
+                    >
+                      <div style="font-size: 1.5rem">
+                        {{ product.value }}
+                      </div>
+                    </VAvatar>
+                  </VCardText>
+                </VCard>
+              </VCol>
+            </VRow>
+          </div>
+        </VContainer>
+      </div>
+    </VCard>
   </VRow>
-
 </template>
-
-<style scoped lang="scss">
-
-</style>
