@@ -74,6 +74,11 @@ export default [
     ],
   },
   {
+    title: 'News',
+    to: { name: 'news' },
+    icon: { icon: 'ri-news-line' },
+  },
+  {
     title: 'Information Query',
     to: { name: 'info-query' },
     icon: { icon: 'ri-search-line' },
