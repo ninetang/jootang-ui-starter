@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import pages5 from '@images/pages/5.jpg'
+import Banner from '@/views/pages/news/Banner.vue'
 </script>
 
 <template>
@@ -18,57 +18,81 @@ import pages5 from '@images/pages/5.jpg'
       <VCol>
         <VCard>
           <div class="d-flex flex-wrap flex-md-nowrap flex-column flex-md-row">
-            <div class="d-flex justify-start">
-              <VImg
-                width="500"
-                height="500"
-                :src="pages5"
-                cover
-              />
+            <div class="d-flex justify-center align-center">
+              <VCard class="banner" flat>
+                <Banner />
+              </VCard>
+              <!--              <VImg -->
+              <!--                width="500" -->
+              <!--                :src="pages5" -->
+              <!--                cover -->
+              <!--              /> -->
             </div>
-            <div class="d-flex flex-column pa-3 w-100">
-              <div class="article">
-                <VCardItem>
-                  <VCardTitle>Apple iPhone 11 Pro</VCardTitle>
-                </VCardItem>
+            <div class="d-flex flex-column justify-center pa-3 w-100">
+              <div class="d-flex justify-center">
+                <div class="d-flex flex-column justify-center align-center w-25">
+                  <span class="text-h1">11</span>
+                  <span>2024-08</span>
+                </div>
+                <div>
+                  <VCardItem>
+                    <VCardTitle>Apple iPhone 11 Pro</VCardTitle>
+                  </VCardItem>
 
-                <VCardText>
-                  Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic
-                </VCardText>
-
-                <VCardText class="text-body-1">
-                  <span>Time :</span> <span class="font-weight-medium">2024-08-11</span>
-                </VCardText>
-                <VDivider />
+                  <VCardText>
+                    Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic
+                  </VCardText>
+                </div>
               </div>
-              <div>
-                <VCardItem>
-                  <VCardTitle>Apple iPhone 11 Pro</VCardTitle>
-                </VCardItem>
+              <VDivider />
+              <div class="d-flex justify-center">
+                <div class="d-flex flex-column justify-center align-center w-25">
+                  <span class="text-h1">11</span>
+                  <span>2024-08</span>
+                </div>
+                <div>
+                  <VCardItem>
+                    <VCardTitle>Apple iPhone 11 Pro</VCardTitle>
+                  </VCardItem>
 
-                <VCardText>
-                  Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic
-                </VCardText>
-
-                <VCardText class="text-body-1">
-                  <span>Time :</span> <span class="font-weight-medium">2024-08-11</span>
-                </VCardText>
-                <VDivider />
+                  <VCardText>
+                    Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic
+                  </VCardText>
+                </div>
               </div>
-              <div>
-                <VCardItem>
-                  <VCardTitle>Apple iPhone 11 Pro</VCardTitle>
-                </VCardItem>
+              <VDivider />
+              <div class="d-flex justify-center">
+                <div class="d-flex flex-column justify-center align-center w-25">
+                  <span class="text-h1">11</span>
+                  <span>2024-08</span>
+                </div>
+                <div>
+                  <VCardItem>
+                    <VCardTitle>Apple iPhone 11 Pro</VCardTitle>
+                  </VCardItem>
 
-                <VCardText>
-                  Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic
-                </VCardText>
-
-                <VCardText class="text-body-1">
-                  <span>Time :</span> <span class="font-weight-medium">2024-08-11</span>
-                </VCardText>
-                <VDivider />
+                  <VCardText>
+                    Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic
+                  </VCardText>
+                </div>
               </div>
+              <VDivider />
+              <div class="d-flex justify-center">
+                <div class="d-flex flex-column justify-center align-center w-25">
+                  <span class="text-h1">11</span>
+                  <span>2024-08</span>
+                </div>
+                <div>
+                  <VCardItem>
+                    <VCardTitle>Apple iPhone 11 Pro</VCardTitle>
+                  </VCardItem>
+
+                  <VCardText>
+                    Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic
+                  </VCardText>
+                </div>
+              </div>
+              <VDivider />
             </div>
           </div>
         </VCard>
@@ -80,5 +104,8 @@ import pages5 from '@images/pages/5.jpg'
 <style scoped lang="scss">
 .title {
   margin-block: 1rem;
+}
+.banner {
+  width: 35rem;
 }
 </style>
