@@ -77,6 +77,24 @@ export default [
     title: 'News',
     to: { name: 'news' },
     icon: { icon: 'ri-news-line' },
+
+    children: [
+      {
+        title: 'Company News',
+        icon: { icon: 'ri-newspaper-line' },
+        to: 'news',
+      },
+      {
+        title: 'Industry Information',
+        icon: { icon: 'ri-file-info-line' },
+        to: null,
+      },
+      {
+        title: 'Technical Articles',
+        icon: { icon: 'ri-article-line' },
+        to: null,
+      },
+    ],
   },
   {
     title: 'Information Query',

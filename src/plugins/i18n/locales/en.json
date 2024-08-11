@@ -5,6 +5,9 @@
   "Services": "Our Services",
   "Contact": "Contact Us",
   "News": "News",
+  "Company News": "Company News",
+  "Industry Information": "Industry Information",
+  "Technical Articles": "Technical Articles",
   "pages": {
     "index": {
       "nav": {
