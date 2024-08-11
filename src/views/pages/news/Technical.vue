@@ -16,7 +16,7 @@ import Banner from '@/views/pages/news/Banner.vue'
         </div>
       </VCol>
       <VCol>
-        <VCard>
+        <VCard flat>
           <div class="d-flex flex-wrap flex-md-nowrap flex-column flex-md-row">
             <div class="d-flex justify-center align-center">
               <VCard class="banner" flat>
@@ -106,6 +106,6 @@ import Banner from '@/views/pages/news/Banner.vue'
   margin-block: 1rem;
 }
 .banner {
-  width: 35rem;
+  width: 25rem;
 }
 </style>
