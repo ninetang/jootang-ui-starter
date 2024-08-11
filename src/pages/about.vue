@@ -5,6 +5,7 @@ import Team from '@/views/pages/about/Team.vue'
 import History from '@/views/pages/about/History.vue'
 import Wish from '@/views/pages/about/Wish.vue'
 import Culture from '@/views/pages/about/Culture.vue'
+import NavBar from "@/views/pages/about/NavBar.vue";
 </script>
 
 <template>

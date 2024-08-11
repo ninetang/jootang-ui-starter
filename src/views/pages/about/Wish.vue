@@ -1,31 +1,55 @@
 <script setup lang="ts">
-
+import ctaDashborad from '@images/pages/app-search-header-bg-light.png'
 </script>
 
 <template>
   <VRow>
-    <div>
-      <VCard title="企业愿景">
-        <VCardText>
-          深圳市贝岭能效技术有限公司（简称Belling）成立于2015年，一直为客户提供更领先的质量保障整体
-          解决方案，我们的事业始终以“客户”为本，着重打造一流的客户服务体验。公司位于深圳市龙华，是
-          国内第三方检测认证技术服务机构的先行者，严格按照ISO/IEC 17025：2017的要求建立，并取得中
-          国合格评定国家认可委员会（CNAS）和中国计量认证(CMA)认可；以及美国国家实验室自愿认可程序
-          NVLAP的认可。
-        </VCardText>
-        <VCardText>
-          目前公司主要致力于照明、家电、音视频等电子电器产品的检测和国际认证业务，获得了UL、Intertek、
-          CSA、MET、TUV- RH 、TUV-SUD、SGS、NEMKO、FCC、IC等众多国际认证机构的资质认可，能为
-          客户提供专业权威的一站式检测认证服务。
-          展望未来，我们将继续从创新的技术出发，不断丰富我们的经验,提供从检测到认证的服务;我们会继
-          续努力，为更具品质的服务价值,不辜负客户的信任，让每一位客户实现“加速业务成长，强化核心竞
-          争力”。
-        </VCardText>
-      </VCard>
-    </div>
+    <VCard class="w-100">
+      <div class="landing-cta position-relative bg-surface">
+        <VContainer>
+          <div class="d-flex align-center justify-sm-space-between flex-column flex-md-row gap-y-4 pt-9">
+            <div class="text-sm-start text-center py-8">
+              <div class="banner-text pb-1">
+                Ready to Get Started?
+              </div>
+              <div class="text-body-1 font-weight-medium mb-8">
+                Start your project with a 14-day free trial
+              </div>
+              <VBtn
+                color="primary"
+                :append-icon="$vuetify.locale.isRtl ? 'ri-arrow-left-line' : 'ri-arrow-right-line'"
+                :to="{ name: '' }"
+              >
+                Get Started
+              </VBtn>
+            </div>
+
+            <VImg
+              :src="ctaDashborad"
+              :max-width="$vuetify.display.mdAndUp ? 600 : ''"
+              max-height="250"
+              width="auto"
+              class="mb-n4"
+            />
+          </div>
+        </VContainer>
+      </div>
+    </VCard>
   </VRow>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
+.landing-cta {
+  background-image: url("@images/pages/user-profile-header-bg.png");
+  background-size: cover;
+  margin-block: auto;
+}
 
+.banner-text{
+  color: rgb(var(--v-theme-primary));
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.25px;
+  line-height: 42px;
+}
 </style>

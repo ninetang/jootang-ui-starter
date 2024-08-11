@@ -1,31 +1,96 @@
 <script setup lang="ts">
+import teamPerson1 from '@images/pages/teamPerson1.png'
+import teamPerson2 from '@images/pages/teamPerson2.png'
+import teamPerson3 from '@images/pages/teamPerson3.png'
+import teamPerson4 from '@images/pages/teamPerson4.png'
 
+const teamData = ref([
+  { name: 'Sophie Gilbert', position: 'Project Manager', image: teamPerson1, backgroundColor: 'rgba(144, 85, 253, 0.16)', borderColor: 'rgba(144, 85, 253,0.38)', isHover: true },
+  { name: 'Nannie Ford', position: 'Development Lead', image: teamPerson2, backgroundColor: 'rgba(255, 76, 81, 0.16)', borderColor: 'rgba(255, 76, 81,0.38)', isHover: false },
+  { name: 'Chris Watkins', position: 'Marketing Manager', image: teamPerson3, backgroundColor: 'rgba(86, 202, 0, 0.16)', borderColor: 'rgba(86, 202, 0,0.38)', isHover: false },
+  { name: 'Paul Miles', position: 'UI Designer', image: teamPerson4, backgroundColor: 'rgba(22, 177, 255, 0.16)', borderColor: 'rgba(22, 177, 255,0.38)', isHover: false },
+])
 </script>
 
 <template>
   <VRow>
-    <div>
-      <VCard title="团队介绍">
-        <VCardText>
-          深圳市贝岭能效技术有限公司（简称Belling）成立于2015年，一直为客户提供更领先的质量保障整体
-          解决方案，我们的事业始终以“客户”为本，着重打造一流的客户服务体验。公司位于深圳市龙华，是
-          国内第三方检测认证技术服务机构的先行者，严格按照ISO/IEC 17025：2017的要求建立，并取得中
-          国合格评定国家认可委员会（CNAS）和中国计量认证(CMA)认可；以及美国国家实验室自愿认可程序
-          NVLAP的认可。
-        </VCardText>
-        <VCardText>
-          目前公司主要致力于照明、家电、音视频等电子电器产品的检测和国际认证业务，获得了UL、Intertek、
-          CSA、MET、TUV- RH 、TUV-SUD、SGS、NEMKO、FCC、IC等众多国际认证机构的资质认可，能为
-          客户提供专业权威的一站式检测认证服务。
-          展望未来，我们将继续从创新的技术出发，不断丰富我们的经验,提供从检测到认证的服务;我们会继
-          续努力，为更具品质的服务价值,不辜负客户的信任，让每一位客户实现“加速业务成长，强化核心竞
-          争力”。
-        </VCardText>
-      </VCard>
-    </div>
+    <VCard class="w-100" >
+        <div class="our-team">
+          <h2 class="text-center">
+            团队介绍
+          </h2>
+          <VRow>
+            <VCol
+              v-for="(data, index) in teamData"
+              :key="index"
+              cols="12"
+              lg="3"
+              sm="6"
+            >
+              <VCard
+                flat
+                variant="outlined"
+                min-width="267"
+                class="position-relative overflow-visible mt-16"
+                :style="data.isHover ? { border: `1px solid ${data.borderColor}` } : {}"
+                @mouseenter="data.isHover = true"
+                @mouseleave="data.isHover = false"
+              >
+                <VImg
+                  :src="data.image"
+                  height="240px"
+                  class="team-image"
+                />
+                <div :style="{ maxHeight: '185px', minHeight: '185px', backgroundColor: data.backgroundColor }" />
+                <VCardText class="text-center">
+                  <div class="mb-3">
+                    <h5 class="text-h5">
+                      {{ data.name }}
+                    </h5>
+                    <div class="text-body-1 text-medium-emphasis">
+                      {{ data.position }}
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-x-2 align-center justify-center">
+                    <template
+                      v-for="{ icon, color } in [
+                    { icon: 'ri-facebook-circle-line', color: 'rgba(59, 89, 152, 1)', link: 'https://www.facebook.com/' },
+                    { icon: 'ri-twitter-line', color: 'rgba(0, 172, 238, 1)', link: 'https://twitter.com/' },
+                    { icon: 'ri-linkedin-box-line', color: 'rgba(0, 119, 181, 1)', link: 'https://linkedin.com' },
+                  ]"
+                      :key="color"
+                    >
+                      <VIcon
+                        :icon="icon"
+                        size="22"
+                        :color="data.isHover ? color : ''"
+                        class="cursor-pointer"
+                      />
+                    </template>
+                  </div>
+                </VCardText>
+              </VCard>
+            </VCol>
+          </VRow>
+        </div>
+    </VCard>
   </VRow>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
+.team-image {
+  position: absolute;
+  inset-block-start: -3.4rem;
+  inset-inline: 0;
+}
 
+.headers {
+  margin-block-end: 1.25rem;
+}
+
+.our-team {
+  padding: 1rem;
+  margin-block: 3.25rem;
+}
 </style>
