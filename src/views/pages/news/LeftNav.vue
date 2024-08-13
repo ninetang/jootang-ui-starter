@@ -1,17 +1,13 @@
 <script lang="ts" setup>
 const items = [
-  { title: 'My Files', value: 1, prependIcon: 'ri-folder-line' },
-  { title: 'Shared with me', value: 2, prependIcon: 'ri-group-line' },
-  { title: 'Starred', value: 3, prependIcon: 'ri-star-line' },
-  { title: 'Recent', value: 4, prependIcon: 'ri-history-line' },
-  { title: 'Offline', value: 5, prependIcon: 'ri-checkbox-circle-line' },
-  { title: 'Uploads', value: 6, prependIcon: 'ri-upload-line' },
-  { title: 'Backups', value: 7, prependIcon: 'ri-upload-cloud-line' },
+  { title: '公司新闻', value: 1, prependIcon: 'ri-newspaper-line' },
+  { title: '行业资讯', value: 2, prependIcon: 'ri-file-info-line' },
+  { title: '技术文章', value: 3, prependIcon: 'ri-article-line' },
 ]
 </script>
 
 <template>
-  <VRow>
+  <VRow class="navRow">
     <VCard class="w-100">
       <VList
         nav
@@ -37,3 +33,9 @@ const items = [
     </VCard>
   </VRow>
 </template>
+
+<style scoped>
+.navRow {
+  margin: 0 auto;
+}
+</style>
