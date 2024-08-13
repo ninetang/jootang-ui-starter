@@ -38,10 +38,10 @@ import pages5 from '@images/pages/5.jpg'
                 </VBtn>
               </VCardActions>
             </div>
-            <div class="d-flex justify-start">
+            <div class="d-flex justify-center align-center">
               <VImg
                 width="400"
-                height="200"
+                height="220"
                 :src="pages5"
                 cover
               />
@@ -72,10 +72,10 @@ import pages5 from '@images/pages/5.jpg'
                 </VBtn>
               </VCardActions>
             </div>
-            <div class="d-flex justify-start">
+            <div class="d-flex justify-center align-center">
               <VImg
                 width="400"
-                height="200"
+                height="220"
                 :src="pages5"
                 cover
               />
@@ -106,10 +106,10 @@ import pages5 from '@images/pages/5.jpg'
                 </VBtn>
               </VCardActions>
             </div>
-            <div class="d-flex justify-start">
+            <div class="d-flex justify-center align-center">
               <VImg
                 width="400"
-                height="200"
+                height="220"
                 :src="pages5"
                 cover
               />
