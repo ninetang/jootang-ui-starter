@@ -9,6 +9,9 @@ const items = [
 <template>
   <VRow class="navRow">
     <VCard class="w-100">
+      <VListItem class="bg-primary text-h5 font-weight-bold">
+        新闻中心
+      </VListItem>
       <VList
         nav
         :lines="false"
