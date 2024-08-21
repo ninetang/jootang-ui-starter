@@ -87,12 +87,12 @@ export default [
       {
         title: 'Industry Information',
         icon: { icon: 'ri-file-info-line' },
-        to: null,
+        to: { name: 'news-tab-tab', params: { tab: 'industry' } },
       },
       {
         title: 'Technical Articles',
         icon: { icon: 'ri-article-line' },
-        to: null,
+        to: { name: 'news-tab-tab', params: { tab: 'technical' } },
       },
     ],
   },
