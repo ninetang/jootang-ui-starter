@@ -15,7 +15,7 @@ import pages5 from '@images/pages/5.jpg'
           />
         </div>
       </VCol>
-      <div class="d-flex mb-5 flex-wrap" >
+      <div class="d-flex mb-5 flex-wrap">
         <VCol
           cols="12"
           md="4"

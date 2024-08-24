@@ -73,7 +73,10 @@ const currentPage = ref(1)
             cols="12"
             md="4"
           >
-            <VCard class="h-100">
+            <VCard
+              class="h-100"
+              :to="{ name: 'news-tab-id', params: { id: item.id } }"
+            >
               <VImg
                 :height="200"
                 :src="pages5"
@@ -99,7 +102,7 @@ const currentPage = ref(1)
             :key="item.id"
             cols="12"
           >
-            <VCard>
+            <VCard :to="{ name: 'news-tab-id', params: { id: item.id } }">
               <div class="item-container">
                 <div class="item-txt">
                   <VCardItem>
