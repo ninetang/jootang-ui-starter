@@ -49,6 +49,7 @@ declare module 'vue-router/auto/routes' {
     'news-tab-id': RouteRecordInfo<'news-tab-id', '/news-tab/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     'news-tab-tab': RouteRecordInfo<'news-tab-tab', '/news-tab/:tab', { tab: ParamValue<true> }, { tab: ParamValue<false> }>,
     'second-page': RouteRecordInfo<'second-page', '/second-page', Record<never, never>, Record<never, never>>,
+    'services': RouteRecordInfo<'services', '/services', Record<never, never>, Record<never, never>>,
   }
 }
 
