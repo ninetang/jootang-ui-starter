@@ -9,8 +9,16 @@ const items = [
 <template>
   <VRow class="navRow">
     <VCard class="w-100">
-      <VListItem class="bg-primary text-h5 font-weight-bold">
-        新闻中心
+      <VListItem class="bg-primary pl-4 font-weight-bold">
+        <template #prepend>
+          <VIcon
+            icon="ri-news-line"
+            class="me-3"
+          />
+        </template>
+        <VListItemTitle>
+          新闻中心
+        </VListItemTitle>
       </VListItem>
       <VList
         nav

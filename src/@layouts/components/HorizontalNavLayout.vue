@@ -108,6 +108,8 @@ const configStore = useLayoutConfigStore()
     .layout-footer {
       .footer-content-container {
         @include mixins.boxed-content;
+        padding-inline: 0 !important;
+        max-inline-size: none !important;
       }
     }
   }

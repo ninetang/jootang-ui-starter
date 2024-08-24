@@ -286,7 +286,7 @@ const contacts: Menu[] = [
 }
 </style>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .footer {
   @media (min-width: 600px) and (max-width: 960px) {
     .v-container {
