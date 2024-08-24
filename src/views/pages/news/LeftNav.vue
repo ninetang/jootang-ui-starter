@@ -9,7 +9,7 @@ const items = [
 <template>
   <VRow class="navRow">
     <VCard class="w-100">
-      <VListItem class="bg-primary pl-4 font-weight-bold">
+      <VListItem class="title pl-4 font-weight-bold">
         <template #prepend>
           <VIcon
             icon="ri-news-line"
@@ -48,5 +48,9 @@ const items = [
 <style scoped>
 .navRow {
   margin: 0 auto;
+}
+.title {
+  background: linear-gradient(to right, rgb(127,199,253), rgb(74,175,253));
+  color: white;
 }
 </style>
