@@ -3,6 +3,7 @@ import appleImg from '@images/icons/brands/facebook.png'
 import googlePlayImg from '@images/icons/brands/google.png'
 import { themeConfig } from '@themeConfig'
 import logo65 from '@images/logo/belling-logo-65.png'
+import {Icon} from "@iconify/vue";
 
 interface Menu {
   name: string
@@ -180,40 +181,13 @@ const contacts: Menu[] = [
               </div>
               <!-- 👉 Download App -->
               <div>
-                <div class="footer-heading mb-6">
-                  Download our app
+                <div class="footer-heading mb-6 text-h3 text-no-wrap">
+                  0755-21038430
                 </div>
                 <div>
-                  <VBtn
-                    v-for="(item, index) in [
-                      { image: appleImg, store: 'App Store' },
-                      { image: googlePlayImg, store: 'Google Play' },
-                    ]"
-                    :key="index"
-                    color="#211B2C"
-                    size="x-large"
-                    class="mb-4 d-block"
-                  >
-                    <template #default>
-                      <div class="d-flex gap-x-3">
-                        <div>
-                          <VImg
-                            :src="item.image"
-                            height="34"
-                            width="34"
-                          />
-                        </div>
-                        <div>
-                          <div class="text-body-2 text-white">
-                            Download on the
-                          </div>
-                          <div class="text-body-2 font-weight-medium text-white">
-                            {{ item.store }}
-                          </div>
-                        </div>
-                      </div>
-                    </template>
-                  </VBtn>
+                  <span class="d-block mb-4 text-no-wrap">
+                    深圳市龙华区大浪街道新石社区石龙仔路14号<br/>美宝和工业园1栋西侧
+                  </span>
                 </div>
               </div>
             </div>
