@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import CompanyItem from '@/views/pages/news/items/CompanyItem.vue'
+import NavImg from '@images//logo/nav.jpg'
 
 const route = useRoute('news-tab-tab')
 
@@ -10,9 +11,9 @@ const activeTab = computed({
 
 // tabs
 const tabs = [
-  { title: '公司新闻', value: 1, prependIcon: 'ri-newspaper-line', tab: 'company' },
-  { title: '行业资讯', value: 2, prependIcon: 'ri-file-info-line', tab: 'industry' },
-  { title: '技术文章', value: 3, prependIcon: 'ri-article-line', tab: 'technical' },
+  {title: '公司新闻', value: 1, prependIcon: 'ri-newspaper-line', tab: 'company'},
+  {title: '行业资讯', value: 2, prependIcon: 'ri-file-info-line', tab: 'industry'},
+  {title: '技术文章', value: 3, prependIcon: 'ri-article-line', tab: 'technical'},
 ]
 
 definePage({
@@ -23,6 +24,12 @@ definePage({
 </script>
 
 <template>
+  <VRow>
+    <VImg
+      :src="NavImg"
+      cover
+    />
+  </VRow>
   <VRow>
     <VCol
       cols="12"
@@ -70,17 +77,17 @@ definePage({
       >
         <!-- Account -->
         <VWindowItem value="company">
-          <CompanyItem />
+          <CompanyItem/>
         </VWindowItem>
 
         <!-- Security -->
         <VWindowItem value="industry">
-          <CompanyItem />
+          <CompanyItem/>
         </VWindowItem>
 
         <!-- Billing -->
         <VWindowItem value="technical">
-          <CompanyItem />
+          <CompanyItem/>
         </VWindowItem>
       </VWindow>
     </VCol>
@@ -91,6 +98,7 @@ definePage({
 .v-row {
   margin-block: 1rem;
 }
+
 .navRow {
   margin-left: auto;
   margin-right: auto;

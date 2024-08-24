@@ -3,9 +3,17 @@ import CompanyNews from '@/views/pages/news/CompanyNews.vue'
 import Industry from '@/views/pages/news/Industry.vue'
 import Technical from '@/views/pages/news/Technical.vue'
 import LeftNav from '@/views/pages/news/LeftNav.vue'
+import NavImg from '@images//logo/nav.jpg'
+
 </script>
 
 <template>
+  <VRow>
+    <VImg
+      :src="NavImg"
+      cover
+    />
+  </VRow>
   <VRow>
     <VCol
       cols="12"
