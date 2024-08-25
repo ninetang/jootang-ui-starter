@@ -39,7 +39,7 @@ export default [
         children: [
           {
             title: '国际认证',
-            to: 'services',
+            to: { name: 'services-tab', params: { tab: 'Efficiency能效测试' } },
           },
           {
             title: '国际法规认证',

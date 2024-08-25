@@ -1,7 +1,16 @@
 <script lang="ts" setup>
 import NavImg from '@images/logo/nav.jpg'
+import AuthItem from '@/views/pages/news/services/AuthItem.vue'
 
 const open = ref(['Test', 'Admin'])
+
+const route = useRoute('services-tab')
+const router = useRouter()
+
+const activeList = computed({
+  get: () => route.params.tab,
+  set: () => route.params.tab,
+})
 
 const test = [
   ['Efficiency能效测试', 'ri-group-line'],
@@ -47,12 +56,25 @@ const country = [
     'CCC认证1', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证', 'CFDA', 'OFCA认证', 'NMPA', 'CTA认证', 'CR认证',
   ]],
 ]
+
+definePage({
+  meta: {
+    navActiveLink: 'services-tab',
+  },
+})
+
+const title = ref<string>('')
+function navigateTo(item) {
+  title.value = item
+  activeList.value = item
+  router.push({ name: 'services-tab', params: { tab: item } })
+}
 </script>
 
 <template>
   <VRow>
     <VImg
-      :src="NavImg"
+      :src="NavImg as string"
       cover
     />
   </VRow>
@@ -61,7 +83,7 @@ const country = [
       cols="12"
       md="3"
     >
-      <VRow>
+      <VRow class="navRow">
         <VCard class="w-100">
           <VListItem class="title pl-5 font-weight-bold">
             <template #prepend>
@@ -71,7 +93,10 @@ const country = [
               服务项目
             </VListItemTitle>
           </VListItem>
-          <VList v-model:opened="open">
+          <VList
+            v-model="activeList"
+            nav
+          >
             <VListGroup value="Test">
               <template #activator="{ props }">
                 <VListItem
@@ -86,6 +111,7 @@ const country = [
                 :value="title"
                 :title="title"
                 :prepend-icon="icon"
+                @click="navigateTo(title)"
               />
             </VListGroup>
             <VListGroup value="Technical">
@@ -102,6 +128,7 @@ const country = [
                 :value="title"
                 :title="title"
                 :prepend-icon="icon"
+                @click="navigateTo(title)"
               />
             </VListGroup>
 
@@ -122,7 +149,7 @@ const country = [
                 <template #activator="{ props }">
                   <VListItem
                     v-bind="props"
-                    :title="title"
+                    :title="title as string"
                   />
                 </template>
 
@@ -131,6 +158,7 @@ const country = [
                   :key="i"
                   :value="item"
                   :title="item"
+                  @click="navigateTo(item)"
                 />
               </VListGroup>
             </VListGroup>
@@ -142,8 +170,13 @@ const country = [
       cols="12"
       md="9"
     >
-      <VWindow>
-        <VWindowItem />
+      <VWindow
+        class="disable-tab-transition"
+        :touch="false"
+      >
+        <VWindowItem>
+          <AuthItem :title="title" />
+        </VWindowitem>
       </VWindow>
     </VCol>
   </VRow>
@@ -152,6 +185,10 @@ const country = [
 <style scoped>
 .v-row {
   margin-block: 1rem;
+}
+.navRow {
+  margin-left: auto;
+  margin-right: auto;
 }
 .title {
   background: linear-gradient(to right, rgb(127,199,253), rgb(74,175,253));
