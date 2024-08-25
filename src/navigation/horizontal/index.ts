@@ -51,9 +51,27 @@ export default [
           },
         ],
       },
+      {
+        title: '技术服务',
+        icon: { icon: 'ri-bug-line' },
+        children: [
+          {
+            title: '国际认证',
+            to: null,
+          },
+          {
+            title: '国际法规认证',
+            to: null,
+          },
+          {
+            title: '常规认证',
+            to: null,
+          },
+        ],
+      },
 
       {
-        title: '资质认证',
+        title: '认证服务',
         icon: { icon: 'ri-verified-badge-line' },
         children: [
           {

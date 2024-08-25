@@ -1,28 +1,61 @@
 <script lang="ts" setup>
+import NavImg from '@images/logo/nav.jpg'
+
 const open = ref(['Test', 'Admin'])
 
-const admins = [
-  ['Management', 'ri-group-line'],
-  ['Settings', 'ri-settings-5-line'],
+const test = [
+  ['Efficiency能效测试', 'ri-group-line'],
+  ['Safety电器安全', 'ri-settings-5-line'],
+  ['EMC电磁兼容', 'ri-settings-5-line'],
+  ['Chemical化学测试', 'ri-settings-5-line'],
+  ['Reliability可靠性测试', 'ri-settings-5-line'],
 ]
 
-const cruds = [
-  ['Create', 'ri-add-line'],
-  ['Read', 'ri-file-line'],
-  ['Update', 'ri-refresh-line'],
-  ['Delete', 'ri-delete-bin-line'],
+const technical = [
+  ['安规整改', 'ri-add-line'],
+  ['验厂辅导', 'ri-file-line'],
+  ['EMC整改', 'ri-refresh-line'],
+  ['跨境电商合规辅导', 'ri-delete-bin-line'],
 ]
 
 const country = [
-  '中国认证', '亚洲认证', '中东认证', '北美洲认证', '南美洲认证', '欧洲认证', '澳大利亚认证', '非洲认证', '其他认证',
-]
-
-const China = [
-  'CCC认证', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证','CFDA'
+  ['China', '中国认证', [
+    'CCC认证1', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证', 'CFDA', 'OFCA认证', 'NMPA', 'CTA认证', 'CR认证',
+  ]],
+  ['Asia', '亚洲认证', [
+    'CCC认证2', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证', 'CFDA', 'OFCA认证', 'NMPA', 'CTA认证', 'CR认证',
+  ]],
+  ['MiddleEast', '中东认证', [
+    'CCC认证3', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证', 'CFDA', 'OFCA认证', 'NMPA', 'CTA认证', 'CR认证',
+  ]],
+  ['NorthAmerica', '北美洲认证', [
+    'CCC认证4', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证', 'CFDA', 'OFCA认证', 'NMPA', 'CTA认证', 'CR认证',
+  ]],
+  ['SouthAmerica', '南美洲认证', [
+    'CCC认证5', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证', 'CFDA', 'OFCA认证', 'NMPA', 'CTA认证', 'CR认证',
+  ]],
+  ['Europe', '欧洲认证', [
+    'CCC认证6', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证', 'CFDA', 'OFCA认证', 'NMPA', 'CTA认证', 'CR认证',
+  ]],
+  ['Australia', '澳大利亚认证', [
+    'CCC认证1', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证', 'CFDA', 'OFCA认证', 'NMPA', 'CTA认证', 'CR认证',
+  ]],
+  ['Africa', '非洲认证', [
+    'CCC认证1', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证', 'CFDA', 'OFCA认证', 'NMPA', 'CTA认证', 'CR认证',
+  ]],
+  ['Other', '其他认证', [
+    'CCC认证1', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证', 'CFDA', 'OFCA认证', 'NMPA', 'CTA认证', 'CR认证',
+  ]],
 ]
 </script>
 
 <template>
+  <VRow>
+    <VImg
+      :src="NavImg"
+      cover
+    />
+  </VRow>
   <VRow>
     <VCol
       cols="12"
@@ -30,12 +63,9 @@ const China = [
     >
       <VRow>
         <VCard class="w-100">
-          <VListItem class="title pl-4 font-weight-bold">
+          <VListItem class="title pl-5 font-weight-bold">
             <template #prepend>
-              <VIcon
-                icon="ri-news-line"
-                class="me-3"
-              />
+              <VIcon icon="ri-news-line" />
             </template>
             <VListItemTitle>
               服务项目
@@ -50,41 +80,31 @@ const China = [
                   title="测试服务"
                 />
               </template>
-
-              <VListGroup value="Admin">
-                <template #activator="{ props }">
-                  <VListItem
-                    v-bind="props"
-                    title="Admin"
-                  />
-                </template>
-
-                <VListItem
-                  v-for="([title, icon], i) in admins"
-                  :key="i"
-                  :value="title"
-                  :title="title"
-                  :prepend-icon="icon"
-                />
-              </VListGroup>
-
-              <VListGroup value="Actions">
-                <template #activator="{ props }">
-                  <VListItem
-                    v-bind="props"
-                    title="Actions"
-                  />
-                </template>
-
-                <VListItem
-                  v-for="([title, icon], i) in cruds"
-                  :key="i"
-                  :value="title"
-                  :title="title"
-                  :prepend-icon="icon"
-                />
-              </VListGroup>
+              <VListItem
+                v-for="([title, icon], i) in test"
+                :key="i"
+                :value="title"
+                :title="title"
+                :prepend-icon="icon"
+              />
             </VListGroup>
+            <VListGroup value="Technical">
+              <template #activator="{ props }">
+                <VListItem
+                  v-bind="props"
+                  prepend-icon="ri-user-line"
+                  title="技术服务"
+                />
+              </template>
+              <VListItem
+                v-for="([title, icon], i) in technical"
+                :key="i"
+                :value="title"
+                :title="title"
+                :prepend-icon="icon"
+              />
+            </VListGroup>
+
             <VListGroup value="Credential">
               <template #activator="{ props }">
                 <VListItem
@@ -94,37 +114,23 @@ const China = [
                 />
               </template>
 
-              <VListGroup value="China">
+              <VListGroup
+                v-for="([value, title, items], i) in country"
+                :key="i"
+                :value="value"
+              >
                 <template #activator="{ props }">
                   <VListItem
                     v-bind="props"
-                    title="中国认证"
+                    :title="title"
                   />
                 </template>
 
                 <VListItem
-                  v-for="([title, icon], i) in admins"
+                  v-for="(item, i) in items"
                   :key="i"
-                  :value="title"
-                  :title="title"
-                  :prepend-icon="icon"
-                />
-              </VListGroup>
-
-              <VListGroup value="Actions">
-                <template #activator="{ props }">
-                  <VListItem
-                    v-bind="props"
-                    title="Actions"
-                  />
-                </template>
-
-                <VListItem
-                  v-for="([title, icon], i) in cruds"
-                  :key="i"
-                  :value="title"
-                  :title="title"
-                  :prepend-icon="icon"
+                  :value="item"
+                  :title="item"
                 />
               </VListGroup>
             </VListGroup>
@@ -144,6 +150,9 @@ const China = [
 </template>
 
 <style scoped>
+.v-row {
+  margin-block: 1rem;
+}
 .title {
   background: linear-gradient(to right, rgb(127,199,253), rgb(74,175,253));
   color: white;
