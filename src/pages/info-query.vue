@@ -1,13 +1,57 @@
+<script lang="ts" setup>
+import NavImg from '@images/logo/nav.jpg'
+
+const firstName = ref('')
+const email = ref('')
+const mobile = ref('')
+const password = ref<string>()
+const checkbox = ref(false)
+</script>
+
 <template>
-  <div>
-    <VCard title="信息查询">
-      <VCardText>
-        深圳市贝岭能效技术有限公司（简称Belling）成立于2015年，一直为客户提供更领先的质量保障整体
-        解决方案，我们的事业始终以“客户”为本，着重打造一流的客户服务体验。公司位于深圳市龙华，是
-        国内第三方检测认证技术服务机构的先行者，严格按照ISO/IEC 17025：2017的要求建立，并取得中
-        国合格评定国家认可委员会（CNAS）和中国计量认证(CMA)认可；以及美国国家实验室自愿认可程序
-        NVLAP的认可。
-      </VCardText>
+  <VRow>
+    <VImg
+      :src="NavImg"
+      cover
+    />
+  </VRow>
+  <VRow>
+    <VCard class="w-100 d-flex justify-center" >
+      <VForm @submit.prevent="() => {}" class="w-50">
+        <VRow>
+          <VCol cols="12">
+            <VTextField
+              v-model="firstName"
+              label="证书编号"
+              placeholder="输入完整编号"
+            />
+          </VCol>
+
+          <VCol
+            cols="12"
+            class="d-flex flex-wrap gap-4"
+          >
+            <VBtn type="submit" class="w-100K">
+              查询
+            </VBtn>
+
+            <VBtn
+              type="reset"
+              color="secondary"
+              variant="tonal"
+              class="w-100"
+            >
+              重置
+            </VBtn>
+          </VCol>
+        </VRow>
+      </VForm>
     </VCard>
-  </div>
+  </VRow>
 </template>
+
+<style scoped>
+.v-row {
+  margin-block: 1rem;
+}
+</style>
