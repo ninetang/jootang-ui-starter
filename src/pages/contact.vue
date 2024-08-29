@@ -5,6 +5,8 @@ import page5 from '@images/pages/5.jpg'
 const name = ref('')
 const email = ref('')
 const phone = ref(null)
+const message = ref('')
+const isDialogVisible = ref(false)
 </script>
 
 <template>
@@ -138,6 +140,8 @@ const phone = ref(null)
                         md="10"
                       >
                         <VTextarea
+                          v-model="message"
+                          label="留言"
                           placeholder="请输入留言"
                           :rules="[requiredValidator]"
                         />
@@ -150,9 +154,35 @@ const phone = ref(null)
                     offset-md="3"
                     class="d-flex gap-4"
                   >
-                    <VBtn type="submit">
-                      提交
-                    </VBtn>
+                    <VDialog
+                      v-model="isDialogVisible"
+                      width="500"
+                    >
+                      <template #activator="{ props }">
+                        <VBtn v-bind="props">
+                          确定
+                        </VBtn>
+                      </template>
+                      <VCard title="提交成功">
+                        <DialogCloseBtn
+                          variant="text"
+                          size="default"
+                          @click="isDialogVisible = false"
+                        />
+                        <VCardText>
+                          收到您的留言
+                        </VCardText>
+                        <VCardActions>
+                          <VSpacer />
+                          <VBtn @click="isDialogVisible = false">
+                            确定
+                          </VBtn>
+                        </VCardActions>
+                      </VCard>
+                    </VDialog>
+                    <!--                    <VBtn type="submit"> -->
+                    <!--                      提交 -->
+                    <!--                    </VBtn> -->
                     <VBtn
                       color="secondary"
                       variant="tonal"
