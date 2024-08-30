@@ -37,7 +37,7 @@ import Business from '@/views/pages/index/Business.vue'
           </VCardText>
 
           <VCardActions>
-            <VBtn>
+            <VBtn :to="{ name: 'about' }">
               了解更多
               <VIcon
                 end

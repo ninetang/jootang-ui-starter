@@ -53,7 +53,7 @@ export default [
       },
       {
         title: '技术服务',
-        icon: { icon: 'ri-bug-line' },
+        icon: { icon: 'ri-tools-line' },
         children: [
           {
             title: '国际认证',

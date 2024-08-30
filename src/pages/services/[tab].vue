@@ -13,18 +13,18 @@ const activeList = computed({
 })
 
 const test = [
-  ['Efficiency能效测试', 'ri-group-line'],
-  ['Safety电器安全', 'ri-settings-5-line'],
-  ['EMC电磁兼容', 'ri-settings-5-line'],
+  ['Efficiency能效测试', 'ri-lightbulb-line'],
+  ['Safety电器安全', 'ri-shield-flash-line'],
+  ['EMC电磁兼容', 'ri-pulse-line'],
   ['Chemical化学测试', 'ri-settings-5-line'],
-  ['Reliability可靠性测试', 'ri-settings-5-line'],
+  ['Reliability可靠性测试', 'ri-verified-badge-line'],
 ]
 
 const technical = [
-  ['安规整改', 'ri-add-line'],
-  ['验厂辅导', 'ri-file-line'],
-  ['EMC整改', 'ri-refresh-line'],
-  ['跨境电商合规辅导', 'ri-delete-bin-line'],
+  ['安规整改', 'ri-hammer-line'],
+  ['验厂辅导', 'ri-list-check'],
+  ['EMC整改', 'ri-signal-tower-line'],
+  ['跨境电商合规辅导', 'ri-global-line'],
 ]
 
 const country = [
@@ -47,13 +47,13 @@ const country = [
     'CCC认证6', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证', 'CFDA', 'OFCA认证', 'NMPA', 'CTA认证', 'CR认证',
   ]],
   ['Australia', '澳大利亚认证', [
-    'CCC认证1', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证', 'CFDA', 'OFCA认证', 'NMPA', 'CTA认证', 'CR认证',
+    'CCC认证7', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证', 'CFDA', 'OFCA认证', 'NMPA', 'CTA认证', 'CR认证',
   ]],
   ['Africa', '非洲认证', [
-    'CCC认证1', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证', 'CFDA', 'OFCA认证', 'NMPA', 'CTA认证', 'CR认证',
+    'CCC认证8', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证', 'CFDA', 'OFCA认证', 'NMPA', 'CTA认证', 'CR认证',
   ]],
   ['Other', '其他认证', [
-    'CCC认证1', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证', 'CFDA', 'OFCA认证', 'NMPA', 'CTA认证', 'CR认证',
+    'CCC认证9', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证', 'CFDA', 'OFCA认证', 'NMPA', 'CTA认证', 'CR认证',
   ]],
 ]
 
@@ -87,7 +87,7 @@ function navigateTo(item) {
         <VCard class="w-100">
           <VListItem class="title pl-5 font-weight-bold">
             <template #prepend>
-              <VIcon icon="ri-news-line" />
+              <VIcon icon="ri-service-line" />
             </template>
             <VListItemTitle>
               服务项目
@@ -101,7 +101,7 @@ function navigateTo(item) {
               <template #activator="{ props }">
                 <VListItem
                   v-bind="props"
-                  prepend-icon="ri-user-line"
+                  prepend-icon="ri-bug-line"
                   title="测试服务"
                 />
               </template>
@@ -118,7 +118,7 @@ function navigateTo(item) {
               <template #activator="{ props }">
                 <VListItem
                   v-bind="props"
-                  prepend-icon="ri-user-line"
+                  prepend-icon="ri-tools-line"
                   title="技术服务"
                 />
               </template>
@@ -136,7 +136,7 @@ function navigateTo(item) {
               <template #activator="{ props }">
                 <VListItem
                   v-bind="props"
-                  prepend-icon="ri-user-line"
+                  prepend-icon="ri-verified-badge-line"
                   title="认证服务"
                 />
               </template>
