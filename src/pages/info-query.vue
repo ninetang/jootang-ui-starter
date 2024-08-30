@@ -2,6 +2,7 @@
 import NavImg from '@images/logo/nav.jpg'
 
 const code = ref('')
+const isDialogVisible = ref(false)
 </script>
 
 <template>
@@ -35,13 +36,43 @@ const code = ref('')
                 cols="12"
                 class="d-flex flex-wrap justify-center gap-4"
               >
-                <VBtn
-                  type="submit"
-                  size="large"
-                  class="w-100"
+                <VDialog
+                  v-model="isDialogVisible"
+                  width="500"
                 >
-                  查询
-                </VBtn>
+                  <template #activator="{ props }">
+                    <VBtn
+                      v-bind="props"
+                      size="large"
+                      class="w-100"
+                    >
+                      查询
+                    </VBtn>
+                  </template>
+                  <VCard title="查询成功">
+                    <DialogCloseBtn
+                      variant="text"
+                      size="defalut"
+                      @click="isDialogVisible = false"
+                    />
+                    <VCardText>
+                      证书详情
+                    </VCardText>
+                    <VCardActions>
+                      <VSpacer />
+                      <VBtn @click="isDialogVisible = false">
+                        确定
+                      </VBtn>
+                    </VCardActions>
+                  </VCard>
+                </VDialog>
+                <!--                <VBtn -->
+                <!--                  type="submit" -->
+                <!--                  size="large" -->
+                <!--                  class="w-100" -->
+                <!--                > -->
+                <!--                  查询 -->
+                <!--                </VBtn> -->
 
                 <VBtn
                   type="reset"
