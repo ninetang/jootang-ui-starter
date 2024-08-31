@@ -48,11 +48,14 @@ const navTabs = [
 <style scoped lang="scss">
 .nav{
   position: sticky;
-  top: 8rem;
+  top: 0;
   background-color: #eeeeee;
   margin-top: -1rem;
   height: 4rem;
-  z-index: 9999;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  white-space: nowrap;
+  z-index: 1;
 }
 .nav-link{
   padding-inline: 0.625rem;

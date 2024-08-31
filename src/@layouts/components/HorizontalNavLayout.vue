@@ -117,7 +117,7 @@ const configStore = useLayoutConfigStore()
   // If both navbar & horizontal nav sticky
   &.layout-navbar-sticky.horizontal-nav-sticky {
     .layout-navbar-and-nav-container {
-      position: sticky;
+      position: static;
       inset-block-start: 0;
       will-change: transform;
     }

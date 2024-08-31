@@ -170,6 +170,7 @@ export default defineComponent({
 
   &.layout-navbar-sticky .layout-navbar {
     @extend %layout-navbar-sticky;
+    position: static;
   }
 
   &.layout-navbar-hidden .layout-navbar {

@@ -30,7 +30,11 @@ useIntersectionObserver(
 
 <template>
   <VRow>
-    <VImg :src="navImg" />
+    <VImg
+      :src="navImg"
+      cover
+      height="300"
+    />
   </VRow>
   <!--  导航栏 -->
   <NavBar :active-id="sectionId" />
