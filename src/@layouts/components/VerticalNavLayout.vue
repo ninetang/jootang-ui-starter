@@ -180,6 +180,8 @@ export default defineComponent({
   // 👉 Footer
   .layout-footer {
     @include mixins.boxed-content;
+    padding-inline: 0 !important;
+    max-inline-size: none !important;
   }
 
   // 👉 Layout overlay

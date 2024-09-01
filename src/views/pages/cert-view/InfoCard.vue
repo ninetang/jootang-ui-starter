@@ -17,7 +17,7 @@ const certInfo = [
       :key="idx"
       cols="12"
     >
-      <VRow>
+      <VRow class="ma-0">
         <VCol
           cols="6"
           class="text-right text-h5 font-weight-bold"
@@ -28,7 +28,7 @@ const certInfo = [
         </VCol>
         <VCol cols="6">
           <div class="d-flex justify-start">
-            <span class="text-body-1">
+            <span class="text-h5">
               {{ item.value }}
             </span>
           </div>
@@ -36,14 +36,16 @@ const certInfo = [
       </VRow>
     </VCol>
   </VRow>
-  <VRow>
+  <VRow class="d-flex justify-center pa-2">
     <VCol
       cols="12"
-      class="d-flex justify-center ma-5"
+      md="2"
+      sm="4"
+      class="d-flex justify-center align-center ma-5"
     >
       <VBtn
-        width="15%"
-        class="mb-5 w-15"
+        class="mb-5 w-100"
+        size="large"
         @click="$router.back()"
       >
         返回
