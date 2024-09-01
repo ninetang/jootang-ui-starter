@@ -5,7 +5,7 @@ export default [
     icon: { icon: 'ri-home-smile-line' },
   },
   {
-    title: 'About',
+    title: 'About Us',
     to: { name: 'about' },
     icon: { icon: 'ri-team-line' },
 
@@ -16,25 +16,40 @@ export default [
         to: 'about',
       },
       {
-        title: 'Company Mission',
+        title: 'Corporate Vision',
         icon: { icon: 'ri-shield-user-line' },
         to: null,
       },
       {
-        title: '资质授权',
+        title: 'Company History',
+        icon: { icon: 'ri-shield-user-line' },
+        to: null,
+      },
+      {
+        title: 'Certifications',
+        icon: { icon: 'ri-shield-user-line' },
+        to: null,
+      },
+      {
+        title: 'Team Introduction',
+        icon: { icon: 'ri-shield-user-line' },
+        to: null,
+      },
+      {
+        title: 'Company Philosophy',
         icon: { icon: 'ri-shield-check-line' },
         to: null,
       },
     ],
   },
   {
-    title: 'Services',
+    title: 'Service Items',
     to: { name: 'about' },
     icon: { icon: 'ri-service-line' },
 
     children: [
       {
-        title: '测试服务',
+        title: 'Testing Services',
         icon: { icon: 'ri-bug-line' },
         children: [
           {
@@ -52,7 +67,7 @@ export default [
         ],
       },
       {
-        title: '技术服务',
+        title: 'Technical Services',
         icon: { icon: 'ri-tools-line' },
         children: [
           {
@@ -71,7 +86,7 @@ export default [
       },
 
       {
-        title: '认证服务',
+        title: 'Certification Services',
         icon: { icon: 'ri-verified-badge-line' },
         children: [
           {
@@ -92,7 +107,7 @@ export default [
     ],
   },
   {
-    title: 'News',
+    title: 'News Center',
     to: { name: 'news' },
     icon: { icon: 'ri-news-line' },
 
@@ -120,7 +135,7 @@ export default [
     icon: { icon: 'ri-search-line' },
   },
   {
-    title: 'Contact',
+    title: 'Contact Us',
     to: { name: 'contact' },
     icon: { icon: 'ri-contacts-line' },
   },
