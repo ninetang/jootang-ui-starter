@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import NavImg from '@images/logo/nav.jpg'
+import TopImg from '@/views/pages/TopImg.vue'
 
 const code = ref('')
 const router = useRouter()
@@ -14,12 +14,7 @@ function navigateTo() {
 </script>
 
 <template>
-  <VRow>
-    <VImg
-      :src="NavImg"
-      cover
-    />
-  </VRow>
+  <TopImg />
   <VRow>
     <VCard
       class="w-100"

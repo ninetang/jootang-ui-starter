@@ -5,8 +5,8 @@ import Team from '@/views/pages/about/Team.vue'
 import History from '@/views/pages/about/History.vue'
 import Wish from '@/views/pages/about/Wish.vue'
 import Culture from '@/views/pages/about/Culture.vue'
-import navImg from '@images/logo/nav.jpg'
 import NavBar from '@/views/pages/about/NavBar.vue'
+import TopImg from '@/views/pages/TopImg.vue'
 
 const sectionId = ref('')
 const profile = ref()
@@ -29,13 +29,7 @@ useIntersectionObserver(
 </script>
 
 <template>
-  <VRow>
-    <VImg
-      :src="navImg"
-      cover
-      height="300"
-    />
-  </VRow>
+  <TopImg />
   <!--  导航栏 -->
   <NavBar :active-id="sectionId" />
   <!-- 公司简介 -->

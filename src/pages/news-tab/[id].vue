@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import ItemDetail from '@/views/pages/news/items/ItemDetail.vue'
-import NavImg from '@images//logo/nav.jpg'
+import TopImg from '@/views/pages/TopImg.vue'
 
 const route = useRoute('news-tab-tab')
 
@@ -11,9 +11,9 @@ const activeTab = computed({
 
 // tabs
 const tabs = [
-  {title: '公司新闻', value: 1, prependIcon: 'ri-newspaper-line', tab: 'company'},
-  {title: '行业资讯', value: 2, prependIcon: 'ri-file-info-line', tab: 'industry'},
-  {title: '技术文章', value: 3, prependIcon: 'ri-article-line', tab: 'technical'},
+  { title: '公司新闻', value: 1, prependIcon: 'ri-newspaper-line', tab: 'company' },
+  { title: '行业资讯', value: 2, prependIcon: 'ri-file-info-line', tab: 'industry' },
+  { title: '技术文章', value: 3, prependIcon: 'ri-article-line', tab: 'technical' },
 ]
 
 definePage({
@@ -24,12 +24,7 @@ definePage({
 </script>
 
 <template>
-  <VRow>
-    <VImg
-      :src="NavImg"
-      cover
-    />
-  </VRow>
+  <TopImg />
   <VRow>
     <VCol
       cols="12"
@@ -81,8 +76,8 @@ definePage({
         class="disable-tab-transition"
         :touch="false"
       >
-        <VWindowItem >
-          <ItemDetail/>
+        <VWindowItem>
+          <ItemDetail />
         </VWindowItem>
       </VWindow>
     </VCol>

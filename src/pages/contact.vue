@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import navImg from '@images/logo/nav.jpg'
 import page5 from '@images/pages/5.jpg'
+import TopImg from '@/views/pages/TopImg.vue'
 
 const name = ref('')
 const email = ref('')
@@ -10,12 +10,7 @@ const isDialogVisible = ref(false)
 </script>
 
 <template>
-  <VRow>
-    <VImg
-      :src="navImg"
-      cover
-    />
-  </VRow>
+  <TopImg />
   <VRow>
     <VCard
       title="联系我们"

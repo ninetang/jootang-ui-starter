@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import NavImg from '@images/logo/nav.jpg'
 import AuthItem from '@/views/pages/news/services/AuthItem.vue'
+import TopImg from '@/views/pages/TopImg.vue'
 
 const open = ref(['Test', 'Admin'])
 
@@ -72,12 +72,7 @@ function navigateTo(item) {
 </script>
 
 <template>
-  <VRow>
-    <VImg
-      :src="NavImg as string"
-      cover
-    />
-  </VRow>
+  <TopImg />
   <VRow>
     <VCol
       cols="12"

@@ -1,15 +1,10 @@
 <script setup lang="ts">
 import InfoCard from '@/views/pages/cert-view/InfoCard.vue'
-import NavImg from '@images/logo/nav.jpg'
+import TopImg from '@/views/pages/TopImg.vue'
 </script>
 
 <template>
-  <VRow>
-    <VImg
-      :src="NavImg"
-      cover
-    />
-  </VRow>
+  <TopImg />
   <VRow>
     <VCard
       class="w-100"
