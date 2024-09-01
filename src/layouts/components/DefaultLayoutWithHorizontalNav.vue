@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import Footer from '@/layouts/components/Footer.vue'
 import NavbarThemeSwitcher from '@/layouts/components/NavbarThemeSwitcher.vue'
-import UserProfile from '@/layouts/components/UserProfile.vue'
 import navItems from '@/navigation/horizontal'
 import NavBarI18n from '@core/components/I18n.vue'
+import NavBarTel from '@/layouts/components/NavBarTel.vue'
 
 import logo65 from '@images/logo/belling-logo-65.png'
 import { HorizontalNavLayout } from '@layouts'
@@ -53,7 +53,7 @@ watch([isFallbackStateActive, refLoadingIndicator], () => {
       />
 
       <NavbarThemeSwitcher class="me-2" />
-      <UserProfile />
+      <NavBarTel />
     </template>
 
     <AppLoadingIndicator ref="refLoadingIndicator" />
