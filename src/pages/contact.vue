@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import page5 from '@images/pages/5.jpg'
 import TopImg from '@/views/pages/TopImg.vue'
+import Map from '@/views/pages/Map.vue'
 
 const name = ref('')
 const email = ref('')
@@ -40,6 +41,19 @@ const isDialogVisible = ref(false)
               />
             </div>
           </div>
+        </VCard>
+        <VCard class="w-100 mt-3">
+          <VRow class="d-flex justify-center">
+            <VCol
+              cols="12"
+              md="8"
+              sm="8"
+              xs="8"
+              class="d-flex justify-center"
+            >
+              <Map />
+            </VCol>
+          </VRow>
         </VCard>
         <VCard
           title="在线留言"
