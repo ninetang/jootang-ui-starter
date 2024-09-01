@@ -2,7 +2,15 @@
 import NavImg from '@images/logo/nav.jpg'
 
 const code = ref('')
+const router = useRouter()
 const isDialogVisible = ref(false)
+
+function navigateTo() {
+  if (code.value.length === 0)
+    isDialogVisible.value = true
+  else
+    router.push({ name: 'info-query-result', query: { id: code.value } })
+}
 </script>
 
 <template>
@@ -29,6 +37,7 @@ const isDialogVisible = ref(false)
                   v-model="code"
                   label="证书编号"
                   placeholder="输入完整编号"
+                  :rules="[requiredValidator]"
                 />
               </VCol>
 
@@ -40,23 +49,14 @@ const isDialogVisible = ref(false)
                   v-model="isDialogVisible"
                   width="500"
                 >
-                  <template #activator="{ props }">
-                    <VBtn
-                      v-bind="props"
-                      size="large"
-                      class="w-100"
-                    >
-                      查询
-                    </VBtn>
-                  </template>
-                  <VCard title="查询成功">
+                  <VCard title="查询失败">
                     <DialogCloseBtn
                       variant="text"
                       size="defalut"
                       @click="isDialogVisible = false"
                     />
                     <VCardText>
-                      证书详情
+                      证书号不能为空
                     </VCardText>
                     <VCardActions>
                       <VSpacer />
@@ -66,13 +66,14 @@ const isDialogVisible = ref(false)
                     </VCardActions>
                   </VCard>
                 </VDialog>
-                <!--                <VBtn -->
-                <!--                  type="submit" -->
-                <!--                  size="large" -->
-                <!--                  class="w-100" -->
-                <!--                > -->
-                <!--                  查询 -->
-                <!--                </VBtn> -->
+                <VBtn
+                  size="large"
+                  class="w-100"
+                  type="submit"
+                  @click="navigateTo"
+                >
+                  查询
+                </VBtn>
 
                 <VBtn
                   type="reset"
