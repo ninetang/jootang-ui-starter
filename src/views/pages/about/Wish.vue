@@ -36,6 +36,12 @@ import pages5 from '@images/pages/5.jpg'
   width: 100%;
 }
 
+.v-card-text {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  font-weight: 400;
+}
+
 .banner-text{
   color: rgb(var(--v-theme-primary));
   font-size: 32px;
