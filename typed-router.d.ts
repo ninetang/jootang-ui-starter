@@ -44,6 +44,7 @@ declare module 'vue-router/auto/routes' {
     'about': RouteRecordInfo<'about', '/about', Record<never, never>, Record<never, never>>,
     'contact': RouteRecordInfo<'contact', '/contact', Record<never, never>, Record<never, never>>,
     'info-query': RouteRecordInfo<'info-query', '/info-query', Record<never, never>, Record<never, never>>,
+    'info-query-result': RouteRecordInfo<'info-query-result', '/info-query/result', Record<never, never>, Record<never, never>>,
     'login': RouteRecordInfo<'login', '/login', Record<never, never>, Record<never, never>>,
     'news': RouteRecordInfo<'news', '/news', Record<never, never>, Record<never, never>>,
     'news-tab-id': RouteRecordInfo<'news-tab-id', '/news-tab/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
