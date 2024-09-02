@@ -1,14 +1,12 @@
 <script setup lang="ts">
-import { defineProps } from 'vue'
-
-const props = defineProps<{ title: string }>()
+const route = useRoute('services-tab')
 </script>
 
 <template>
   <VRow>
     <VCard class="w-100 pa-5">
       <VCardTitle class="text-center">
-        {{ props.title }}
+        {{ route.params.tab }}
       </VCardTitle>
       <VDivider />
       <VCardText>

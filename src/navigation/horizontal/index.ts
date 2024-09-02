@@ -54,11 +54,11 @@ export default [
         children: [
           {
             title: 'Efficiency Testing',
-            to: { name: 'services-tab', params: { tab: 'Efficiency能效测试' } },
+            to: { name: 'services-tab', params: { tab: 'Efficiency 能效测试' } },
           },
           {
             title: 'Electrical Safety',
-            to: null,
+            to: { name: 'services-tab', params: { tab: 'Safety 电器安全' } },
           },
           {
             title: 'EMC Testing',

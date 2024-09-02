@@ -141,7 +141,6 @@ import Business from '@/views/pages/index/Business.vue'
   margin-block: 1rem;
 
   .banner {
-    margin-top: -2rem;
     padding: 0
   }
 }

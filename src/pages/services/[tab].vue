@@ -13,11 +13,11 @@ const activeList = computed({
 })
 
 const test = [
-  ['Efficiency能效测试', 'ri-lightbulb-line'],
-  ['Safety电器安全', 'ri-shield-flash-line'],
-  ['EMC电磁兼容', 'ri-pulse-line'],
-  ['Chemical化学测试', 'ri-settings-5-line'],
-  ['Reliability可靠性测试', 'ri-verified-badge-line'],
+  ['Efficiency 能效测试', 'ri-lightbulb-line'],
+  ['Safety 电器安全', 'ri-shield-flash-line'],
+  ['EMC 电磁兼容', 'ri-pulse-line'],
+  ['Chemical 化学测试', 'ri-settings-5-line'],
+  ['Reliability 可靠性测试', 'ri-verified-badge-line'],
 ]
 
 const technical = [
@@ -80,7 +80,7 @@ function navigateTo(item) {
     >
       <VRow class="navRow">
         <VCard class="w-100">
-          <VListItem class="title pl-5 font-weight-bold">
+          <VListItem class="title pl-4 font-weight-bold">
             <template #prepend>
               <VIcon icon="ri-service-line" />
             </template>
