@@ -12,32 +12,32 @@ export default [
     children: [
       {
         title: 'Company Profile',
-        icon: { icon: 'ri-id-card-line' },
+        icon: { icon: 'ri-community-line' },
         to: 'about',
       },
       {
         title: 'Corporate Vision',
-        icon: { icon: 'ri-shield-user-line' },
+        icon: { icon: 'ri-eye-line' },
         to: null,
       },
       {
         title: 'Company History',
-        icon: { icon: 'ri-shield-user-line' },
+        icon: { icon: 'ri-timer-2-line' },
         to: null,
       },
       {
         title: 'Certifications',
-        icon: { icon: 'ri-shield-user-line' },
+        icon: { icon: 'ri-award-line' },
         to: null,
       },
       {
         title: 'Team Introduction',
-        icon: { icon: 'ri-shield-user-line' },
+        icon: { icon: 'ri-group-line' },
         to: null,
       },
       {
         title: 'Company Philosophy',
-        icon: { icon: 'ri-shield-check-line' },
+        icon: { icon: 'ri-megaphone-line' },
         to: null,
       },
     ],
@@ -53,15 +53,23 @@ export default [
         icon: { icon: 'ri-bug-line' },
         children: [
           {
-            title: '国际认证',
+            title: 'Efficiency Testing',
             to: { name: 'services-tab', params: { tab: 'Efficiency能效测试' } },
           },
           {
-            title: '国际法规认证',
+            title: 'Electrical Safety',
             to: null,
           },
           {
-            title: '常规认证',
+            title: 'EMC Testing',
+            to: null,
+          },
+          {
+            title: 'Chemical Testing',
+            to: null,
+          },
+          {
+            title: 'Reliability Testing',
             to: null,
           },
         ],
@@ -71,15 +79,19 @@ export default [
         icon: { icon: 'ri-tools-line' },
         children: [
           {
-            title: '国际认证',
+            title: 'Safety Regulation Rectification',
             to: null,
           },
           {
-            title: '国际法规认证',
+            title: 'Factory Audit Consultation',
             to: null,
           },
           {
-            title: '常规认证',
+            title: 'EMC Rectification',
+            to: null,
+          },
+          {
+            title: 'Cross-Border E-Commerce Compliance Consultation',
             to: null,
           },
         ],
@@ -90,15 +102,39 @@ export default [
         icon: { icon: 'ri-verified-badge-line' },
         children: [
           {
-            title: '国际认证',
+            title: 'China Certification',
             to: null,
           },
           {
-            title: '国际法规认证',
+            title: 'Asia Certification',
             to: null,
           },
           {
-            title: '常规认证',
+            title: 'Middle East Certification',
+            to: null,
+          },
+          {
+            title: 'North America Certification',
+            to: null,
+          },
+          {
+            title: 'South America Certification',
+            to: null,
+          },
+          {
+            title: 'Europe Certification',
+            to: null,
+          },
+          {
+            title: 'Australia Certification',
+            to: null,
+          },
+          {
+            title: 'Africa Certification',
+            to: null,
+          },
+          {
+            title: 'Other Certification',
             to: null,
           },
         ],

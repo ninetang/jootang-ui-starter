@@ -19,7 +19,7 @@ const isDialogVisible = ref(false)
     >
       <VRow class="ma-5">
         <VCard class="w-100">
-          <div class="d-flex flex-column-reverse flex-md-row align-center justify-space-between">
+          <div class="d-flex flex-column-reverse flex-wrap flex-md-nowrap flex-md-row align-center justify-space-between">
             <div class="ma-3">
               <VCardText class="text-h5">
                 深圳市贝岭能效技术有限公司
@@ -47,8 +47,6 @@ const isDialogVisible = ref(false)
             <VCol
               cols="12"
               md="8"
-              sm="8"
-              xs="8"
               class="d-flex justify-center"
             >
               <Map />
