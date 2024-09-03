@@ -4,7 +4,7 @@ import pages5 from '@images/pages/5.jpg'
 
 <template>
   <VRow>
-    <VCard class="w-100 pa-3">
+    <VCard class="w-100 pa-3 outer-v-card">
       <VCol class="d-flex justify-space-between align-center title">
         <h2>行业资讯</h2>
         <div>

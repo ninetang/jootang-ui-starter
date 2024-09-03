@@ -4,7 +4,7 @@ import Banner from '@/views/pages/news/Banner.vue'
 
 <template>
   <VRow>
-    <VCard class="w-100 pa-3">
+    <VCard class="w-100 pa-3 outer-v-card">
       <VCol class="d-flex justify-space-between align-center title">
         <h2>技术文章</h2>
         <div>

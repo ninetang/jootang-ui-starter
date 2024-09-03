@@ -121,7 +121,7 @@ import Business from '@/views/pages/index/Business.vue'
     </VCard>
   </VRow>
   <VRow>
-    <VCard title="新闻动态">
+    <VCard title="新闻动态" class="w-100">
       <VRow class="ma-auto">
         <News />
       </VRow>
