@@ -78,19 +78,13 @@ definePage({
         class="disable-tab-transition"
         :touch="false"
       >
-        <!-- Account -->
-        <VWindowItem value="company">
-          <CompanyItem />
-        </VWindowItem>
-
-        <!-- Security -->
-        <VWindowItem value="industry">
-          <CompanyItem />
-        </VWindowItem>
-
-        <!-- Billing -->
-        <VWindowItem value="technical">
-          <CompanyItem />
+        <!-- company -->
+        <VWindowItem
+          v-for="item in tabs"
+          :key="item.value"
+          :value="item.tab"
+        >
+          <CompanyItem :title="item.title" />
         </VWindowItem>
       </VWindow>
     </VCol>

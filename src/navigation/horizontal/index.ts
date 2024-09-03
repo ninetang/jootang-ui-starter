@@ -151,7 +151,7 @@ export default [
       {
         title: 'Company News',
         icon: { icon: 'ri-newspaper-line' },
-        to: 'news',
+        to: { name: 'news-tab-tab', params: { tab: 'company' } },
       },
       {
         title: 'Industry Information',

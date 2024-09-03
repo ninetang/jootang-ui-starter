@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import pages5 from '@images/pages/5.jpg'
 
+const props = defineProps<{ title: string }>()
+
 const articles = [
   {
     id: '1',
@@ -48,7 +50,7 @@ const currentPage = ref(1)
   <VRow>
     <VCard class="w-100 pa-3">
       <VCol class="d-flex justify-space-between align-center title">
-        <h2>公司新闻</h2>
+        <h2>{{ props.title }}</h2>
         <div>
           <VIcon
             color="primary"
