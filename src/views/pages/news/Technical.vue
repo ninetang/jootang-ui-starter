@@ -1,5 +1,36 @@
 <script setup lang="ts">
 import Banner from '@/views/pages/news/Banner.vue'
+
+const items = [
+  {
+    id: 1,
+    title: 'Apple iPhone 11 Pro',
+    content: 'Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic',
+    date: '11',
+    month: '2024-08-11',
+  },
+  {
+    id: 2,
+    title: 'Apple iPhone 11 Pro',
+    content: 'Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic',
+    date: '11',
+    month: '2024-08-11',
+  },
+  {
+    id: 3,
+    title: 'Apple iPhone 11 Pro',
+    content: 'Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic',
+    date: '11',
+    month: '2024-08-11',
+  },
+  {
+    id: 4,
+    title: 'Apple iPhone 11 Pro',
+    content: 'Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic',
+    date: '11',
+    month: '2024-08-11',
+  },
+]
 </script>
 
 <template>
@@ -19,7 +50,10 @@ import Banner from '@/views/pages/news/Banner.vue'
         <VCard flat>
           <div class="d-flex flex-wrap flex-md-nowrap flex-column flex-md-row">
             <div class="d-flex justify-center align-center">
-              <VCard class="banner" flat>
+              <VCard
+                class="banner"
+                flat
+              >
                 <Banner />
               </VCard>
               <!--              <VImg -->
@@ -29,70 +63,28 @@ import Banner from '@/views/pages/news/Banner.vue'
               <!--              /> -->
             </div>
             <div class="d-flex flex-column justify-center pa-3 w-100">
-              <div class="d-flex justify-center">
-                <div class="d-flex flex-column justify-center align-center w-25">
-                  <span class="text-h1">11</span>
-                  <span>2024-08</span>
-                </div>
-                <div>
-                  <VCardItem>
-                    <VCardTitle>Apple iPhone 11 Pro</VCardTitle>
-                  </VCardItem>
+              <div
+                v-for="item in items"
+                :key="item.id"
+                class="d-flex flex-column"
+              >
+                <div class="d-flex align-center justify-center">
+                  <div class="d-flex flex-column justify-center align-center w-25">
+                    <span class="text-h1">{{ item.date }}</span>
+                    <span>{{ item.month }}</span>
+                  </div>
+                  <div>
+                    <VCardItem>
+                      <VCardTitle>{{ item.title }}</VCardTitle>
+                    </VCardItem>
 
-                  <VCardText>
-                    Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic
-                  </VCardText>
+                    <VCardText>
+                      {{ item.content }}
+                    </VCardText>
+                  </div>
                 </div>
+                <VDivider />
               </div>
-              <VDivider />
-              <div class="d-flex justify-center">
-                <div class="d-flex flex-column justify-center align-center w-25">
-                  <span class="text-h1">11</span>
-                  <span>2024-08</span>
-                </div>
-                <div>
-                  <VCardItem>
-                    <VCardTitle>Apple iPhone 11 Pro</VCardTitle>
-                  </VCardItem>
-
-                  <VCardText>
-                    Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic
-                  </VCardText>
-                </div>
-              </div>
-              <VDivider />
-              <div class="d-flex justify-center">
-                <div class="d-flex flex-column justify-center align-center w-25">
-                  <span class="text-h1">11</span>
-                  <span>2024-08</span>
-                </div>
-                <div>
-                  <VCardItem>
-                    <VCardTitle>Apple iPhone 11 Pro</VCardTitle>
-                  </VCardItem>
-
-                  <VCardText>
-                    Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic
-                  </VCardText>
-                </div>
-              </div>
-              <VDivider />
-              <div class="d-flex justify-center">
-                <div class="d-flex flex-column justify-center align-center w-25">
-                  <span class="text-h1">11</span>
-                  <span>2024-08</span>
-                </div>
-                <div>
-                  <VCardItem>
-                    <VCardTitle>Apple iPhone 11 Pro</VCardTitle>
-                  </VCardItem>
-
-                  <VCardText>
-                    Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic
-                  </VCardText>
-                </div>
-              </div>
-              <VDivider />
             </div>
           </div>
         </VCard>

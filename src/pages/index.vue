@@ -104,7 +104,7 @@ import Business from '@/views/pages/index/Business.vue'
             </VBtn>
           </VCardActions>
         </div>
-        <div>
+        <div class="d-flex justify-center align-center">
           <VCard class="ma-5 certificate">
             <Certificates />
           </VCard>
