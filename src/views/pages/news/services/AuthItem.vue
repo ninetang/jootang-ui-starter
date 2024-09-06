@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const props = defineProps<{ title: string }>()
+
 const route = useRoute('services-tab')
 </script>
 
@@ -6,7 +8,7 @@ const route = useRoute('services-tab')
   <VRow>
     <VCard class="w-100 pa-5">
       <VCardTitle class="text-center">
-        {{ route.params.tab }}
+        {{ props.title }}
       </VCardTitle>
       <VDivider />
       <VCardText>

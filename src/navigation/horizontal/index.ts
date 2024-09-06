@@ -54,23 +54,23 @@ export default [
         children: [
           {
             title: 'Efficiency Testing',
-            to: { name: 'services-tab', params: { tab: 'Efficiency 能效测试' } },
+            to: { name: 'services-tab', params: { tab: 'efficiency' } },
           },
           {
             title: 'Electrical Safety',
-            to: { name: 'services-tab', params: { tab: 'Safety 电器安全' } },
+            to: { name: 'services-tab', params: { tab: 'safety' } },
           },
           {
             title: 'EMC Testing',
-            to: null,
+            to: { name: 'services-tab', params: { tab: 'emc' } },
           },
           {
             title: 'Chemical Testing',
-            to: null,
+            to: { name: 'services-tab', params: { tab: 'chemical' } },
           },
           {
             title: 'Reliability Testing',
-            to: null,
+            to: { name: 'services-tab', params: { tab: 'reliability' } },
           },
         ],
       },
@@ -80,19 +80,19 @@ export default [
         children: [
           {
             title: 'Safety Regulation Rectification',
-            to: null,
+            to: { name: 'services-tab', params: { tab: 'regulation' } },
           },
           {
             title: 'Factory Audit Consultation',
-            to: null,
+            to: { name: 'services-tab', params: { tab: 'factory' } },
           },
           {
             title: 'EMC Rectification',
-            to: null,
+            to: { name: 'services-tab', params: { tab: 'rectification' } },
           },
           {
             title: 'Cross-Border E-Commerce Compliance Consultation',
-            to: null,
+            to: { name: 'services-tab', params: { tab: 'e-commerce' } },
           },
         ],
       },

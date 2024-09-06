@@ -5,7 +5,6 @@ import TopImg from '@/views/pages/TopImg.vue'
 const open = ref(['Test', 'Admin'])
 
 const route = useRoute('services-tab')
-const router = useRouter()
 
 const activeList = computed({
   get: () => route.params.tab,
@@ -13,18 +12,18 @@ const activeList = computed({
 })
 
 const test = [
-  ['Efficiency 能效测试', 'ri-lightbulb-line'],
-  ['Safety 电器安全', 'ri-shield-flash-line'],
-  ['EMC 电磁兼容', 'ri-pulse-line'],
-  ['Chemical 化学测试', 'ri-settings-5-line'],
-  ['Reliability 可靠性测试', 'ri-verified-badge-line'],
+  ['Efficiency 能效测试', 'ri-lightbulb-line', 'efficiency'],
+  ['Safety 电器安全', 'ri-shield-flash-line', 'safety'],
+  ['EMC 电磁兼容', 'ri-pulse-line', 'emc'],
+  ['Chemical 化学测试', 'ri-settings-5-line', 'chemical'],
+  ['Reliability 可靠性测试', 'ri-verified-badge-line', 'reliability'],
 ]
 
 const technical = [
-  ['安规整改', 'ri-hammer-line'],
-  ['验厂辅导', 'ri-list-check'],
-  ['EMC整改', 'ri-signal-tower-line'],
-  ['跨境电商合规辅导', 'ri-global-line'],
+  ['安规整改', 'ri-hammer-line', 'regulation'],
+  ['验厂辅导', 'ri-list-check', 'factory'],
+  ['EMC整改', 'ri-signal-tower-line', 'rectification'],
+  ['跨境电商合规辅导', 'ri-global-line', 'e-commerce'],
 ]
 
 const country = [
@@ -62,13 +61,6 @@ definePage({
     navActiveLink: 'services-tab',
   },
 })
-
-const title = ref<string>('')
-function navigateTo(item) {
-  title.value = item
-  activeList.value = item
-  router.push({ name: 'services-tab', params: { tab: item } })
-}
 </script>
 
 <template>
@@ -90,6 +82,7 @@ function navigateTo(item) {
           </VListItem>
           <VList
             v-model="activeList"
+            :lines="false"
             nav
           >
             <VListGroup value="Test">
@@ -101,12 +94,12 @@ function navigateTo(item) {
                 />
               </template>
               <VListItem
-                v-for="([title, icon], i) in test"
+                v-for="([title, icon, value], i) in test"
                 :key="i"
-                :value="title"
+                :value="value"
                 :title="title"
                 :prepend-icon="icon"
-                @click="navigateTo(title)"
+                :to="{ name: 'services-tab', params: { tab: value } }"
               />
             </VListGroup>
             <VListGroup value="Technical">
@@ -118,12 +111,12 @@ function navigateTo(item) {
                 />
               </template>
               <VListItem
-                v-for="([title, icon], i) in technical"
+                v-for="([title, icon, value], i) in technical"
                 :key="i"
-                :value="title"
+                :value="value"
                 :title="title"
                 :prepend-icon="icon"
-                @click="navigateTo(title)"
+                :to="{ name: 'services-tab', params: { tab: value } }"
               />
             </VListGroup>
 
@@ -153,7 +146,7 @@ function navigateTo(item) {
                   :key="i"
                   :value="item"
                   :title="item"
-                  @click="navigateTo(item)"
+                  :to="{ name: 'services-tab', params: { tab: item } }"
                 />
               </VListGroup>
             </VListGroup>
@@ -170,7 +163,7 @@ function navigateTo(item) {
         :touch="false"
       >
         <VWindowItem>
-          <AuthItem :title="title" />
+          <AuthItem :title="activeList" />
         </VWindowitem>
       </VWindow>
     </VCol>
@@ -181,12 +174,14 @@ function navigateTo(item) {
 .v-row {
   margin-block: 1rem;
 }
+
 .navRow {
   margin-left: auto;
   margin-right: auto;
 }
+
 .title {
-  background: linear-gradient(to right, rgb(127,199,253), rgb(74,175,253));
+  background: linear-gradient(to right, rgb(127, 199, 253), rgb(74, 175, 253));
   color: white;
 }
 </style>
