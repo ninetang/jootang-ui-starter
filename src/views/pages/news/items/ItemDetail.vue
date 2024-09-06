@@ -6,7 +6,7 @@
   <VRow>
     <VCard class="w-100 pa-5">
       <VCardTitle class="text-center">
-        Title
+        Title {{ $route.params.id }}
       </VCardTitle>
       <div class="d-flex justify-center mb-2">
         <VCardSubtitle>
@@ -19,11 +19,11 @@
           作者：张三
         </VCardSubtitle>
       </div>
-      <VDivider/>
+      <VDivider />
       <VCardText>
         content
       </VCardText>
-      <VDivider/>
+      <VDivider />
       <VCardActions class="d-flex justify-space-between w-100 mt-3 mb-3">
         <VBtn prepend-icon="ri-arrow-left-line">
           上一篇

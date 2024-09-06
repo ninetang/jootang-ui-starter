@@ -18,7 +18,7 @@ const tabs = [
 
 definePage({
   meta: {
-    navActiveLink: 'news-tab-id',
+    navActiveLink: 'news-tab',
   },
 })
 </script>
@@ -93,8 +93,9 @@ definePage({
   margin-left: auto;
   margin-right: auto;
 }
+
 .title {
-  background: linear-gradient(to right, rgb(127,199,253), rgb(74,175,253));
+  background: linear-gradient(to right, rgb(127, 199, 253), rgb(74, 175, 253));
   color: white;
 }
 </style>
