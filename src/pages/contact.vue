@@ -42,7 +42,7 @@ const isDialogVisible = ref(false)
             </div>
           </div>
         </VCard>
-        <VCard class="w-100 mt-3">
+        <VCard class="w-100 mt-3 pa-3">
           <VRow class="d-flex justify-center">
             <VCol
               cols="12"
@@ -55,151 +55,164 @@ const isDialogVisible = ref(false)
         </VCard>
         <VCard
           title="在线留言"
-          class="w-100 mt-3"
+          class="w-100 mt-3 pa-3"
         >
           <VRow class="d-flex justify-center">
             <VCol
               cols="12"
               md="6"
+              sm="8"
             >
-              <VForm @submit.prevent="() => {}">
-                <VRow>
-                  <VCol cols="12">
-                    <VRow no-gutters>
-                      <VCol
-                        cols="12"
-                        md="2"
-                      >
-                        <label for="name">姓名</label>
-                      </VCol>
-                      <VCol
-                        cols="12"
-                        md="10"
-                      >
-                        <VTextField
-                          v-model="name"
-                          label="姓名"
-                          clearable
-                          :rules="[requiredValidator]"
-                          clear-icon="ri-close-line"
-                          placeholder="请输入姓名"
-                        />
-                      </VCol>
-                    </VRow>
-                  </VCol>
-                  <VCol cols="12">
-                    <VRow no-gutters>
-                      <VCol
-                        cols="12"
-                        md="2"
-                      >
-                        <label for="phone">电话</label>
-                      </VCol>
-                      <VCol
-                        cols="12"
-                        md="10"
-                      >
-                        <VTextField
-                          v-model="phone"
-                          type="number"
-                          clearable
-                          label="电话"
-                          :rules="[requiredValidator]"
-                          clear-icon="ri-close-line"
-                          placeholder="请输入电话"
-                        />
-                      </VCol>
-                    </VRow>
-                  </VCol>
-                  <VCol cols="12">
-                    <VRow no-gutters>
-                      <VCol
-                        cols="12"
-                        md="2"
-                      >
-                        <label for="email">邮箱</label>
-                      </VCol>
-                      <VCol
-                        cols="12"
-                        md="10"
-                      >
-                        <VTextField
-                          v-model="email"
-                          clearable
-                          label="邮箱"
-                          clear-icon="ri-close-line"
-                          placeholder="请输入邮箱"
-                          :rules="[emailValidator, requiredValidator]"
-                        />
-                      </VCol>
-                    </VRow>
-                  </VCol>
-                  <VCol cols="12">
-                    <VRow no-gutters>
-                      <VCol
-                        cols="12"
-                        md="2"
-                      >
-                        <label for="message">留言</label>
-                      </VCol>
-                      <VCol
-                        cols="12"
-                        md="10"
-                      >
-                        <VTextarea
-                          v-model="message"
-                          label="留言"
-                          placeholder="请输入留言"
-                          :rules="[requiredValidator]"
-                        />
-                      </VCol>
-                    </VRow>
-                  </VCol>
-                  <VCol
-                    cols="12"
-                    md="9"
-                    offset-md="3"
-                    class="d-flex gap-4"
-                  >
-                    <VDialog
-                      v-model="isDialogVisible"
-                      width="500"
+              <VRow>
+                <VCol cols="12">
+                  <VRow no-gutters>
+                    <VCol
+                      cols="12"
+                      md="2"
+                      class="pa-3"
                     >
-                      <template #activator="{ props }">
-                        <VBtn v-bind="props">
-                          确定
-                        </VBtn>
-                      </template>
-                      <VCard title="提交成功">
-                        <DialogCloseBtn
-                          variant="text"
-                          size="default"
-                          @click="isDialogVisible = false"
-                        />
-                        <VCardText>
-                          收到您的留言
-                        </VCardText>
-                        <VCardActions>
-                          <VSpacer />
-                          <VBtn @click="isDialogVisible = false">
+                      <label for="name">姓名</label>
+                    </VCol>
+                    <VCol
+                      cols="12"
+                      md="10"
+                    >
+                      <VTextField
+                        v-model="name"
+                        label="姓名"
+                        clearable
+                        :rules="[requiredValidator]"
+                        clear-icon="ri-close-line"
+                        placeholder="请输入姓名"
+                      />
+                    </VCol>
+                  </VRow>
+                </VCol>
+                <VCol cols="12">
+                  <VRow no-gutters>
+                    <VCol
+                      cols="12"
+                      md="2"
+                      class="pa-3"
+                    >
+                      <label for="phone">电话</label>
+                    </VCol>
+                    <VCol
+                      cols="12"
+                      md="10"
+                    >
+                      <VTextField
+                        v-model="phone"
+                        type="number"
+                        clearable
+                        label="电话"
+                        :rules="[requiredValidator]"
+                        clear-icon="ri-close-line"
+                        placeholder="请输入电话"
+                      />
+                    </VCol>
+                  </VRow>
+                </VCol>
+                <VCol cols="12">
+                  <VRow no-gutters>
+                    <VCol
+                      cols="12"
+                      md="2"
+                      class="pa-3"
+                    >
+                      <label for="email">邮箱</label>
+                    </VCol>
+                    <VCol
+                      cols="12"
+                      md="10"
+                    >
+                      <VTextField
+                        v-model="email"
+                        clearable
+                        label="邮箱"
+                        clear-icon="ri-close-line"
+                        placeholder="请输入邮箱"
+                        :rules="[emailValidator, requiredValidator]"
+                      />
+                    </VCol>
+                  </VRow>
+                </VCol>
+                <VCol cols="12">
+                  <VRow no-gutters>
+                    <VCol
+                      cols="12"
+                      md="2"
+                      class="pa-3"
+                    >
+                      <label for="message">留言</label>
+                    </VCol>
+                    <VCol
+                      cols="12"
+                      md="10"
+                    >
+                      <VTextarea
+                        v-model="message"
+                        label="留言"
+                        placeholder="请输入留言"
+                        :rules="[requiredValidator]"
+                      />
+                    </VCol>
+                  </VRow>
+                </VCol>
+                <VCol cols="12">
+                  <VRow>
+                    <VCol
+                      cols="12"
+                      md="6"
+                    >
+                      <VDialog
+                        v-model="isDialogVisible"
+                        width="500"
+                      >
+                        <template #activator="{ props }">
+                          <VBtn
+                            v-bind="props"
+                            size="large"
+                            class="w-100"
+                          >
                             确定
                           </VBtn>
-                        </VCardActions>
-                      </VCard>
-                    </VDialog>
-                    <!--                    <VBtn type="submit"> -->
-                    <!--                      提交 -->
-                    <!--                    </VBtn> -->
-                    <VBtn
-                      color="secondary"
-                      variant="tonal"
-                      type="reset"
+                        </template>
+                        <VCard title="提交成功">
+                          <DialogCloseBtn
+                            variant="text"
+                            size="default"
+                            @click="isDialogVisible = false"
+                          />
+                          <VCardText>
+                            收到您的留言
+                          </VCardText>
+                          <VCardActions>
+                            <VSpacer />
+                            <VBtn @click="isDialogVisible = false">
+                              确定
+                            </VBtn>
+                          </VCardActions>
+                        </VCard>
+                      </VDialog>
+                    </VCol>
+                    <VCol
+                      cols="12"
+                      md="6"
                     >
-                      重置
-                    </VBtn>
-                  </VCol>
-                </VRow>
-              </VForm>
+                      <VBtn
+                        color="secondary"
+                        variant="tonal"
+                        size="large"
+                        class="w-100"
+                        type="reset"
+                      >
+                        重置
+                      </VBtn>
+                    </VCol>
+                  </VRow>
+                </VCol>
+              </VRow>
             </VCol>
           </VRow>
         </VCard>
