@@ -1,153 +1,55 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
+import AMapLoader from '@amap/amap-jsapi-loader'
 
-const infoWindow = ref(null)
-const map = ref(null)
-const level = 15 // 调整缩放级别，使其更容易看到标记
-const center = { lng: 113.98554, lat: 22.702527 }
-
-const features = [
-  {
-    icon: 'cir',
-    color: 'red',
-    name: '深圳市贝岭能效技术有限公司',
-    desc: '地址：深圳市龙华区大浪街道新石社区石龙仔路14号美宝和工业园1栋西侧',
-    lnglat: { lng: 113.98554, lat: 22.702527 },
-    offset: { x: -9, y: -31 },
-    type: 'Marker',
-  },
-]
-
-function loadFeatures() {
-  features.forEach(data => {
-    let feature
-    if (data.type === 'Marker') {
-      try {
-        feature = new window.AMap.Marker({
-          map: map.value,
-          position: new window.AMap.LngLat(data.lnglat.lng, data.lnglat.lat),
-          zIndex: 3,
-          extData: data,
-          offset: new window.AMap.Pixel(data.offset.x, data.offset.y),
-          title: data.name,
-          content: `<div class="icon icon-${data.icon} icon-${data.icon}-${data.color}"></div>`,
-        })
-        console.log('Marker created:', feature)
-      }
-      catch (error) {
-        console.error('Error creating marker:', error)
-      }
-    }
-    if (feature)
-      window.AMap.event.addListener(feature, 'click', mapFeatureClick)
-  })
-}
-
-function mapFeatureClick(e) {
-  if (!infoWindow.value)
-    infoWindow.value = new window.AMap.InfoWindow({ autoMove: true, isCustom: false })
-
-  const extData = e.target.getExtData()
-
-  infoWindow.value.setContent(`<div class='myinfowindow'><h5>${extData.name}</h5><div>${extData.desc}</div></div>`)
-  infoWindow.value.open(map.value, e.lnglat)
-}
-
-function initMap() {
-  try {
-    map.value = new window.AMap.Map('mapContainer', {
-      center: new window.AMap.LngLat(center.lng, center.lat),
-      zoom: level,
-      keyboardEnable: true,
-      dragEnable: true,
-      scrollWheel: true,
-      doubleClickZoom: true,
-    })
-
-    map.value.on('complete', () => {
-      console.log('Map loaded completely')
-      loadFeatures() // 确保在地图完全加载后再添加标记
-      map.value.plugin(['AMap.ToolBar', 'AMap.Scale'], () => {
-        map.value.addControl(new window.AMap.ToolBar({ ruler: false, direction: false, locate: false }))
-        map.value.addControl(new window.AMap.Scale())
-      })
-    })
-  }
-  catch (error) {
-    console.error('Error initializing map:', error)
-  }
-}
+let map = null
 
 onMounted(() => {
-  if (window.AMap) {
-    initMap()
+  window._AMapSecurityConfig = {
+    securityJsCode: 'bef55c143ccdb468229201fac01fd3b9',
   }
-  else {
-    const script = document.createElement('script')
+  AMapLoader.load({
+    key: 'db5ae16e1aa12a46ca0ed8873518b526', // 申请好的Web端开发者Key，首次调用 load 时必填
+    version: '2.0', // 指定要加载的 JSAPI 的版本，缺省时默认为 1.4.15
+    plugins: ['AMap.Scale'], // 需要使用的的插件列表，如比例尺'AMap.Scale'，支持添加多个如：['...','...']
+  })
+    .then(AMap => {
+      map = new AMap.Map('container', {
+        // 设置地图容器id
+        viewMode: '2D', // 地图模式
+        zoom: 16, // 初始化地图级别
+        center: [113.98554, 22.702527], // 初始化地图中心点位置
+      })
 
-    script.src = '//webapi.amap.com/maps?v=1.3&key=db5ae16e1aa12a46ca0ed8873518b526'
-    script.async = true
-    script.onload = initMap
-    document.head.appendChild(script)
-  }
+      const marker = new AMap.Marker({
+        position: new AMap.LngLat(113.98554, 22.702527), // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
+        title: '贝岭能效技术有限公司',
+        label: {
+          content: '地址：深圳市龙华区大浪街道新石社区石龙仔路14号美宝和工业园1栋西侧',
+        },
+        color: 'red',
+        anchor: 'bottom-center',
+      })
+
+      map.add(marker)
+    })
+    .catch(e => {
+      console.log(e)
+    })
+})
+
+onUnmounted(() => {
+  map?.destroy()
 })
 </script>
 
 <template>
-  <div
-    id="wrap"
-    class="my-map"
-  >
-    <div id="mapContainer" />
-  </div>
+  <div id="container" />
 </template>
 
 <style scoped>
-.my-map {
-  margin: 0 auto;
-  width: 90%;
-  height: 30rem;
-}
-
-.my-map .icon {
-  background: url(//a.amap.com/lbs-dev-yuntu/static/web/image/tools/creater/marker.png) no-repeat;
-}
-
-.my-map .icon-cir {
-  height: 31px;
-  width: 28px;
-}
-
-.my-map .icon-cir-red {
-  background-position: -11px -5px;
-}
-
-.amap-container {
-  height: 100%;
-}
-
-.myinfowindow {
-  width: 240px;
-  min-height: 50px;
-}
-
-.myinfowindow h5 {
-  height: 20px;
-  line-height: 20px;
-  overflow: hidden;
-  font-size: 14px;
-  font-weight: bold;
-  width: 220px;
-  text-overflow: ellipsis;
-  word-break: break-all;
-  white-space: nowrap;
-}
-
-.myinfowindow div {
-  margin-top: 10px;
-  min-height: 40px;
-  line-height: 20px;
-  font-size: 13px;
-  color: #6f6f6f;
+#container {
+  width: 100%;
+  height: 500px;
 }
 </style>
