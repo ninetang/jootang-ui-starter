@@ -2,7 +2,7 @@
 import ItemDetail from '@/views/pages/news/items/ItemDetail.vue'
 import TopImg from '@/views/pages/TopImg.vue'
 
-const route = useRoute('news-tab-tab')
+const route = useRoute('news-tab-id')
 
 const activeTab = computed({
   get: () => route.params.tab,
@@ -51,7 +51,7 @@ definePage({
               v-for="item in tabs"
               :key="item.value"
               :value="item.tab"
-              :to="{ name: 'news-tab-tab', params: { tab: item.tab } }"
+              :to="{ name: 'news-tab', params: { tab: item.tab } }"
             >
               <template #prepend>
                 <VIcon

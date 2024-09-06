@@ -44,6 +44,7 @@ function changeList() {
   toggle.value = false
 }
 const currentPage = ref(1)
+const route = useRoute('news-tab')
 </script>
 
 <template>
@@ -77,7 +78,7 @@ const currentPage = ref(1)
           >
             <VCard
               class="h-100"
-              :to="{ name: 'news-tab-id', params: { id: item.id } }"
+              :to="{ name: 'news-tab-id', params: { tab: route.params.tab, id: item.id } }"
             >
               <VImg
                 :height="200"
@@ -104,7 +105,7 @@ const currentPage = ref(1)
             :key="item.id"
             cols="12"
           >
-            <VCard :to="{ name: 'news-tab-id', params: { id: item.id } }">
+            <VCard :to="{ name: 'news-tab-id', params: { tab: route.params.tab, id: item.id } }">
               <div class="item-container">
                 <div class="item-txt">
                   <VCardItem>

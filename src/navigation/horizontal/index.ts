@@ -151,17 +151,17 @@ export default [
       {
         title: 'Company News',
         icon: { icon: 'ri-newspaper-line' },
-        to: { name: 'news-tab-tab', params: { tab: 'company' } },
+        to: { name: 'news-tab', params: { tab: 'company' } },
       },
       {
         title: 'Industry Information',
         icon: { icon: 'ri-file-info-line' },
-        to: { name: 'news-tab-tab', params: { tab: 'industry' } },
+        to: { name: 'news-tab', params: { tab: 'industry' } },
       },
       {
         title: 'Technical Articles',
         icon: { icon: 'ri-article-line' },
-        to: { name: 'news-tab-tab', params: { tab: 'technical' } },
+        to: { name: 'news-tab', params: { tab: 'technical' } },
       },
     ],
   },

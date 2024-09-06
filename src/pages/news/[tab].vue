@@ -2,7 +2,7 @@
 import CompanyItem from '@/views/pages/news/items/CompanyItem.vue'
 import TopImg from '@/views/pages/TopImg.vue'
 
-const route = useRoute('news-tab-tab')
+const route = useRoute('news-tab')
 
 const activeTab = computed({
   get: () => route.params.tab,
@@ -18,7 +18,7 @@ const tabs = [
 
 definePage({
   meta: {
-    navActiveLink: 'news-tab-tab',
+    navActiveLink: 'news-tab',
   },
 })
 </script>
@@ -52,7 +52,7 @@ definePage({
               v-for="item in tabs"
               :key="item.value"
               :value="item.tab"
-              :to="{ name: 'news-tab-tab', params: { tab: item.tab } }"
+              :to="{ name: 'news-tab', params: { tab: item.tab } }"
             >
               <template #prepend>
                 <VIcon

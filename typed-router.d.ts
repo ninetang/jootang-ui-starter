@@ -46,9 +46,8 @@ declare module 'vue-router/auto/routes' {
     'info-query': RouteRecordInfo<'info-query', '/info-query', Record<never, never>, Record<never, never>>,
     'info-query-result': RouteRecordInfo<'info-query-result', '/info-query/result', Record<never, never>, Record<never, never>>,
     'login': RouteRecordInfo<'login', '/login', Record<never, never>, Record<never, never>>,
-    'news': RouteRecordInfo<'news', '/news', Record<never, never>, Record<never, never>>,
-    'news-tab-id': RouteRecordInfo<'news-tab-id', '/news-tab/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
-    'news-tab-tab': RouteRecordInfo<'news-tab-tab', '/news-tab/:tab', { tab: ParamValue<true> }, { tab: ParamValue<false> }>,
+    'news-tab': RouteRecordInfo<'news-tab', '/news/:tab', { tab: ParamValue<true> }, { tab: ParamValue<false> }>,
+    'news-tab-id': RouteRecordInfo<'news-tab-id', '/news/:tab/:id', { tab: ParamValue<true>, id: ParamValue<true> }, { tab: ParamValue<false>, id: ParamValue<false> }>,
     'second-page': RouteRecordInfo<'second-page', '/second-page', Record<never, never>, Record<never, never>>,
     'services-tab': RouteRecordInfo<'services-tab', '/services/:tab', { tab: ParamValue<true> }, { tab: ParamValue<false> }>,
   }
