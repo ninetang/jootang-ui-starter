@@ -52,6 +52,11 @@ app.post('/pdf/upload', (req, res) => {
         const textContent = pdfData.text
 
         const id = crypto.createHash('md5').update(file.originalname).digest('hex')
+        const existFile = await collection.findOne({ id })
+        if (existFile) {
+          console.log(`文件已存在：${file.originalname}`)
+          continue
+        }
         const numberMatch = textContent.match(numberRegex)
         const applicantMatch = textContent.match(applicantRegex)
         const productMatch = textContent.match(productNameRegex)
