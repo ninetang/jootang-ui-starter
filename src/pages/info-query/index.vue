@@ -1,15 +1,42 @@
 <script lang="ts" setup>
+import axios from 'axios'
 import TopImg from '@/views/pages/TopImg.vue'
 
 const code = ref('')
 const router = useRouter()
 const isDialogVisible = ref(false)
+const isUploadFile = ref(false)
+const files = ref([])
 
 function navigateTo() {
-  if (code.value.length === 0)
-    isDialogVisible.value = true
-  else
+  if (code.value)
     router.push({ name: 'info-query-result', query: { id: code.value } })
+  else
+    isDialogVisible.value = true
+}
+
+async function uploadFiles() {
+  const formData = new FormData()
+
+  Array.from(files.value).forEach(file => {
+    formData.append('pdf', file)
+  })
+
+  await axios.post('http://api.xxx.com/pdf/upload', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  }).then(res => {
+    console.log(res.data)
+  }).catch(error => {
+    console.error(`上传失败：${error}`)
+  }).finally(() => {
+    isUploadFile.value = false
+  })
+}
+
+function handleUploadFile(event) {
+  files.value = Array.from(event.target.files)
 }
 </script>
 
@@ -72,9 +99,50 @@ function navigateTo() {
             variant="tonal"
             size="large"
             class="w-100"
+            @click="code = ''"
           >
             重置
           </VBtn>
+          <VBtn
+            color="primary"
+            size="large"
+            class="w-100 ma-5"
+            @click="isUploadFile = true"
+          >
+            上传证书
+          </VBtn>
+          <VDialog
+            v-model="isUploadFile"
+            width="500"
+          >
+            <VCard title="上传证书">
+              <DialogCloseBtn
+                variant="text"
+                size="defalut"
+                @click="isUploadFile = false"
+              />
+              <VCardActions class="ma-5">
+                <VFileInput
+                  label="请选择一个或多个PDF证书"
+                  accept="application/pdf"
+                  multiple
+                  show-size
+                  counter
+                  chips
+                  @change="handleUploadFile"
+                />
+              </VCardActions>
+              <VCardActions>
+                <VSpacer />
+                <VBtn
+                  color="primary"
+                  @click="uploadFiles"
+                >
+                  确定
+                </VBtn>
+              </VCardActions>
+            </VCard>
+          </VDialog>
         </VCol>
       </VRow>
     </VCard>
