@@ -4,10 +4,10 @@ import client1 from '@images/clients/unilumin.webp'
 import client2 from '@images/clients/bravoled.webp'
 import client3 from '@images/clients/fsl.webp'
 import client4 from '@images/clients/hans.webp'
-import client5 from '@images/clients/lifud.webp'
+import client5 from '@images/clients/ocean.webp'
 import client6 from '@images/clients/longhorn.webp'
-import client7 from '@images/clients/ok.webp'
-import client8 from '@images/clients/re-fond.webp'
+import client7 from '@images/clients/signcomplex.webp'
+import client8 from '@images/clients/ruifeng.webp'
 import client9 from '@images/clients/yuda.webp'
 
 register()
