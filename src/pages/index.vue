@@ -4,7 +4,7 @@ import Clients from '@/views/pages/index/Clients.vue'
 import News from '@/views/pages/index/News.vue'
 import angui1 from '@images/laboratorys/angui1.png'
 import nenxiao2 from '@images/laboratorys/nenxiao2.png'
-import pages5 from '@images/pages/5.jpg'
+import pages5 from '@images/laboratorys/10.webp'
 import Certificates from '@/views/pages/index/Certificates.vue'
 import Business from '@/views/pages/index/Business.vue'
 </script>
@@ -47,9 +47,10 @@ import Business from '@/views/pages/index/Business.vue'
           </VCardActions>
         </div>
 
-        <div class="ma-auto pa-5">
+        <div class="pa-5 d-flex justify-center">
           <VImg
-            :width="300"
+            :width="400"
+            max-width="500"
             :src="pages5"
             class="rounded"
           />
@@ -95,7 +96,7 @@ import Business from '@/views/pages/index/Business.vue'
           </VCardText>
 
           <VCardActions>
-            <VBtn>
+            <VBtn :to="{ name: 'about', hash: '#certification' }">
               了解更多
               <VIcon
                 end

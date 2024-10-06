@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import navImg from '@images/logo/nav.jpg'
+import navImg from '@images/logo/nav.webp'
 </script>
 
 <template>
