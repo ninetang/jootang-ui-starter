@@ -18,27 +18,27 @@ export default [
       {
         title: 'Corporate Vision',
         icon: { icon: 'ri-eye-line' },
-        to: null,
+        to: 'about',
       },
       {
         title: 'Company History',
         icon: { icon: 'ri-timer-2-line' },
-        to: null,
+        to: { name: 'about', hash: '#history' },
       },
       {
         title: 'Certifications',
         icon: { icon: 'ri-award-line' },
-        to: null,
+        to: { name: 'about', hash: '#certification' },
       },
       {
         title: 'Team Introduction',
         icon: { icon: 'ri-group-line' },
-        to: null,
+        to: { name: 'about', hash: '#team' },
       },
       {
         title: 'Company Philosophy',
         icon: { icon: 'ri-megaphone-line' },
-        to: null,
+        to: { name: 'about', hash: '#culture' },
       },
     ],
   },
@@ -54,23 +54,23 @@ export default [
         children: [
           {
             title: 'Efficiency Testing',
-            to: { name: 'services-tab', params: { tab: 'Efficiency能效测试' } },
+            to: { name: 'services-tab', params: { tab: 'efficiency' } },
           },
           {
             title: 'Electrical Safety',
-            to: null,
+            to: { name: 'services-tab', params: { tab: 'safety' } },
           },
           {
             title: 'EMC Testing',
-            to: null,
+            to: { name: 'services-tab', params: { tab: 'emc' } },
           },
           {
             title: 'Chemical Testing',
-            to: null,
+            to: { name: 'services-tab', params: { tab: 'chemical' } },
           },
           {
             title: 'Reliability Testing',
-            to: null,
+            to: { name: 'services-tab', params: { tab: 'reliability' } },
           },
         ],
       },
@@ -80,19 +80,19 @@ export default [
         children: [
           {
             title: 'Safety Regulation Rectification',
-            to: null,
+            to: { name: 'services-tab', params: { tab: 'regulation' } },
           },
           {
             title: 'Factory Audit Consultation',
-            to: null,
+            to: { name: 'services-tab', params: { tab: 'factory' } },
           },
           {
             title: 'EMC Rectification',
-            to: null,
+            to: { name: 'services-tab', params: { tab: 'rectification' } },
           },
           {
             title: 'Cross-Border E-Commerce Compliance Consultation',
-            to: null,
+            to: { name: 'services-tab', params: { tab: 'e-commerce' } },
           },
         ],
       },
@@ -151,17 +151,17 @@ export default [
       {
         title: 'Company News',
         icon: { icon: 'ri-newspaper-line' },
-        to: 'news',
+        to: { name: 'news-tab', params: { tab: 'company' } },
       },
       {
         title: 'Industry Information',
         icon: { icon: 'ri-file-info-line' },
-        to: { name: 'news-tab-tab', params: { tab: 'industry' } },
+        to: { name: 'news-tab', params: { tab: 'industry' } },
       },
       {
         title: 'Technical Articles',
         icon: { icon: 'ri-article-line' },
-        to: { name: 'news-tab-tab', params: { tab: 'technical' } },
+        to: { name: 'news-tab', params: { tab: 'technical' } },
       },
     ],
   },
