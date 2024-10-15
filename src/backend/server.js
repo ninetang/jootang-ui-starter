@@ -24,12 +24,23 @@ const storage = multer.diskStorage({
 const upload = multer({ storage }).array('pdf')
 
 // 正则表达式匹配
-const numberRegex = /No\.\s*([A-Z0-9]+)/
-const applicantRegex = /Applicant:\s*([\w\s.,&-]+)/
-const productNameRegex = /Product:\s*([\w\s]+)/
-const modelNumberRegex = /Model\sNumber:\s*([\w\s,.-]+)/
-const dateRegex = /Date:\s*(\d{4}‐\d{2}‐\d{2})/
-const companyNameRegex = /Date:\s*\d{4}‐\d{2}‐\d{2}\s*\n([\w\s,.-]+)/
+const regex = {
+  applicant: /Applicant:\s*(.+)/,
+  address: /Address:\s*(.+)/,
+  product: /Product:\s*(.+)/,
+  modelNumber: /Model Number:\s*(.+)/,
+  tradeMark: /Trade Mark:\s*(.+)/,
+  testReportNumber: /Test Report Number:\s*(.+)/,
+  issuedBy: /Issued by:\s*(.+)/,
+  date: /Date:\s*(.+)/,
+}
+
+// const numberRegex = /No\.\s*([A-Z0-9]+)/
+// const applicantRegex = /Applicant:\s*([\w\s.,&-]+)/
+// const productNameRegex = /Product:\s*([\w\s]+)/
+// const modelNumberRegex = /Model\sNumber:\s*([\w\s,.-]+)/
+// const dateRegex = /Date:\s*(\d{4}‐\d{2}‐\d{2})/
+// const companyNameRegex = /Date:\s*\d{4}‐\d{2}‐\d{2}\s*\n([\w\s,.-]+)/
 
 // 数据库配置
 const uri = 'mongodb://localhost:27017'
@@ -57,12 +68,14 @@ app.post('/pdf/upload', (req, res) => {
           console.log(`文件已存在：${file.originalname}`)
           continue
         }
-        const numberMatch = textContent.match(numberRegex)
-        const applicantMatch = textContent.match(applicantRegex)
-        const productMatch = textContent.match(productNameRegex)
-        const modelMatch = textContent.match(modelNumberRegex)
-        const dateMatch = textContent.match(dateRegex)
-        const companyMatch = textContent.match(companyNameRegex)
+        const numberMatch = textContent.match(regex.testReportNumber)
+        const applicantMatch = textContent.match(regex.applicant)
+        const productMatch = textContent.match(regex.product)
+        const modelMatch = textContent.match(regex.modelNumber)
+        const dateMatch = textContent.match(regex.date)
+        const companyMatch = textContent.match(regex.issuedBy)
+        const tradeMarkMatch = textContent.match(regex.tradeMark)
+        const addressMatch = textContent.match(regex.address)
 
         const result = {
           id,
@@ -71,7 +84,9 @@ app.post('/pdf/upload', (req, res) => {
           product: productMatch ? productMatch[1].trim() : '未找到产品名称',
           model: modelMatch ? modelMatch[1].trim() : '未找到型号名称',
           date: dateMatch ? dateMatch[1].trim() : '未找到日期',
-          company: companyMatch[1] ? companyMatch[1].trim() : '未找到公司',
+          company: companyMatch[1] ? companyMatch[1].trim() : '未找到公司名称',
+          address: addressMatch ? addressMatch[1].trim() : '未找到地址',
+          tradeMark: tradeMarkMatch ? tradeMarkMatch[1].trim() : '未找到商标信息',
         }
 
         // 存储到数据库
@@ -104,6 +119,25 @@ app.get('/pdf/:code', async (req, res) => {
     res.status(500).json({ error: '查询失败' })
   }
 })
+
+getData('/api/pdf', 'certificates')
+
+function getData(url, dbs) {
+  app.get(url, async (req, res) => {
+    try {
+      const collection = db.collection(dbs)
+      const result = await collection.find().toArray()
+      if (result.length > 0)
+        res.status(200).json({ message: '查询成功', data: result })
+      else
+        res.status(404).json({ message: '未找到证书' })
+    }
+    catch (error) {
+      console.error(`查询失败：${error}`)
+      res.status(500).json({ error: '查询失败' })
+    }
+  })
+}
 
 client.connect().then(() => {
   db = client.db(dbName)
