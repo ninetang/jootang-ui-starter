@@ -11,6 +11,7 @@ const port = 3000
 const app = express()
 
 app.use(cors())
+app.use(express.json())
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
@@ -123,10 +124,12 @@ app.get('/pdf/:code', async (req, res) => {
 getData('/api/pdf', 'certificates')
 
 function getData(url, dbs) {
-  app.get(url, async (req, res) => {
+  app.post(url, async (req, res) => {
     try {
       const collection = db.collection(dbs)
-      const result = await collection.find().toArray()
+      const search = req.body.search || ''
+      const query = search ? { number: { $regex: search, $options: 'i' } } : {}
+      const result = await collection.find(query).toArray()
       if (result.length > 0)
         res.status(200).json({ message: '查询成功', data: result })
       else

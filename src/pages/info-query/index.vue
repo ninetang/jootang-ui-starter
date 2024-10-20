@@ -8,8 +8,9 @@ const isDialogVisible = ref(false)
 const isUploadFile = ref(false)
 const files = ref([])
 
-// 搜索框
+// 筛选框
 const searchQuery = ref('')
+const route = useRoute('info-query-result')
 
 // 每页显示数量
 const itemsPerPage = ref(10)
@@ -38,19 +39,24 @@ const filterCertificates = computed(() => {
 })
 
 // 查询所有记录请求
-try {
-  await axios.get('http://api.xxx.com/api/pdf')
-    .then(res => {
-      const result = res.data.data
-
-      certificateList.value = result
-    }).catch(err => {
-      console.log(`查询失败：${err}`)
+async function getList(search) {
+  try {
+    const res = await axios.post('http://api.xxx.com/api/pdf', {
+      search: search || '',
+    }, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
     })
-}
-catch (err) {
-  isFind.value = false
-  console.log(`查询失败：${err}`)
+
+    const result = res.data.data
+
+    certificateList.value = result
+  }
+  catch (err) {
+    // isFind.value = false
+    console.log(`查询失败：${err}`)
+  }
 }
 
 // 返回记录总数
@@ -62,7 +68,9 @@ const updateOptions = (option: any) => {
 
 function navigateTo() {
   if (code.value)
-    router.push({ name: 'info-query-result', query: { id: code.value } })
+    getList(code.value)
+
+  // router.push({ name: 'info-query-result', query: { id: code.value } })
   else
     isDialogVisible.value = true
 }
@@ -95,40 +103,6 @@ function handleUploadFile(event) {
 <template>
   <TopImg />
   <VRow>
-    <VCard
-      title="证书查询"
-      class="mb-6 w-100 pa-3"
-    >
-      <VCardText class="d-flex flex-wrap gap-4">
-        <VSpacer />
-        <div class="search-filter">
-          <VTextField
-            v-model.trim="searchQuery"
-            placeholder="请输入编号、公司名称或型号"
-            prepend-inner-icon="ri-search-line"
-            density="compact"
-            class="me-4"
-          />
-        </div>
-        <VDataTableServer
-          v-model:page="page"
-          v-model:items-per-page="itemsPerPage"
-          :items="filterCertificates"
-          :items-length="totalItems"
-          :headers="headers"
-          item-value="id"
-          class="text-no-wrap rounded-0"
-          @update:options="updateOptions"
-        >
-          <template #item.operation="{ item }">
-            <RouterLink :to="{ name: 'info-query-result', query: { id: item.number } }">
-              详情
-            </RouterLink>
-          </template>
-        </VDataTableServer>
-      </VCardText>
-    </VCard>
-
     <VCard
       class="w-100 pa-3"
       title="证书查询"
@@ -173,30 +147,29 @@ function handleUploadFile(event) {
           <VBtn
             size="large"
             class="w-100 ma-5"
-            type="submit"
             @click="navigateTo"
           >
             查询
           </VBtn>
 
-          <VBtn
-            type="reset"
-            color="secondary"
-            variant="tonal"
-            size="large"
-            class="w-100"
-            @click="code = ''"
-          >
-            重置
-          </VBtn>
-          <VBtn
-            color="primary"
-            size="large"
-            class="w-100 ma-5"
-            @click="isUploadFile = true"
-          >
-            上传证书
-          </VBtn>
+          <!--          <VBtn -->
+          <!--            type="reset" -->
+          <!--            color="secondary" -->
+          <!--            variant="tonal" -->
+          <!--            size="large" -->
+          <!--            class="w-100" -->
+          <!--            @click="code = ''" -->
+          <!--          > -->
+          <!--            重置 -->
+          <!--          </VBtn> -->
+          <!--          <VBtn -->
+          <!--            color="primary" -->
+          <!--            size="large" -->
+          <!--            class="w-100 ma-5" -->
+          <!--            @click="isUploadFile = true" -->
+          <!--          > -->
+          <!--            上传证书 -->
+          <!--          </VBtn> -->
           <VDialog
             v-model="isUploadFile"
             width="500"
@@ -231,6 +204,40 @@ function handleUploadFile(event) {
           </VDialog>
         </VCol>
       </VRow>
+      <VCard
+        v-if="certificateList.length"
+        flat
+        class="mb-6 w-100 pa-3"
+      >
+        <VCardText class="d-flex flex-wrap gap-4">
+          <VSpacer />
+          <div class="search-filter">
+            <VTextField
+              v-model.trim="searchQuery"
+              placeholder="请输入编号、公司名称或型号"
+              prepend-inner-icon="ri-search-line"
+              density="compact"
+              class="me-4"
+            />
+          </div>
+          <VDataTableServer
+            v-model:page="page"
+            v-model:items-per-page="itemsPerPage"
+            :items="filterCertificates"
+            :items-length="totalItems"
+            :headers="headers"
+            item-value="id"
+            class="text-no-wrap rounded-0"
+            @update:options="updateOptions"
+          >
+            <template #item.operation="{ item }">
+              <RouterLink :to="{ name: 'info-query-detail', query: { id: item.number } }">
+                详情
+              </RouterLink>
+            </template>
+          </VDataTableServer>
+        </VCardText>
+      </VCard>
     </VCard>
   </VRow>
 </template>

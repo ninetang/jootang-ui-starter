@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import axios from 'axios'
 
-const route = useRoute('info-query-result')
+const route = useRoute('info-query-detail')
 const isFind = ref(true)
 let msg = {}
 
@@ -36,14 +36,14 @@ const certInfo = [
     >
       <VRow class="ma-0">
         <VCol
-          cols="6"
+          cols="5"
           class="text-right text-h5 font-weight-bold"
         >
           <div class="d-flex justify-end">
             <span class="label"> {{ item.label }}：</span>
           </div>
         </VCol>
-        <VCol cols="6">
+        <VCol cols="7">
           <div class="d-flex justify-start">
             <span class="text-h5">
               {{ item.value }}
