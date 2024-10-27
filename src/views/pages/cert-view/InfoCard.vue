@@ -3,27 +3,38 @@ import axios from 'axios'
 
 const route = useRoute('info-query-detail')
 const isFind = ref(true)
-let msg = {}
+
+const msg = {
+  number: 1234,
+  company: 'xxxx',
+  product: 'xxxx',
+  model: 'xxx',
+  tradeMark: 'N/A',
+  testReportNumber: '12345888',
+  standard: 'EN ',
+  issueDate: '2024-10-01',
+}
 
 try {
   const response = await axios.get(`http://api.xxx.com/pdf/${route.query.id}`)
 
-  msg = response.data.data
+  // msg = response.data.data
   isFind.value = true
 }
 catch (err) {
-  isFind.value = false
-  console.log(`查询失败：${err}`)
+  // isFind.value = false
+
+  // console.log(`查询失败：${err}`)
 }
 
 console.log(msg)
 
 const certInfo = [
-  { label: '编      号', value: msg.number },
+  { label: '证书编号', value: msg.number },
   { label: '公司名称', value: msg.company },
   { label: '产品名称', value: msg.product },
   { label: '产品型号', value: msg.model },
-  { label: '认证时间', value: msg.date },
+  { label: '认证时间', value: msg.issueDate },
 ]
 </script>
 
