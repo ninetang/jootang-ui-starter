@@ -52,6 +52,7 @@ import Business from '@/views/pages/index/Business.vue'
             :width="400"
             max-width="500"
             max-height="500"
+            rel="preload"
             :src="pages5"
             class="rounded"
           />
@@ -67,6 +68,7 @@ import Business from '@/views/pages/index/Business.vue'
             :width="250"
             :height="250"
             :src="angui1"
+            rel="preload"
             cover
             class="rounded"
           />
@@ -77,6 +79,7 @@ import Business from '@/views/pages/index/Business.vue'
             :width="250"
             :height="250"
             cover
+            rel="preload"
             :src="nenxiao2"
             class="rounded"
           />
