@@ -53,7 +53,10 @@ register()
       ]"
       :key="swiperImg"
     >
-      <VImg :src="swiperImg" />
+      <VImg
+        :src="swiperImg"
+        rel="preload"
+      />
     </swiper-slide>
   </swiper-container>
 </template>

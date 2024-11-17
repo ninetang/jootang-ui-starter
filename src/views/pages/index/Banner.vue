@@ -58,6 +58,7 @@ register()
     >
       <VImg
         :src="swiperImg"
+        rel="preload"
         cover
       />
     </swiper-slide>
