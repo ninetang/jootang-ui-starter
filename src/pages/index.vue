@@ -2,8 +2,8 @@
 import Banner from '@/views/pages/index/Banner.vue'
 import Clients from '@/views/pages/index/Clients.vue'
 import News from '@/views/pages/index/News.vue'
-import angui1 from '@images/laboratorys/angui1.png'
-import nenxiao2 from '@images/laboratorys/nenxiao2.png'
+import angui1 from '@images/laboratorys/angui1.webp'
+import nenxiao2 from '@images/laboratorys/nenxiao2.webp'
 import pages5 from '@images/laboratorys/10.webp'
 import Certificates from '@/views/pages/index/Certificates.vue'
 import Business from '@/views/pages/index/Business.vue'
@@ -51,8 +51,8 @@ import Business from '@/views/pages/index/Business.vue'
           <VImg
             :width="400"
             max-width="500"
+            max-height="500"
             :src="pages5"
-            rel="preload"
             class="rounded"
           />
         </div>
@@ -61,13 +61,12 @@ import Business from '@/views/pages/index/Business.vue'
   </VRow>
   <VRow>
     <VCard>
-      <div class="d-flex flex-column-reverse flex-md-row">
+      <div class="d-flex flex-column-reverse flex-md-row w-100 align-center">
         <div class="ma-auto pa-2 d-flex flex-column justify-center align-center">
           <VImg
             :width="250"
             :height="250"
             :src="angui1"
-            rel="preload"
             cover
             class="rounded"
           />
@@ -77,7 +76,6 @@ import Business from '@/views/pages/index/Business.vue'
           <VImg
             :width="250"
             :height="250"
-            rel="preload"
             cover
             :src="nenxiao2"
             class="rounded"
