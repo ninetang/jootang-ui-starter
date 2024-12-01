@@ -58,6 +58,7 @@ register()
     >
       <VImg
         :src="swiperImg"
+        height="500"
         rel="preload"
         cover
       />
@@ -90,6 +91,7 @@ register()
       <VImg
         :src="swiperImg"
         rel="preload"
+        height="150"
         cover
       />
     </swiper-slide>
@@ -97,7 +99,7 @@ register()
 </template>
 
 <style lang="scss" scoped>
-swiper-container {
+.swiper-container {
   background-color: #FFF;
 }
 .mySwiper2 {

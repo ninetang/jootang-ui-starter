@@ -162,7 +162,7 @@ const products: Menu[] = [
                 </ul>
               </div>
               <!-- 👉 Download App -->
-              <div>
+              <div class="d-flex flex-column align-end">
                 <div class="d-flex footer-heading mb-6 gap-4">
                   <div>
                     <VImg

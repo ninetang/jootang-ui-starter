@@ -83,7 +83,7 @@ export default [
         ],
       },
       {
-        title: 'International Certification',
+        title: 'Global Certification',
         icon: { icon: 'ri-verified-badge-line' },
         children: [
           {
