@@ -43,34 +43,76 @@ export default [
     ],
   },
   {
-    title: 'Service Items',
+    title: 'Test Service',
     to: { name: 'about' },
     icon: { icon: 'ri-service-line' },
 
     children: [
       {
-        title: 'Testing Services',
+        title: 'Test Items',
         icon: { icon: 'ri-bug-line' },
         children: [
           {
-            title: 'Efficiency Testing',
+            title: 'Efficiency Test',
             to: { name: 'services-tab', params: { tab: 'efficiency' } },
           },
           {
-            title: 'Electrical Safety',
+            title: 'Safety Test',
             to: { name: 'services-tab', params: { tab: 'safety' } },
           },
           {
-            title: 'EMC Testing',
+            title: 'EMC Test',
             to: { name: 'services-tab', params: { tab: 'emc' } },
           },
           {
-            title: 'Chemical Testing',
+            title: 'RF Test',
+            to: { name: 'services-tab', params: { tab: 'RF' } },
+          },
+          {
+            title: 'Chemical Test',
             to: { name: 'services-tab', params: { tab: 'chemical' } },
           },
           {
-            title: 'Reliability Testing',
+            title: 'Laser Product Test',
+            to: { name: 'services-tab', params: { tab: 'Laser Product' } },
+          },
+          {
+            title: 'Reliability Test',
             to: { name: 'services-tab', params: { tab: 'reliability' } },
+          },
+        ],
+      },
+      {
+        title: 'International Certification',
+        icon: { icon: 'ri-verified-badge-line' },
+        children: [
+          {
+            title: 'North America Certification',
+            to: null,
+          },
+          {
+            title: 'European Certification',
+            to: null,
+          },
+          {
+            title: 'Australia Certification',
+            to: null,
+          },
+          {
+            title: 'China Certification',
+            to: null,
+          },
+          {
+            title: 'Asia Certification',
+            to: null,
+          },
+          {
+            title: 'South America Certification',
+            to: null,
+          },
+          {
+            title: 'Other Certifications',
+            to: null,
           },
         ],
       },
@@ -96,50 +138,6 @@ export default [
           },
         ],
       },
-
-      {
-        title: 'Certification Services',
-        icon: { icon: 'ri-verified-badge-line' },
-        children: [
-          {
-            title: 'China Certification',
-            to: null,
-          },
-          {
-            title: 'Asia Certification',
-            to: null,
-          },
-          {
-            title: 'Middle East Certification',
-            to: null,
-          },
-          {
-            title: 'North America Certification',
-            to: null,
-          },
-          {
-            title: 'South America Certification',
-            to: null,
-          },
-          {
-            title: 'Europe Certification',
-            to: null,
-          },
-          {
-            title: 'Australia Certification',
-            to: null,
-          },
-          {
-            title: 'Africa Certification',
-            to: null,
-          },
-          {
-            title: 'Other Certification',
-            to: null,
-          },
-        ],
-      },
-
     ],
   },
   {
@@ -166,7 +164,7 @@ export default [
     ],
   },
   {
-    title: 'Information Query',
+    title: 'Certificate inquires',
     to: { name: 'info-query' },
     icon: { icon: 'ri-search-line' },
   },

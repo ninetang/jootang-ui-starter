@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import appleImg from '@images/icons/brands/facebook.png'
-import googlePlayImg from '@images/icons/brands/google.png'
 import { themeConfig } from '@themeConfig'
 import logo65 from '@images/logo/belling-logo-65.png'
-import {Icon} from "@iconify/vue";
+import kewin from '@images/contacts/kewin.webp'
+import bonnie from '@images/contacts/bonnie.webp'
 
 interface Menu {
   name: string
@@ -12,35 +11,39 @@ interface Menu {
 }
 
 const services: Menu[] = [
-  { name: '产品检测', to: { name: '' } },
-  { name: '国际认证', to: { name: '' } },
-  { name: '检测项目', to: { name: '' } },
-  { name: '在线预约', to: { name: '' } },
+  { name: 'Efficiency Test', to: { name: '' } },
+  { name: 'Safety Test', to: { name: '' } },
+  { name: 'EMC Test', to: { name: '' } },
+  { name: 'RF Test', to: { name: '' } },
+  { name: 'Chemical Test', to: { name: '' } },
+  { name: 'Laser Product Test', to: { name: '' } },
+  { name: 'Reliability Test', to: { name: '' } },
 ]
 
 const powers: Menu[] = [
-  { name: '资质证书', to: { name: '' } },
-  { name: '实验室环境', to: { name: '' } },
-  { name: '合作客户', to: { name: '' } },
+  { name: 'North America Certification', to: { name: '' } },
+  { name: 'European Certification', to: { name: '' } },
+  { name: 'Australia Certification', to: { name: '' } },
+  { name: 'Asia Certification', to: { name: '' } },
+  { name: 'South America Certification', to: { name: '' } },
+  { name: 'China Certification', to: { name: '' } },
+  { name: 'Other Certifications', to: { name: '' } },
 ]
 
 const news: Menu[] = [
-  { name: '公司新闻', to: { name: '' } },
-  { name: '行业资讯', to: { name: '' } },
-  { name: '技术文章', to: { name: '' } },
+  { name: 'Company News', to: { name: '' } },
+  { name: 'Industry Information', to: { name: '' } },
+  { name: 'Standard Code', to: { name: '' } },
 ]
 
-const abouts: Menu[] = [
-  { name: '公司简介', to: { name: '' } },
-  { name: '发展历程', to: { name: '' } },
-  { name: '资质认证', to: { name: '' } },
-  { name: '团队介绍', to: { name: '' } },
-]
-
-const contacts: Menu[] = [
-  { name: '联系方式', to: { name: '' } },
-  { name: '在线留言', to: { name: '' } },
-  { name: '公司地址', to: { name: '' } },
+const products: Menu[] = [
+  { name: 'Luminaries Test', to: { name: '' } },
+  { name: 'Home Appliance Test', to: { name: '' } },
+  { name: 'Wireless Device Test', to: { name: '' } },
+  { name: 'IT/AV Media', to: { name: '' } },
+  { name: 'Smart Product Test', to: { name: '' } },
+  { name: 'Laboratory Equipment Test', to: { name: '' } },
+  { name: 'More Test', to: { name: '' } },
 ]
 </script>
 
@@ -76,7 +79,7 @@ const contacts: Menu[] = [
             <div class="d-flex justify-space-between  flex-grow-1 gap-x-16 gap-y-8 flex-md-row flex-column">
               <div>
                 <div class="footer-heading mb-6">
-                  服务项目
+                  {{ $t('Test Items') }}
                 </div>
                 <ul style="list-style: none;">
                   <li
@@ -89,7 +92,7 @@ const contacts: Menu[] = [
                       :to="item.to"
                     >
                       <div class="d-flex align-center">
-                        <div>{{ item.name }}</div>
+                        <div>{{ $t(item.name) }}</div>
                       </div>
                     </RouterLink>
                   </li>
@@ -97,7 +100,7 @@ const contacts: Menu[] = [
               </div>
               <div>
                 <div class="footer-heading mb-6">
-                  公司实力
+                  {{ $t('Global Certification') }}
                 </div>
                 <ul style="list-style: none;">
                   <li
@@ -110,7 +113,7 @@ const contacts: Menu[] = [
                       :to="item.to"
                     >
                       <div class="d-flex align-center">
-                        <div>{{ item.name }}</div>
+                        <div>{{ $t(item.name) }}</div>
                       </div>
                     </RouterLink>
                   </li>
@@ -118,7 +121,28 @@ const contacts: Menu[] = [
               </div>
               <div>
                 <div class="footer-heading mb-6">
-                  新闻中心
+                  {{ $t('Products Testing') }}
+                </div>
+                <ul style="list-style: none;">
+                  <li
+                    v-for="(item, index) in products"
+                    :key="index"
+                    class="mb-4"
+                  >
+                    <RouterLink
+                      class="footer-text text-no-wrap"
+                      :to="item.to"
+                    >
+                      <div class="d-flex align-center">
+                        <div>{{ $t(item.name) }}</div>
+                      </div>
+                    </RouterLink>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <div class="footer-heading mb-6">
+                  {{ $t('News Center') }}
                 </div>
                 <ul style="list-style: none;">
                   <li
@@ -131,49 +155,7 @@ const contacts: Menu[] = [
                       :to="item.to"
                     >
                       <div class="d-flex align-center">
-                        <div>{{ item.name }}</div>
-                      </div>
-                    </RouterLink>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <div class="footer-heading mb-6">
-                  关于我们
-                </div>
-                <ul style="list-style: none;">
-                  <li
-                    v-for="(item, index) in abouts"
-                    :key="index"
-                    class="mb-4"
-                  >
-                    <RouterLink
-                      class="footer-text text-no-wrap"
-                      :to="item.to"
-                    >
-                      <div class="d-flex align-center">
-                        <div>{{ item.name }}</div>
-                      </div>
-                    </RouterLink>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <div class="footer-heading mb-6">
-                  联系我们
-                </div>
-                <ul style="list-style: none;">
-                  <li
-                    v-for="(item, index) in contacts"
-                    :key="index"
-                    class="mb-4"
-                  >
-                    <RouterLink
-                      class="footer-text text-no-wrap"
-                      :to="item.to"
-                    >
-                      <div class="d-flex align-center">
-                        <div>{{ item.name }}</div>
+                        <div>{{ $t(item.name) }}</div>
                       </div>
                     </RouterLink>
                   </li>
@@ -181,12 +163,31 @@ const contacts: Menu[] = [
               </div>
               <!-- 👉 Download App -->
               <div>
+                <div class="d-flex footer-heading mb-6 gap-4">
+                  <div>
+                    <VImg
+                      :src="bonnie"
+                      alt="Bonnie Lai"
+                      :width="100"
+                    />
+                  </div>
+                  <div>
+                    <VImg
+                      :src="kewin"
+                      alt="Kewin Liu"
+                      :width="100"
+                    />
+                  </div>
+                </div>
                 <div class="footer-heading mb-6 text-h3 text-no-wrap">
-                  0755-21038430
+                  159-8938-1627
+                </div>
+                <div class="footer-heading mb-6 text-h3 text-no-wrap">
+                  137-2348-0550
                 </div>
                 <div>
-                  <span class="d-block mb-4 text-no-wrap">
-                    深圳市龙华区大浪街道新石社区石龙仔路14号<br/>美宝和工业园1栋西侧
+                  <span class="d-block mb-4">
+                    {{ $t('Company Address') }}
                   </span>
                 </div>
               </div>
@@ -201,29 +202,29 @@ const contacts: Menu[] = [
         <div class="d-flex justify-space-between flex-wrap gap-y-4">
           <!-- 👉 Footer: left content -->
           <span class="d-flex align-center">
-      &copy;
-      {{ new Date().getFullYear() }}
-      Made With
-      <VIcon
-        icon="ri-heart-line"
-        color="error"
-        size="1.25rem"
-        class="mx-1"
-      />
-      By <a
-            href="//JooTang.cn"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-primary ms-1"
-          >JooTang</a>
-    </span>
+            &copy;
+            {{ new Date().getFullYear() }}
+            Made With
+            <VIcon
+              icon="ri-heart-line"
+              color="error"
+              size="1.25rem"
+              class="mx-1"
+            />
+            By <a
+              href="//JooTang.cn"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-primary ms-1"
+            >JooTang</a>
+          </span>
           <!-- 👉 Footer: right content -->
           <span class="d-md-flex gap-x-4 text-primary d-none">
-      <a
-        href="mailto:mp@jootang.cn"
-        target="noopener noreferrer"
-      >Documentation</a>
-    </span>
+            <a
+              href="mailto:mp@jootang.cn"
+              target="noopener noreferrer"
+            >Documentation</a>
+          </span>
         </div>
       </VContainer>
     </div>

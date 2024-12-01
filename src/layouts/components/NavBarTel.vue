@@ -9,14 +9,19 @@
       size="large"
       color="primary"
     />
-    <h2 class="tel">
-      0755-21038430
-    </h2>
+    <div class="tel">
+      <h3>
+        0755-21038430
+      </h3>
+      <h3>
+        159-8938-1627
+      </h3>
+    </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-.tel {
+.tel h3{
   color: rgb(74,175,253);
 }
 </style>
