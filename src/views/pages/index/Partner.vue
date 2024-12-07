@@ -8,19 +8,19 @@ import sr from '@images/partner/sr.webp'
 const partners = [
   {
     img: ul,
-    url: '#',
+    url: 'https://www.ul.com/',
   },
   {
     img: tuv,
-    url: '#',
+    url: 'https://www.tuvsud.cn/',
   },
   {
     img: rheinland,
-    url: '#',
+    url: 'https://www.tuv.com/',
   },
   {
     img: intertek,
-    url: '#',
+    url: 'https://www.intertek.com.cn/',
   },
   {
     img: sr,
