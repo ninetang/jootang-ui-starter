@@ -240,6 +240,9 @@ const products: Menu[] = [
 .footer-text{
   color: rgba(255, 255, 255, var(--v-medium-emphasis-opacity));
 }
+.footer-text:hover{
+  color: rgba(255, 255, 255, var(--v-high-emphasis-opacity));
+}
 
 .footer-title{
   color: rgba(255, 255, 255, var(--v-high-emphasis-opacity));
