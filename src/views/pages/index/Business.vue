@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import SelectSolid from '@images/svg/3d-select-solid.svg'
 import Edit from '@images/svg/edit.svg'
-import GoogleDocs from '@images/svg/google-docs.svg'
 import LaptopCharging from '@images/svg/laptop-charging.svg'
 import Lifebelt from '@images/svg/lifebelt.svg'
 import TransitionUp from '@images/svg/transition-up.svg'
@@ -16,23 +15,31 @@ import korea from '@images/areas/korea.webp'
 
 const testService = [
   {
-    title: 'Efficiency 能效测试',
+    title: 'Safety安全检测',
     img: LaptopCharging,
   },
   {
-    title: 'Safety电气安全',
+    title: 'Efficiency能效检测',
     img: TransitionUp,
   },
   {
-    title: 'EMC电磁兼容',
+    title: 'EMC电磁兼容检测',
     img: Edit,
   },
   {
-    title: 'Chemical化学测试',
+    title: '射频测试',
     img: SelectSolid,
   },
   {
-    title: 'Reliability可靠性测试',
+    title: '化学检测',
+    img: Lifebelt,
+  },
+  {
+    title: '光生物激光测试',
+    img: Lifebelt,
+  },
+  {
+    title: '可靠性测试',
     img: Lifebelt,
   },
   {
@@ -62,41 +69,29 @@ const technologyService = [
 
 const authentication = [
   {
-    title: '北美',
+    title: '北美认证',
     img: north,
   },
   {
-    title: '欧盟',
+    title: '欧盟认证',
     img: eourape,
   },
   {
-    title: '中国',
-    img: china,
-  },
-  {
-    title: '澳洲',
+    title: '澳洲认证',
     img: australia,
   },
   {
-    title: '日本',
-    img: japan,
+    title: '中国认证',
+    img: china,
   },
   {
-    title: '韩国',
-    img: korea,
-  },
-  {
-    title: '中东',
-    img: zhongdong,
-  },
-  {
-    title: '更多',
+    title: '其他国家认证',
     img: more,
   },
 ]
 
 const navigationTab2 = ref('测试服务')
-const tabItems = ['测试服务', '技术服务', '认证服务']
+const tabItems = ['检测项目', '国际认证']
 </script>
 
 <template>
@@ -118,7 +113,7 @@ const tabItems = ['测试服务', '技术服务', '认证服务']
       <!-- tabs content -->
       <VWindow v-model="navigationTab2">
         <VWindowItem
-          value="测试服务"
+          value="检测项目"
           class="text-center"
         >
           <VContainer id="features">
@@ -128,40 +123,7 @@ const tabItems = ['测试服务', '技术服务', '认证服务']
                   v-for="(data, index) in testService"
                   :key="index"
                   cols="12"
-                  sm="6"
-                  md="2"
-                >
-                  <div class="feature d-flex flex-column gap-y-2 align-center justify-center mt-2">
-                    <VAvatar
-                      variant="outlined"
-                      size="84"
-                      color="primary"
-                      class="mb-2"
-                    >
-                      <Component :is="data.img"/>
-                    </VAvatar>
-
-                    <h5 class="text-h5">
-                      {{ data.title }}
-                    </h5>
-                  </div>
-                </VCol>
-              </VRow>
-            </div>
-          </VContainer>
-        </VWindowItem>
-        <VWindowItem
-          value="技术服务"
-          class="text-center"
-        >
-          <VContainer id="features">
-            <div class="feature-cards">
-              <VRow>
-                <VCol
-                  v-for="(data, index) in technologyService"
-                  :key="index"
-                  cols="12"
-                  sm="6"
+                  sm="4"
                   md="3"
                 >
                   <div class="feature d-flex flex-column gap-y-2 align-center justify-center mt-2">
@@ -171,7 +133,7 @@ const tabItems = ['测试服务', '技术服务', '认证服务']
                       color="primary"
                       class="mb-2"
                     >
-                      <Component :is="data.img"/>
+                      <Component :is="data.img" />
                     </VAvatar>
 
                     <h5 class="text-h5">
@@ -183,8 +145,41 @@ const tabItems = ['测试服务', '技术服务', '认证服务']
             </div>
           </VContainer>
         </VWindowItem>
+        <!--        <VWindowItem -->
+        <!--          value="技术服务" -->
+        <!--          class="text-center" -->
+        <!--        > -->
+        <!--          <VContainer id="features"> -->
+        <!--            <div class="feature-cards"> -->
+        <!--              <VRow> -->
+        <!--                <VCol -->
+        <!--                  v-for="(data, index) in technologyService" -->
+        <!--                  :key="index" -->
+        <!--                  cols="12" -->
+        <!--                  sm="6" -->
+        <!--                  md="3" -->
+        <!--                > -->
+        <!--                  <div class="feature d-flex flex-column gap-y-2 align-center justify-center mt-2"> -->
+        <!--                    <VAvatar -->
+        <!--                      variant="outlined" -->
+        <!--                      size="84" -->
+        <!--                      color="primary" -->
+        <!--                      class="mb-2" -->
+        <!--                    > -->
+        <!--                      <Component :is="data.img"/> -->
+        <!--                    </VAvatar> -->
+
+        <!--                    <h5 class="text-h5"> -->
+        <!--                      {{ data.title }} -->
+        <!--                    </h5> -->
+        <!--                  </div> -->
+        <!--                </VCol> -->
+        <!--              </VRow> -->
+        <!--            </div> -->
+        <!--          </VContainer> -->
+        <!--        </VWindowItem> -->
         <VWindowItem
-          value="认证服务"
+          value="国际认证"
           class="text-center"
         >
           <VContainer id="features">
@@ -204,7 +199,7 @@ const tabItems = ['测试服务', '技术服务', '认证服务']
                       color="primary"
                       class="mb-2"
                     >
-                      <v-img :src="data.img"/>
+                      <VImg :src="data.img" />
                     </VAvatar>
 
                     <h5 class="text-h5">

@@ -5,45 +5,61 @@ import News from '@/views/pages/index/News.vue'
 import Business from '@/views/pages/index/Business.vue'
 import Introduction from '@/views/pages/index/Introduction.vue'
 import Cert from '@/views/pages/index/Cert.vue'
+import Partner from '@/views/pages/index/Partner.vue'
 </script>
 
 <template>
+  <!--  顶部轮播图 -->
   <VRow>
     <VCol class="banner">
       <Banner />
     </VCol>
   </VRow>
-
+  <!--  公司简介 -->
   <VRow>
     <VCard>
       <Introduction />
     </VCard>
   </VRow>
+  <!--  资历证书 -->
   <VRow>
     <VCard>
       <Cert />
     </VCard>
   </VRow>
+  <!--  主营业务 -->
   <VRow>
     <VCard
-      title="主营业务"
+      title="服务项目"
       class="w-100 text-center"
     >
       <Business />
     </VCard>
   </VRow>
+  <!--  合作伙伴 -->
   <VRow>
     <VCard
-      title="新闻动态"
-      class="w-100"
+      title="合作伙伴"
+      class="w-100 text-center"
     >
-      <VRow class="ma-auto">
-        <News />
-      </VRow>
+      <Partner />
     </VCard>
   </VRow>
+  <!--  新闻动态 -->
   <VRow>
-    <VCard title="客户案例">
+    <VCard class="w-100">
+      <VCardTitle class="text-center mt-3">
+        新闻资讯
+      </VCardTitle>
+      <News />
+    </VCard>
+  </VRow>
+  <!--  客户案例 -->
+  <VRow>
+    <VCard
+      title="客户案例"
+      class="w-100 text-center"
+    >
       <Clients />
     </VCard>
   </VRow>
