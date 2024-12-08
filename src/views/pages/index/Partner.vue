@@ -30,7 +30,7 @@ const partners = [
 </script>
 
 <template>
-  <VRow class="d-flex justify-center gap-8">
+  <VRow class="d-flex justify-center gap-16">
     <VCard
       v-for="(data, index) in partners"
       :key="index"
