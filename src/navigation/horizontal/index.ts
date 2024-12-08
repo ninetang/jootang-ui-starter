@@ -53,12 +53,12 @@ export default [
         icon: { icon: 'ri-bug-line' },
         children: [
           {
-            title: 'Efficiency Test',
-            to: { name: 'services-tab', params: { tab: 'efficiency' } },
-          },
-          {
             title: 'Safety Test',
             to: { name: 'services-tab', params: { tab: 'safety' } },
+          },
+          {
+            title: 'Efficiency Test',
+            to: { name: 'services-tab', params: { tab: 'efficiency' } },
           },
           {
             title: 'EMC Test',
@@ -116,28 +116,29 @@ export default [
           },
         ],
       },
-      {
-        title: 'Technical Services',
-        icon: { icon: 'ri-tools-line' },
-        children: [
-          {
-            title: 'Safety Regulation Rectification',
-            to: { name: 'services-tab', params: { tab: 'regulation' } },
-          },
-          {
-            title: 'Factory Audit Consultation',
-            to: { name: 'services-tab', params: { tab: 'factory' } },
-          },
-          {
-            title: 'EMC Rectification',
-            to: { name: 'services-tab', params: { tab: 'rectification' } },
-          },
-          {
-            title: 'Cross-Border E-Commerce Compliance Consultation',
-            to: { name: 'services-tab', params: { tab: 'e-commerce' } },
-          },
-        ],
-      },
+
+      // {
+      //   title: 'Technical Services',
+      //   icon: { icon: 'ri-tools-line' },
+      //   children: [
+      //     {
+      //       title: 'Safety Regulation Rectification',
+      //       to: { name: 'services-tab', params: { tab: 'regulation' } },
+      //     },
+      //     {
+      //       title: 'Factory Audit Consultation',
+      //       to: { name: 'services-tab', params: { tab: 'factory' } },
+      //     },
+      //     {
+      //       title: 'EMC Rectification',
+      //       to: { name: 'services-tab', params: { tab: 'rectification' } },
+      //     },
+      //     {
+      //       title: 'Cross-Border E-Commerce Compliance Consultation',
+      //       to: { name: 'services-tab', params: { tab: 'e-commerce' } },
+      //     },
+      //   ],
+      // },
     ],
   },
   {

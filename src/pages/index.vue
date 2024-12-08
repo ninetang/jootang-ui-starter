@@ -20,9 +20,9 @@ import Partner from '@/views/pages/index/Partner.vue'
       <Introduction />
     </VCard>
   </VRow>
-  <!--  资历证书 -->
+  <!--  资历授权 -->
   <VRow>
-    <VCard>
+    <VCard class="w-100">
       <Cert />
     </VCard>
   </VRow>

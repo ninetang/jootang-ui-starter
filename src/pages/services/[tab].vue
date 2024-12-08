@@ -2,20 +2,13 @@
 import AuthItem from '@/views/pages/news/services/AuthItem.vue'
 import TopImg from '@/views/pages/TopImg.vue'
 
-const open = ref(['Test', 'Admin'])
-
-const route = useRoute('services-tab')
-
-const activeList = computed({
-  get: () => route.params.tab,
-  set: () => route.params.tab,
-})
-
 const test = [
-  ['Efficiency 能效测试', 'ri-lightbulb-line', 'efficiency'],
-  ['Safety 电器安全', 'ri-shield-flash-line', 'safety'],
-  ['EMC 电磁兼容', 'ri-pulse-line', 'emc'],
-  ['Chemical 化学测试', 'ri-settings-5-line', 'chemical'],
+  ['Safety安全检测', 'ri-shield-flash-line', 'safety'],
+  ['Efficiency能效检测', 'ri-lightbulb-line', 'efficiency'],
+  ['EMC电磁兼容检测', 'ri-pulse-line', 'emc'],
+  ['射频测试', 'ri-signal-tower-line', 'rf'],
+  ['化学测试', 'ri-settings-5-line', 'chemical'],
+  ['光生物激光测试', 'ri-sun-line', 'laser'],
   ['Reliability 可靠性测试', 'ri-verified-badge-line', 'reliability'],
 ]
 
@@ -27,32 +20,26 @@ const technical = [
 ]
 
 const country = [
-  ['China', '中国认证', [
-    'CCC认证1', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证', 'CFDA', 'OFCA认证', 'NMPA', 'CTA认证', 'CR认证',
-  ]],
-  ['Asia', '亚洲认证', [
-    'CCC认证2', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证', 'CFDA', 'OFCA认证', 'NMPA', 'CTA认证', 'CR认证',
-  ]],
-  ['MiddleEast', '中东认证', [
-    'CCC认证3', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证', 'CFDA', 'OFCA认证', 'NMPA', 'CTA认证', 'CR认证',
-  ]],
-  ['NorthAmerica', '北美洲认证', [
-    'CCC认证4', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证', 'CFDA', 'OFCA认证', 'NMPA', 'CTA认证', 'CR认证',
-  ]],
-  ['SouthAmerica', '南美洲认证', [
-    'CCC认证5', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证', 'CFDA', 'OFCA认证', 'NMPA', 'CTA认证', 'CR认证',
+  ['NorthAmerica', '北美认证', [
+    'UL', 'ETL', 'CSA', 'Energystar', 'DLC', 'CEC', 'DOE LM-80', 'LM-79', 'FCC', 'IC', 'FDA',
   ]],
   ['Europe', '欧洲认证', [
-    'CCC认证6', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证', 'CFDA', 'OFCA认证', 'NMPA', 'CTA认证', 'CR认证',
+    'CE', 'CB', 'GS', 'ENEC', 'TUV Mark', 'ERP', 'Rohs', 'REACH', 'PAHS',
   ]],
   ['Australia', '澳大利亚认证', [
-    'CCC认证7', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证', 'CFDA', 'OFCA认证', 'NMPA', 'CTA认证', 'CR认证',
+    'SAA', 'RCM', 'LCP',
   ]],
-  ['Africa', '非洲认证', [
-    'CCC认证8', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证', 'CFDA', 'OFCA认证', 'NMPA', 'CTA认证', 'CR认证',
+  ['China', '中国认证', [
+    'CCC', 'CQC', '中国节能认证',
   ]],
-  ['Other', '其他认证', [
-    'CCC认证9', 'CQC认证', 'BSMI认证', '台湾NCC认证', '电商质检', 'SRRC认证', 'CFDA', 'OFCA认证', 'NMPA', 'CTA认证', 'CR认证',
+  ['Asia', '亚洲认证', [
+    '日本MIC认证', '日本PSE认证', '日本VCCI认证', '日本JATE认证', '日本TELEC认证', '日本METI备案', '新加坡IMDA认证', '新加坡CPS认证', '韩国KC认证',
+  ]],
+  ['SouthAmerica', '南美认证', [
+    '巴西INMETRO认证', '墨西哥NOM认证', '阿根廷IRAM认证',
+  ]],
+  ['Other', '其他国家认证', [
+    'CB认证', 'BQB蓝牙认证', 'UN38.3认证', 'TUV Mark认证',
   ]],
 ]
 
@@ -90,7 +77,7 @@ definePage({
                 <VListItem
                   v-bind="props"
                   prepend-icon="ri-bug-line"
-                  title="测试服务"
+                  title="检测项目"
                 />
               </template>
               <VListItem
@@ -102,30 +89,30 @@ definePage({
                 :to="{ name: 'services-tab', params: { tab: value } }"
               />
             </VListGroup>
-            <VListGroup value="Technical">
-              <template #activator="{ props }">
-                <VListItem
-                  v-bind="props"
-                  prepend-icon="ri-tools-line"
-                  title="技术服务"
-                />
-              </template>
-              <VListItem
-                v-for="([title, icon, value], i) in technical"
-                :key="i"
-                :value="value"
-                :title="title"
-                :prepend-icon="icon"
-                :to="{ name: 'services-tab', params: { tab: value } }"
-              />
-            </VListGroup>
+            <!--            <VListGroup value="Technical"> -->
+            <!--              <template #activator="{ props }"> -->
+            <!--                <VListItem -->
+            <!--                  v-bind="props" -->
+            <!--                  prepend-icon="ri-tools-line" -->
+            <!--                  title="技术服务" -->
+            <!--                /> -->
+            <!--              </template> -->
+            <!--              <VListItem -->
+            <!--                v-for="([title, icon, value], i) in technical" -->
+            <!--                :key="i" -->
+            <!--                :value="value" -->
+            <!--                :title="title" -->
+            <!--                :prepend-icon="icon" -->
+            <!--                :to="{ name: 'services-tab', params: { tab: value } }" -->
+            <!--              /> -->
+            <!--            </VListGroup> -->
 
             <VListGroup value="Credential">
               <template #activator="{ props }">
                 <VListItem
                   v-bind="props"
                   prepend-icon="ri-verified-badge-line"
-                  title="认证服务"
+                  title="国际认证"
                 />
               </template>
 
@@ -163,7 +150,7 @@ definePage({
         :touch="false"
       >
         <VWindowItem>
-          <AuthItem :title="activeList" />
+          <AuthItem />
         </VWindowitem>
       </VWindow>
     </VCol>
