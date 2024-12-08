@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Banner from '@/views/pages/index/Banner.vue'
-import Clients from '@/views/pages/index/Clients.vue'
 import News from '@/views/pages/index/News.vue'
 import Business from '@/views/pages/index/Business.vue'
 import Introduction from '@/views/pages/index/Introduction.vue'
@@ -55,14 +54,14 @@ import Partner from '@/views/pages/index/Partner.vue'
     </VCard>
   </VRow>
   <!--  客户案例 -->
-  <VRow>
-    <VCard
-      title="客户案例"
-      class="w-100 text-center"
-    >
-      <Clients />
-    </VCard>
-  </VRow>
+<!--  <VRow> -->
+<!--    <VCard -->
+<!--      title="客户案例" -->
+<!--      class="w-100 text-center" -->
+<!--    > -->
+<!--      <Clients /> -->
+<!--    </VCard> -->
+<!--  </VRow> -->
 </template>
 
 <style lang="scss">

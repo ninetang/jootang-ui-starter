@@ -55,54 +55,54 @@ const labs = [
     img: lab2,
   },
   {
-    title: 'tuv-sud授权信',
+    title: 'EMC实验环境',
     img: lab3,
   },
   {
-    title: 'ETL授权信',
+    title: '环境可靠性实验室',
     img: lab4,
   },
   {
-    title: 'UL授权证书',
+    title: '生物实验室',
     img: lab6,
   },
   {
-    title: 'UL授权证书',
+    title: '射频实验室',
     img: lab7,
   },
 ]
 
 const cooperators = [
   {
-    title: 'nvlap授权',
+    title: '洲明',
     img: client1,
   },
   {
-    title: 'UL授权信',
+    title: 'Bravoled',
     img: client2,
   },
   {
-    title: 'tuv-sud授权信',
+    title: '佛山照明',
     img: client3,
   },
   {
-    title: 'ETL授权信',
+    title: '大族激光',
     img: client4,
   },
   {
-    title: 'UL授权证书',
+    title: '海洋王',
     img: client5,
   },
   {
-    title: 'UL授权证书',
+    title: '豪恩集团',
     img: client6,
   },
   {
-    title: 'UL授权证书',
+    title: 'SignComplex',
     img: client7,
   },
   {
-    title: 'UL授权证书',
+    title: '瑞丰光电',
     img: client8,
   },
 ]

@@ -37,6 +37,7 @@ const partners = [
       hover
       variant="outlined"
       cursor="pointer"
+      class="feature-card"
     >
       <a
         :href="data.url"
@@ -51,3 +52,8 @@ const partners = [
     </VCard>
   </VRow>
 </template>
+<style lang="scss" scoped>
+.feature-card {
+  margin-block-end: 4.25rem;
+}
+</style>
