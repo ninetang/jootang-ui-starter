@@ -1,12 +1,9 @@
 <script lang="ts" setup>
 import TopImg from '@/views/pages/TopImg.vue'
-import TestItem from '@/views/pages/news/services/TestItem.vue'
-import AuthItem from '@/views/pages/news/services/AuthItem.vue'
 
-const activeList = ref('Test')
-const activeTab = ref('Test')
-
-console.log(activeList.value, activeTab.value)
+const activeList = ref('')
+const TestItem = defineAsyncComponent(() => import('@/views/pages/news/services/TestItem.vue'))
+const AuthItem = defineAsyncComponent(() => import('@/views/pages/news/services/AuthItem.vue'))
 
 const test = [
   ['Safety安全检测', 'ri-shield-flash-line', 'safety'],
@@ -49,6 +46,10 @@ const country = [
   ]],
 ]
 
+const updateActive = (value: string) => {
+  activeList.value = value
+}
+
 definePage({
   meta: {
     navActiveLink: 'services-tab',
@@ -75,7 +76,6 @@ definePage({
           </VListItem>
           <VList
             v-model="activeList"
-            :lines="false"
             nav
           >
             <VListGroup value="Test">
@@ -93,6 +93,7 @@ definePage({
                 :title="title"
                 :prepend-icon="icon"
                 :to="{ name: 'services-tab', params: { tab: value } }"
+                @click="updateActive('Test')"
               />
             </VListGroup>
 
@@ -123,6 +124,7 @@ definePage({
                   :value="item"
                   :title="item"
                   :to="{ name: 'services-tab', params: { tab: item } }"
+                  @click="updateActive('Credential')"
                 />
               </VListGroup>
             </VListGroup>
@@ -135,16 +137,15 @@ definePage({
       md="9"
     >
       <VWindow
-        v-model:active-item="activeTab"
+        v-model="activeList"
         class="disable-tab-transition"
-        :touch="false"
       >
-        <VWindowItem v-if="activeList === 'Test'">
-          <TestItem />
-        </VWindowitem>
-        <VWindowItem v-if="activeList === 'Credential'">
+        <VWindowItem value="Credential">
           <AuthItem />
-        </VWindowitem>
+        </VWindowItem>
+        <VWindowItem value="Test">
+          <TestItem />
+        </VWindowItem>
       </VWindow>
     </VCol>
   </VRow>

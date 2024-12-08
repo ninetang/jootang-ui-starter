@@ -66,7 +66,7 @@ export default [
           },
           {
             title: 'RF Test',
-            to: { name: 'services-tab', params: { tab: 'RF' } },
+            to: { name: 'services-tab', params: { tab: 'rf' } },
           },
           {
             title: 'Chemical Test',

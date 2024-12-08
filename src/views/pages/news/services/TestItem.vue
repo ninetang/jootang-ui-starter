@@ -4,6 +4,8 @@ import testProjects from '@/mock/testProjects.json'
 const route = useRoute('services-tab')
 
 const project = computed(() => {
+  // console.log(route.path)
+
   return testProjects.testItems.find(item => item.title.toLowerCase() === route.params.tab.toLowerCase())
 })
 </script>
