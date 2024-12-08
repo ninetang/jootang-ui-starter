@@ -9,38 +9,38 @@ export default [
     to: { name: 'about' },
     icon: { icon: 'ri-team-line' },
 
-    children: [
-      {
-        title: 'Company Profile',
-        icon: { icon: 'ri-community-line' },
-        to: 'about',
-      },
-      {
-        title: 'Corporate Vision',
-        icon: { icon: 'ri-eye-line' },
-        to: 'about',
-      },
-      {
-        title: 'Company History',
-        icon: { icon: 'ri-timer-2-line' },
-        to: { name: 'about', hash: '#history' },
-      },
-      {
-        title: 'Certifications',
-        icon: { icon: 'ri-award-line' },
-        to: { name: 'about', hash: '#certification' },
-      },
-      {
-        title: 'Team Introduction',
-        icon: { icon: 'ri-group-line' },
-        to: { name: 'about', hash: '#team' },
-      },
-      {
-        title: 'Company Philosophy',
-        icon: { icon: 'ri-megaphone-line' },
-        to: { name: 'about', hash: '#culture' },
-      },
-    ],
+    // children: [
+    //   {
+    //     title: 'Company Profile',
+    //     icon: { icon: 'ri-community-line' },
+    //     to: 'about',
+    //   },
+    //   {
+    //     title: 'Corporate Vision',
+    //     icon: { icon: 'ri-eye-line' },
+    //     to: 'about',
+    //   },
+    //   {
+    //     title: 'Company History',
+    //     icon: { icon: 'ri-timer-2-line' },
+    //     to: { name: 'about', hash: '#history' },
+    //   },
+    //   {
+    //     title: 'Certifications',
+    //     icon: { icon: 'ri-award-line' },
+    //     to: { name: 'about', hash: '#certification' },
+    //   },
+    //   {
+    //     title: 'Team Introduction',
+    //     icon: { icon: 'ri-group-line' },
+    //     to: { name: 'about', hash: '#team' },
+    //   },
+    //   {
+    //     title: 'Company Philosophy',
+    //     icon: { icon: 'ri-megaphone-line' },
+    //     to: { name: 'about', hash: '#culture' },
+    //   },
+    // ],
   },
   {
     title: 'Test Service',
