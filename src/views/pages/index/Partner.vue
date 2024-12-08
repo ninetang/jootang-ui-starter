@@ -47,6 +47,7 @@ const partners = [
         <VImg
           :src="data.img"
           width="200"
+          height=""
         />
       </a>
     </VCard>

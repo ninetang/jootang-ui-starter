@@ -74,7 +74,7 @@ export default [
           },
           {
             title: 'Laser Product Test',
-            to: { name: 'services-tab', params: { tab: 'Laser Product' } },
+            to: { name: 'services-tab', params: { tab: 'laser' } },
           },
           {
             title: 'Reliability Test',
@@ -88,31 +88,31 @@ export default [
         children: [
           {
             title: 'North America Certification',
-            to: null,
+            to: { name: 'services-tab', params: { tab: 'north-america' } },
           },
           {
             title: 'European Certification',
-            to: null,
+            to: { name: 'services-tab', params: { tab: 'european' } },
           },
           {
             title: 'Australia Certification',
-            to: null,
+            to: { name: 'services-tab', params: { tab: 'australia' } },
           },
           {
             title: 'China Certification',
-            to: null,
+            to: { name: 'services-tab', params: { tab: 'china' } },
           },
           {
             title: 'Asia Certification',
-            to: null,
+            to: { name: 'services-tab', params: { tab: 'asia' } },
           },
           {
             title: 'South America Certification',
-            to: null,
+            to: { name: 'services-tab', params: { tab: 'south-america' } },
           },
           {
             title: 'Other Certifications',
-            to: null,
+            to: { name: 'services-tab', params: { tab: 'other' } },
           },
         ],
       },

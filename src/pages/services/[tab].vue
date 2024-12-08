@@ -1,6 +1,12 @@
 <script lang="ts" setup>
-import AuthItem from '@/views/pages/news/services/AuthItem.vue'
 import TopImg from '@/views/pages/TopImg.vue'
+import TestItem from '@/views/pages/news/services/TestItem.vue'
+import AuthItem from '@/views/pages/news/services/AuthItem.vue'
+
+const activeList = ref('Test')
+const activeTab = ref('Test')
+
+console.log(activeList.value, activeTab.value)
 
 const test = [
   ['Safety安全检测', 'ri-shield-flash-line', 'safety'],
@@ -20,25 +26,25 @@ const technical = [
 ]
 
 const country = [
-  ['NorthAmerica', '北美认证', [
+  ['north-america', '北美认证', [
     'UL', 'ETL', 'CSA', 'Energystar', 'DLC', 'CEC', 'DOE LM-80', 'LM-79', 'FCC', 'IC', 'FDA',
   ]],
-  ['Europe', '欧洲认证', [
+  ['european', '欧洲认证', [
     'CE', 'CB', 'GS', 'ENEC', 'TUV Mark', 'ERP', 'Rohs', 'REACH', 'PAHS',
   ]],
-  ['Australia', '澳大利亚认证', [
+  ['australia', '澳大利亚认证', [
     'SAA', 'RCM', 'LCP',
   ]],
-  ['China', '中国认证', [
+  ['china', '中国认证', [
     'CCC', 'CQC', '中国节能认证',
   ]],
-  ['Asia', '亚洲认证', [
+  ['asia', '亚洲认证', [
     '日本MIC认证', '日本PSE认证', '日本VCCI认证', '日本JATE认证', '日本TELEC认证', '日本METI备案', '新加坡IMDA认证', '新加坡CPS认证', '韩国KC认证',
   ]],
-  ['SouthAmerica', '南美认证', [
+  ['south-america', '南美认证', [
     '巴西INMETRO认证', '墨西哥NOM认证', '阿根廷IRAM认证',
   ]],
-  ['Other', '其他国家认证', [
+  ['other', '其他国家认证', [
     'CB认证', 'BQB蓝牙认证', 'UN38.3认证', 'TUV Mark认证',
   ]],
 ]
@@ -89,23 +95,6 @@ definePage({
                 :to="{ name: 'services-tab', params: { tab: value } }"
               />
             </VListGroup>
-            <!--            <VListGroup value="Technical"> -->
-            <!--              <template #activator="{ props }"> -->
-            <!--                <VListItem -->
-            <!--                  v-bind="props" -->
-            <!--                  prepend-icon="ri-tools-line" -->
-            <!--                  title="技术服务" -->
-            <!--                /> -->
-            <!--              </template> -->
-            <!--              <VListItem -->
-            <!--                v-for="([title, icon, value], i) in technical" -->
-            <!--                :key="i" -->
-            <!--                :value="value" -->
-            <!--                :title="title" -->
-            <!--                :prepend-icon="icon" -->
-            <!--                :to="{ name: 'services-tab', params: { tab: value } }" -->
-            <!--              /> -->
-            <!--            </VListGroup> -->
 
             <VListGroup value="Credential">
               <template #activator="{ props }">
@@ -146,10 +135,14 @@ definePage({
       md="9"
     >
       <VWindow
+        v-model:active-item="activeTab"
         class="disable-tab-transition"
         :touch="false"
       >
-        <VWindowItem>
+        <VWindowItem v-if="activeList === 'Test'">
+          <TestItem />
+        </VWindowitem>
+        <VWindowItem v-if="activeList === 'Credential'">
           <AuthItem />
         </VWindowitem>
       </VWindow>

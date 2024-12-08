@@ -1,11 +1,22 @@
 <script setup lang="ts">
 import testProjects from '@/mock/testProjects.json'
+import asia from '@/mock/asia.json'
+import australia from '@/mock/australia.json'
+import europe from '@/mock/europe.json'
+import northAmerica from '@/mock/northAmerica.json'
+import southAmerica from '@/mock/southAmerica.json'
+import other from '@/mock/other.json'
+import china from '@/mock/china.json'
 
 const route = useRoute('services-tab')
 
-const project = computed(() => {
-  return testProjects.testItems.find(item => item.title.toLowerCase() === route.params.tab.toLowerCase())
-})
+console.log(route.params.tab)
+
+// const project = computed(() => {
+//   return china.items.find(item => item.name.toLowerCase() === route.params.tab.toLowerCase())
+// })
+
+const project = china.items[0]
 </script>
 
 <template>
@@ -51,7 +62,7 @@ const project = computed(() => {
         </VCardTitle>
         <VList>
           <VListItem
-            v-for="item in project.advantages"
+            v-for="item in project.methods"
             :key="item"
           >
             <VListItemTitle class="text-wrap">
