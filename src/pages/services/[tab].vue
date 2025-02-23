@@ -227,7 +227,8 @@ definePage({
 }
 
 .title {
-  background: linear-gradient(to right, rgb(127, 199, 253), rgb(74, 175, 253));
+  //background: linear-gradient(to right, rgb(127, 199, 253), rgb(74, 175, 253));
+  background: linear-gradient(to left, rgb(var(--v-global-theme-primary)) 22.16%, rgba(var(--v-global-theme-primary), 0.7) 76.47%);
   color: white;
 }
 </style>

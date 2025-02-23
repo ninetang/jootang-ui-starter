@@ -31,42 +31,44 @@ definePage({
       md="3"
     >
       <VRow class="navRow">
-        <VCard class="w-100">
-          <VListItem class="title pl-4 font-weight-bold">
-            <template #prepend>
-              <VIcon
-                icon="ri-news-line"
-                class="me-3"
-              />
-            </template>
-            <VListItemTitle>
-              新闻中心
-            </VListItemTitle>
-          </VListItem>
-          <VList
-            v-model="activeTab"
-            nav
-            :lines="false"
-          >
-            <VListItem
-              v-for="item in tabs"
-              :key="item.value"
-              :value="item.tab"
-              :to="{ name: 'news-tab', params: { tab: item.tab } }"
-            >
+        <VLayout>
+          <VCard class="w-100">
+            <VListItem class="title pl-4 font-weight-bold">
               <template #prepend>
                 <VIcon
-                  :icon="item.prependIcon"
+                  icon="ri-news-line"
                   class="me-3"
                 />
               </template>
-
               <VListItemTitle>
-                {{ item.title }}
+                新闻中心
               </VListItemTitle>
             </VListItem>
-          </VList>
-        </VCard>
+            <VList
+              v-model="activeTab"
+              nav
+              :lines="false"
+            >
+              <VListItem
+                v-for="item in tabs"
+                :key="item.value"
+                :value="item.tab"
+                :to="{ name: 'news-tab', params: { tab: item.tab } }"
+              >
+                <template #prepend>
+                  <VIcon
+                    :icon="item.prependIcon"
+                    class="me-3"
+                  />
+                </template>
+
+                <VListItemTitle>
+                  {{ item.title }}
+                </VListItemTitle>
+              </VListItem>
+            </VList>
+          </VCard>
+        </VLayout>
       </VRow>
     </VCol>
     <VCol
@@ -101,7 +103,8 @@ definePage({
   margin-right: auto;
 }
 .title {
-  background: linear-gradient(to right, rgb(127,199,253), rgb(74,175,253));
+  //background: linear-gradient(to right, rgb(127,199,253), rgb(74,175,253));
+  background: linear-gradient(to left, rgb(var(--v-global-theme-primary)) 22.16%, rgba(var(--v-global-theme-primary), 0.7) 76.47%);
   color: white;
 }
 </style>
