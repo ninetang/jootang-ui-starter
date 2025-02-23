@@ -1,7 +1,16 @@
 <script setup lang="ts">
+import ItemDetail from '@/views/pages/news/items/ItemDetail.vue'
 import pages5 from '@images/pages/5.jpg'
 
 const props = defineProps<{ title: string }>()
+
+const isShowDetail = ref(false)
+const newsId = ref('')
+
+const showDetail = (id: string) => {
+  isShowDetail.value = true
+  newsId.value = id
+}
 
 const articles = [
   {
@@ -44,12 +53,14 @@ function changeList() {
   toggle.value = false
 }
 const currentPage = ref(1)
-const route = useRoute('news-tab')
 </script>
 
 <template>
   <VRow>
-    <VCard class="w-100 pa-3">
+    <VCard
+      v-if="!isShowDetail"
+      class="w-100 pa-3"
+    >
       <VCol class="d-flex justify-space-between align-center title">
         <h2>{{ props.title }}</h2>
         <div>
@@ -78,7 +89,7 @@ const route = useRoute('news-tab')
           >
             <VCard
               class="h-100"
-              :to="{ name: 'news-tab-id', params: { tab: route.params.tab, id: item.id } }"
+              @click="showDetail(item.id)"
             >
               <VImg
                 :height="200"
@@ -105,7 +116,7 @@ const route = useRoute('news-tab')
             :key="item.id"
             cols="12"
           >
-            <VCard :to="{ name: 'news-tab-id', params: { tab: route.params.tab, id: item.id } }">
+            <VCard @click="showDetail(item.id)">
               <div class="item-container">
                 <div class="item-txt">
                   <VCardItem>
@@ -145,6 +156,12 @@ const route = useRoute('news-tab')
           :total-visible="$vuetify.display.mdAndUp ? 4 : $vuetify.display.sm ? 2 : 1 "
         />
       </div>
+    </VCard>
+    <VCard class="w-100 pa-3">
+      <ItemDetail
+        v-if="isShowDetail"
+        :id="newsId"
+      />
     </VCard>
   </VRow>
 </template>

@@ -49,6 +49,12 @@ declare module 'vue-router/auto/routes' {
     'login': RouteRecordInfo<'login', '/login', Record<never, never>, Record<never, never>>,
     'news-tab': RouteRecordInfo<'news-tab', '/news/:tab', { tab: ParamValue<true> }, { tab: ParamValue<false> }>,
     'news-tab-id': RouteRecordInfo<'news-tab-id', '/news/:tab/:id', { tab: ParamValue<true>, id: ParamValue<true> }, { tab: ParamValue<false>, id: ParamValue<false> }>,
+    'news-company': RouteRecordInfo<'news-company', '/news/company', Record<never, never>, Record<never, never>>,
+    'news-company-id': RouteRecordInfo<'news-company-id', '/news/company/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
+    'news-industry': RouteRecordInfo<'news-industry', '/news/industry', Record<never, never>, Record<never, never>>,
+    'news-industry-id': RouteRecordInfo<'news-industry-id', '/news/industry/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
+    'news-technology': RouteRecordInfo<'news-technology', '/news/technology', Record<never, never>, Record<never, never>>,
+    'news-technology-id': RouteRecordInfo<'news-technology-id', '/news/technology/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     'second-page': RouteRecordInfo<'second-page', '/second-page', Record<never, never>, Record<never, never>>,
     'services-tab': RouteRecordInfo<'services-tab', '/services/:tab', { tab: ParamValue<true> }, { tab: ParamValue<false> }>,
   }

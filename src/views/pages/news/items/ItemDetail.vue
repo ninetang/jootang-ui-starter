@@ -1,12 +1,12 @@
-<script lang="ts">
-
+<script lang="ts" setup>
+const props = defineProps<{ id: string }>()
 </script>
 
 <template>
   <VRow>
     <VCard class="w-100 pa-5">
       <VCardTitle class="text-center">
-        Title {{ $route.params.id }}
+        Title {{ props.id }}
       </VCardTitle>
       <div class="d-flex justify-center mb-2">
         <VCardSubtitle>
