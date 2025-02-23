@@ -170,6 +170,7 @@ export default defineComponent({
 
   &.layout-navbar-sticky .layout-navbar {
     @extend %layout-navbar-sticky;
+    position: static;
   }
 
   &.layout-navbar-hidden .layout-navbar {
@@ -179,6 +180,8 @@ export default defineComponent({
   // 👉 Footer
   .layout-footer {
     @include mixins.boxed-content;
+    padding-inline: 0 !important;
+    max-inline-size: none !important;
   }
 
   // 👉 Layout overlay

@@ -5,11 +5,11 @@ import { themeConfig } from '@themeConfig'
 // Components
 import Footer from '@/layouts/components/Footer.vue'
 import NavbarThemeSwitcher from '@/layouts/components/NavbarThemeSwitcher.vue'
-import UserProfile from '@/layouts/components/UserProfile.vue'
 import NavBarI18n from '@core/components/I18n.vue'
 
 // @layouts plugin
 import { VerticalNavLayout } from '@layouts'
+import NavBarTel from '@/layouts/components/NavBarTel.vue'
 
 // SECTION: Loading Indicator
 const isFallbackStateActive = ref(false)
@@ -47,7 +47,7 @@ watch([isFallbackStateActive, refLoadingIndicator], () => {
           v-if="themeConfig.app.i18n.enable && themeConfig.app.i18n.langConfig?.length"
           :languages="themeConfig.app.i18n.langConfig"
         />
-        <UserProfile />
+        <NavBarTel />
       </div>
     </template>
 
