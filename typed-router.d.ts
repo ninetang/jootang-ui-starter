@@ -57,6 +57,20 @@ declare module 'vue-router/auto/routes' {
     'news-technology-id': RouteRecordInfo<'news-technology-id', '/news/technology/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     'second-page': RouteRecordInfo<'second-page', '/second-page', Record<never, never>, Record<never, never>>,
     'services-tab': RouteRecordInfo<'services-tab', '/services/:tab', { tab: ParamValue<true> }, { tab: ParamValue<false> }>,
+    'services-certification-asia-tab': RouteRecordInfo<'services-certification-asia-tab', '/services/certification/asia/:tab', { tab: ParamValue<true> }, { tab: ParamValue<false> }>,
+    'services-certification-australia-tab': RouteRecordInfo<'services-certification-australia-tab', '/services/certification/australia/:tab', { tab: ParamValue<true> }, { tab: ParamValue<false> }>,
+    'services-certification-china-tab': RouteRecordInfo<'services-certification-china-tab', '/services/certification/china/:tab', { tab: ParamValue<true> }, { tab: ParamValue<false> }>,
+    'services-certification-european-tab': RouteRecordInfo<'services-certification-european-tab', '/services/certification/european/:tab', { tab: ParamValue<true> }, { tab: ParamValue<false> }>,
+    'services-certification-north-america-tab': RouteRecordInfo<'services-certification-north-america-tab', '/services/certification/north-america/:tab', { tab: ParamValue<true> }, { tab: ParamValue<false> }>,
+    'services-certification-other-tab': RouteRecordInfo<'services-certification-other-tab', '/services/certification/other/:tab', { tab: ParamValue<true> }, { tab: ParamValue<false> }>,
+    'services-certification-south-america-tab': RouteRecordInfo<'services-certification-south-america-tab', '/services/certification/south-america/:tab', { tab: ParamValue<true> }, { tab: ParamValue<false> }>,
+    'services-test-items-chemical': RouteRecordInfo<'services-test-items-chemical', '/services/test-items/chemical', Record<never, never>, Record<never, never>>,
+    'services-test-items-efficiency': RouteRecordInfo<'services-test-items-efficiency', '/services/test-items/efficiency', Record<never, never>, Record<never, never>>,
+    'services-test-items-emc': RouteRecordInfo<'services-test-items-emc', '/services/test-items/emc', Record<never, never>, Record<never, never>>,
+    'services-test-items-laser': RouteRecordInfo<'services-test-items-laser', '/services/test-items/laser', Record<never, never>, Record<never, never>>,
+    'services-test-items-reliability': RouteRecordInfo<'services-test-items-reliability', '/services/test-items/reliability', Record<never, never>, Record<never, never>>,
+    'services-test-items-rf': RouteRecordInfo<'services-test-items-rf', '/services/test-items/rf', Record<never, never>, Record<never, never>>,
+    'services-test-items-safety': RouteRecordInfo<'services-test-items-safety', '/services/test-items/safety', Record<never, never>, Record<never, never>>,
   }
 }
 

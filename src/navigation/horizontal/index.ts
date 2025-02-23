@@ -54,32 +54,32 @@ export default [
         children: [
           {
             title: 'Safety Test',
-            to: { name: 'services-tab', params: { tab: 'safety' } },
+            to: { name: 'services-test-items-safety' },
             exact: true,
           },
           {
             title: 'Efficiency Test',
-            to: { name: 'services-tab', params: { tab: 'efficiency' } },
+            to: { name: 'services-test-items-efficiency' },
           },
           {
             title: 'EMC Test',
-            to: { name: 'services-tab', params: { tab: 'emc' } },
+            to: { name: 'services-test-items-emc' },
           },
           {
             title: 'RF Test',
-            to: { name: 'services-tab', params: { tab: 'rf' } },
+            to: { name: 'services-test-items-rf' },
           },
           {
             title: 'Chemical Test',
-            to: { name: 'services-tab', params: { tab: 'chemical' } },
+            to: { name: 'services-test-items-chemical' },
           },
           {
             title: 'Laser Product Test',
-            to: { name: 'services-tab', params: { tab: 'laser' } },
+            to: { name: 'services-test-items-laser' },
           },
           {
             title: 'Reliability Test',
-            to: { name: 'services-tab', params: { tab: 'reliability' } },
+            to: { name: 'services-test-items-reliability' },
           },
         ],
       },
@@ -89,31 +89,31 @@ export default [
         children: [
           {
             title: 'North America Certification',
-            to: { name: 'services-tab', params: { tab: 'northAmerica' } },
+            to: { name: 'services-certification-north-america-tab', params: { tab: 'UL' } },
           },
           {
             title: 'European Certification',
-            to: { name: 'services-tab', params: { tab: 'european' } },
+            to: { name: 'services-certification-european-tab', params: { tab: 'CE' } },
           },
           {
             title: 'Australia Certification',
-            to: { name: 'services-tab', params: { tab: 'australia' } },
+            to: { name: 'services-certification-australia-tab', params: { tab: 'SAA' } },
           },
           {
             title: 'China Certification',
-            to: { name: 'services-tab', params: { tab: 'china' } },
+            to: { name: 'services-certification-china-tab', params: { tab: 'CCC' } },
           },
           {
             title: 'Asia Certification',
-            to: { name: 'services-tab', params: { tab: 'asia' } },
+            to: { name: 'services-certification-asia-tab', params: { tab: 'MIC' } },
           },
           {
             title: 'South America Certification',
-            to: { name: 'services-tab', params: { tab: 'southAmerica' } },
+            to: { name: 'services-certification-south-america-tab', params: { tab: 'INMETRO' } },
           },
           {
             title: 'Other Certifications',
-            to: { name: 'services-tab', params: { tab: 'other' } },
+            to: { name: 'services-certification-other-tab', params: { tab: 'CB' } },
           },
         ],
       },
