@@ -1,6 +1,7 @@
 {
   "items": [
     {
+      "id": "日本MIC认证",
       "name": "日本MIC认证",
       "introduction": [
         "MIC认证是日本针对无线产品的强制性认证，类似于国内的SRRC。",
@@ -21,6 +22,7 @@
       ]
     },
     {
+      "id": "日本PSE认证",
       "name": "日本PSE认证",
       "introduction": [
         "PSE认证是日本产品安全标志，日本的DENTORL法（电器装置和材料控制法）规定，498种产品进入日本市场必须通过安全认证。"
@@ -36,6 +38,7 @@
       ]
     },
     {
+        "id": "日本VCCI认证",
       "name": "日本VCCI认证",
       "introduction": [
         "VCCI是日本的电磁兼容认证标志，由日本电磁干扰控制委员会Voluntary Control Council for Interference by Information Technology Equipment)管理，根据 CISPR 22评估信息技术产品是否符合VCCI要求。",
@@ -63,6 +66,7 @@
       ]
     },
     {
+      "id": "日本JATE认证",
       "name": "日本JATE认证",
       "introduction": [
         "JATE(Japan Approvals Institute for Telecommunications Equipment)认证是电信设备符合性认证。此认证是针对日本的通讯设备。确保设备满足日本“電気通信事業法〞。",
@@ -78,6 +82,7 @@
       "methods": []
     },
     {
+      "id": "日本TELEC认证",
       "name": "日本TELEC认证",
       "introduction": [
         "TELEC(Telecom Engineering Center）是日本无线电设备符合件认证的主要的注册认证机构。",
@@ -96,6 +101,7 @@
       ]
     },
     {
+      "id": "日本METI备案",
       "name": "日本METI备案",
       "introduction": [
         "日本的DENTORL法（电器装置和材料控制法）规定，要求日本的采购商在购进商品后一个月内必须向日本METI注册申报，并必须将采购商名称或ID标在产品上，以便在今后产品销售过程中进行监督管理。",
@@ -112,6 +118,7 @@
       ]
     },
     {
+      "id": "新加坡IMDA认证",
       "name": "新加坡IMDA认证",
       "introduction": [
         "IMDA作为新加坡政府的法定董事会，它致力于深化融合信息通信媒体领域的监管能力，维护消费者利益和促进亲企业监管。",
@@ -124,6 +131,7 @@
       "methods": []
     },
     {
+      "id": "新加坡CPS认证",
       "name": "新加坡CPS认证",
       "introduction": [
         "“消费者保护（安全要求）条例”（CPSR）要求在新加坡企业部注册33类家用产品，也称为受控货物。",
@@ -135,6 +143,7 @@
       "methods": []
     },
     {
+      "id": "韩国KC认证",
       "name": "韩国KC认证",
       "introduction": [
         "为了使消费者能更清楚地了解所购买的产品上标示的认证标志，以及减轻产品生产厂家负担的各种认证费用，韩国技术标准院（KATS）2008年8月20日宣布于2009年1月1日开始实行新的认证系统KC（Korea Certification）认证。",

@@ -1,6 +1,7 @@
 {
   "items": [
     {
+      "id": "CE",
       "name": "CE认证",
       "introduction": [
         "\"CE\"标志是一种安全认证标志，被视为制造商打开并进入欧洲市场的护照。在欧盟市场\"CE\"标志属强制性认证标志，不论是欧盟内部企业生产的产品，还是其他国家生产的产品，要想在欧盟市场上自由流通，就必须加贴\"CE\"标志，以表明产品符合欧盟《技术协调与标准化新方法》指令的基本要求。"
@@ -20,6 +21,7 @@
       ]
     },
     {
+      "id": "ERP",
       "name": "ERP认证",
       "introduction": [
         "ERP认证是CE认证的能效认证部分，2013年开始强制执行。ErP=Energy-related Products，即能源相关产品。指的是任何已经投放于市场和/或已经被交付使用的，而且在其使用过程中会对能源消耗有影响的产品。",
@@ -47,6 +49,7 @@
       ]
     },
     {
+      "id": "GS",
       "name": "GS认证",
       "introduction": [
         "GS的含义是德语\"Geprufte Sicherheit\"(安全性已认证)，也有\"Germany Safety\"（德国安全）的意思。",
@@ -79,6 +82,7 @@
       ]
     },
     {
+      "id": "UKCA",
       "name": "英国UKCA认证",
       "introduction": [
         "UKCA是英国合格认定(UK Conformity Assessed)的简称。",
@@ -103,6 +107,7 @@
       ]
     },
     {
+      "id": "TTE",
       "name": "无线R&TTE认证",
       "introduction": [
         "R&TTE认证是欧洲的一项无线电及通讯终端指令，覆盖了有短距离无线遥控产品，专业无线电遥控产品，蓝牙产品，通讯设备等所有产品，只要涉及到无线蓝牙功角模块的电子产品出口欧盟之前都需要先根据R&TTE指令执行测试取得认可。",
@@ -125,6 +130,7 @@
       ]
     },
     {
+      "id": "ENEC",
       "name": "ENEC认证",
       "introduction": [
         "ENEC (European Norms Electrical Certification，欧洲标准电器认证) 是 CENELEC (欧洲执委会电工标准化组织) 的一项认证计划，该计划是针对特定并符合欧洲标准的产品(如照明设备，组件，及办公室&数据设备)所使用的通用欧洲标准。",
@@ -150,6 +156,7 @@
       ]
     },
     {
+      "id": "WEEE",
       "name": "德国WEEE注册",
       "introduction": [
         "德国WEEE注册是Waste Electrical and Electronic Equipment (WEEE)的缩写，是德国乃至欧盟对于报废电子电器设备（带电设备）的一项设备回收指令，2002年欧盟通过了两项对于电子电器影响比较大的指令，也是如今产品出口欧洲必须做的两项检测，分别为ROHS(指令)及WEEE注册（指令）。",
@@ -170,6 +177,7 @@
       ]
     },
     {
+      "id": "PAHS",
       "name": "Pahs认证",
       "introduction": [
         "Pahs认证指多环芳烃（PAHs）一种检测认证，它是一种具有两个或两个以上苯环的一类有机化合物（碳氢化合物）包括萘、蒽、菲、芘等150余种化合物。",
@@ -183,6 +191,7 @@
       "methods": []
     },
     {
+      "id": "Rohs",
       "name": "RoHs认证",
       "introduction": [
         "RoHS是由欧盟立法制定的一项强制性标准，它的全称是《关于限制在电子电器设备中使用某些有害成分的指令》(Restriction of Hazardous Substances)。该标准已于2006年7月1日开始正式实施，主要用于规范电子电气产品的材料及工艺标准，使之更加有利于人体健康及环境保护。",
@@ -210,6 +219,7 @@
       ]
     },
     {
+      "id": "REACH",
       "name": "REACH认证",
       "introduction": [
         "PEACH法规是指化学品注册、评估、授权和限制的欧盟1907/2006号法规，即Registration, Evaluation, Authorisation and Restriction of Chemical。REACH法规是欧盟对进入其市场的所有化学品进行预警性管理的一项强制性法规。",

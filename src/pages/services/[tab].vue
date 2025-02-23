@@ -1,18 +1,19 @@
 <script lang="ts" setup>
 import TopImg from '@/views/pages/TopImg.vue'
 
-const activeList = ref('')
+const activeTab = ref('')
+const selectCountry = ref('')
 const TestItem = defineAsyncComponent(() => import('@/views/pages/news/services/TestItem.vue'))
 const AuthItem = defineAsyncComponent(() => import('@/views/pages/news/services/AuthItem.vue'))
 
 const test = [
-  ['Safety安全检测', 'ri-shield-flash-line', 'safety'],
-  ['Efficiency能效检测', 'ri-lightbulb-line', 'efficiency'],
-  ['EMC电磁兼容检测', 'ri-pulse-line', 'emc'],
-  ['射频测试', 'ri-signal-tower-line', 'rf'],
-  ['化学测试', 'ri-settings-5-line', 'chemical'],
-  ['光生物激光测试', 'ri-sun-line', 'laser'],
-  ['Reliability 可靠性测试', 'ri-verified-badge-line', 'reliability'],
+  ['Safety安全检测', 'ri-shield-flash-line', 'safety', 'Test'],
+  ['Efficiency能效检测', 'ri-lightbulb-line', 'efficiency', 'Test'],
+  ['EMC电磁兼容检测', 'ri-pulse-line', 'emc', 'Test'],
+  ['射频测试', 'ri-signal-tower-line', 'rf', 'Test'],
+  ['化学测试', 'ri-settings-5-line', 'chemical', 'Test'],
+  ['光生物激光测试', 'ri-sun-line', 'laser', 'Test'],
+  ['Reliability 可靠性测试', 'ri-verified-badge-line', 'reliability', 'Test'],
 ]
 
 const technical = [
@@ -23,32 +24,92 @@ const technical = [
 ]
 
 const country = [
-  ['north-america', '北美认证', [
-    'UL', 'ETL', 'CSA', 'Energystar', 'DLC', 'CEC', 'DOE LM-80', 'LM-79', 'FCC', 'IC', 'FDA',
-  ]],
-  ['european', '欧洲认证', [
-    'CE', 'CB', 'GS', 'ENEC', 'TUV Mark', 'ERP', 'Rohs', 'REACH', 'PAHS',
-  ]],
-  ['australia', '澳大利亚认证', [
-    'SAA', 'RCM', 'LCP',
-  ]],
-  ['china', '中国认证', [
-    'CCC', 'CQC', '中国节能认证',
-  ]],
-  ['asia', '亚洲认证', [
-    '日本MIC认证', '日本PSE认证', '日本VCCI认证', '日本JATE认证', '日本TELEC认证', '日本METI备案', '新加坡IMDA认证', '新加坡CPS认证', '韩国KC认证',
-  ]],
-  ['south-america', '南美认证', [
-    '巴西INMETRO认证', '墨西哥NOM认证', '阿根廷IRAM认证',
-  ]],
-  ['other', '其他国家认证', [
-    'CB认证', 'BQB蓝牙认证', 'UN38.3认证', 'TUV Mark认证',
-  ]],
+  {
+    value: 'northAmerica',
+    title: '北美认证',
+    items: [
+      'UL', 'ETL', 'CSA', 'Energystar', 'DLC', 'CEC', 'DOE LM-80', 'LM-79', 'FCC', 'IC', 'FDA',
+    ],
+    tab: 'Credential',
+  },
+  {
+    value: 'europe',
+    title: '欧洲认证',
+    items: [
+      'CE', 'CB', 'GS', 'ENEC', 'TUV Mark', 'ERP', 'Rohs', 'REACH', 'PAHS',
+    ],
+    tab: 'Credential',
+  },
+  {
+    value: 'australia',
+    title: '澳大利亚认证',
+    items: [
+      'SAA', 'RCM', 'LCP',
+    ],
+    tab: 'Credential',
+  },
+  {
+    value: 'china',
+    title: '中国认证',
+    items: [
+      'CCC', 'CQC', '中国节能认证',
+    ],
+    tab: 'Credential',
+  },
+  {
+    value: 'asia',
+    title: '亚洲认证',
+    items: [
+      '日本MIC认证',
+      '日本PSE认证',
+      '日本VCCI认证',
+      '日本JATE认证',
+      '日本TELEC认证',
+      '日本METI备案',
+      '新加坡IMDA认证',
+      '新加坡CPS认证',
+      '韩国KC认证',
+    ],
+    tab: 'Credential',
+  },
+  {
+    value: 'southAmerica',
+    title: '南美认证',
+    items: [
+      '巴西INMETRO认证', '墨西哥NOM认证', '阿根廷IRAM认证',
+    ],
+    tab: 'Credential',
+  },
+  {
+    value: 'other',
+    title: '其他国家认证',
+    items: [
+      'CB认证', 'BQB蓝牙认证', 'UN38.3认证', 'TUV Mark认证',
+    ],
+    tab: 'Credential',
+  },
 ]
 
-const updateActive = (value: string) => {
-  activeList.value = value
+const activeComponent = computed(() => {
+  const componentMap = {
+    Test: TestItem,
+    Credential: AuthItem,
+  }
+
+  return componentMap[activeTab.value] || null
+})
+
+const activeItem = item => {
+  activeTab.value = item.tab
+  country.value = item.value
 }
+
+const route = useRoute()
+
+watch(() => route.params, (newValue, oldValue) => {
+  console.log('newValue', newValue.tab)
+  console.log('oldValue', oldValue.tab)
+})
 
 definePage({
   meta: {
@@ -75,10 +136,10 @@ definePage({
             </VListItemTitle>
           </VListItem>
           <VList
-            v-model="activeList"
+            v-model="activeTab"
             nav
           >
-            <VListGroup value="Test">
+            <VListGroup>
               <template #activator="{ props }">
                 <VListItem
                   v-bind="props"
@@ -87,17 +148,17 @@ definePage({
                 />
               </template>
               <VListItem
-                v-for="([title, icon, value], i) in test"
+                v-for="([title, icon, value, tab], i) in test"
                 :key="i"
                 :value="value"
                 :title="title"
                 :prepend-icon="icon"
                 :to="{ name: 'services-tab', params: { tab: value } }"
-                @click="updateActive('Test')"
+                @click="activeTab = tab"
               />
             </VListGroup>
 
-            <VListGroup value="Credential">
+            <VListGroup>
               <template #activator="{ props }">
                 <VListItem
                   v-bind="props"
@@ -107,24 +168,24 @@ definePage({
               </template>
 
               <VListGroup
-                v-for="([value, title, items], i) in country"
+                v-for="(item, i) in country"
                 :key="i"
-                :value="value"
+                :value="item.value"
               >
                 <template #activator="{ props }">
                   <VListItem
                     v-bind="props"
-                    :title="title as string"
+                    :title="item.title"
                   />
                 </template>
 
                 <VListItem
-                  v-for="(item, i) in items"
+                  v-for="(subItem, i) in item.items"
                   :key="i"
-                  :value="item"
-                  :title="item"
-                  :to="{ name: 'services-tab', params: { tab: item } }"
-                  @click="updateActive('Credential')"
+                  :value="subItem"
+                  :title="subItem"
+                  :to="{ name: 'services-tab', params: { tab: `${item.value}/${subItem}` } }"
+                  @click="activeItem(item)"
                 />
               </VListGroup>
             </VListGroup>
@@ -136,17 +197,21 @@ definePage({
       cols="12"
       md="9"
     >
-      <VWindow
-        v-model="activeList"
-        class="disable-tab-transition"
-      >
-        <VWindowItem value="Credential">
-          <AuthItem />
-        </VWindowItem>
-        <VWindowItem value="Test">
-          <TestItem />
-        </VWindowItem>
-      </VWindow>
+      <component
+        :is="activeComponent"
+        :select-country="selectCountry"
+      />
+      <!--      <VWindow -->
+      <!--        v-model="activeTab" -->
+      <!--        class="disable-tab-transition" -->
+      <!--      > -->
+      <!--        <VWindowItem value="Credential"> -->
+      <!--          <AuthItem /> -->
+      <!--        </VWindowItem> -->
+      <!--        <VWindowItem value="Test"> -->
+      <!--          <TestItem /> -->
+      <!--        </VWindowItem> -->
+      <!--      </VWindow> -->
     </VCol>
   </VRow>
 </template>

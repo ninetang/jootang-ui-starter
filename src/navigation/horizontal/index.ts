@@ -13,12 +13,12 @@ export default [
     //   {
     //     title: 'Company Profile',
     //     icon: { icon: 'ri-community-line' },
-    //     to: 'about',
+    //     to: { name: 'about', hash: '#profile' },
     //   },
     //   {
     //     title: 'Corporate Vision',
     //     icon: { icon: 'ri-eye-line' },
-    //     to: 'about',
+    //     to: { name: 'about', hash: '#wish' },
     //   },
     //   {
     //     title: 'Company History',
@@ -55,6 +55,7 @@ export default [
           {
             title: 'Safety Test',
             to: { name: 'services-tab', params: { tab: 'safety' } },
+            exact: true,
           },
           {
             title: 'Efficiency Test',
@@ -88,7 +89,7 @@ export default [
         children: [
           {
             title: 'North America Certification',
-            to: { name: 'services-tab', params: { tab: 'north-america' } },
+            to: { name: 'services-tab', params: { tab: 'northAmerica' } },
           },
           {
             title: 'European Certification',
@@ -108,7 +109,7 @@ export default [
           },
           {
             title: 'South America Certification',
-            to: { name: 'services-tab', params: { tab: 'south-america' } },
+            to: { name: 'services-tab', params: { tab: 'southAmerica' } },
           },
           {
             title: 'Other Certifications',

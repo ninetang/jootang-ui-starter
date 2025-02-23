@@ -148,7 +148,7 @@ const cooperators = [
                     <div class="border image-container">
                       <VImg
                         :src="data.img"
-                        width="250"
+                        width="200"
                         border="border"
                         class="mb-2 image-zoom"
                       />

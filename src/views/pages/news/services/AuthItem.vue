@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import testProjects from '@/mock/testProjects.json'
 import asia from '@/mock/asia.json'
 import australia from '@/mock/australia.json'
 import europe from '@/mock/europe.json'
@@ -8,15 +7,30 @@ import southAmerica from '@/mock/southAmerica.json'
 import other from '@/mock/other.json'
 import china from '@/mock/china.json'
 
-const route = useRoute('services-tab')
+const route = useRoute()
 
-console.log(route.params.tab)
+const tabDataMap = {
+  asia,
+  australia,
+  europe,
+  northAmerica,
+  southAmerica,
+  other,
+  china,
+}
 
 // const project = computed(() => {
-//   return china.items.find(item => item.name.toLowerCase() === route.params.tab.toLowerCase())
+//   console.log(`route: ${route.params.tab}`)
+//
+//   return tabDataMap[route.params.tab]
 // })
 
-const project = china.items[0]
+// const tabData = tabDataMap[props.selectCountry]
+const project = computed(() => {
+  const selectCountry = route.params.tab.split('/')
+
+  return tabDataMap[selectCountry[0]].items.find(item => selectCountry[1].toLowerCase() === item.id.toLowerCase())
+})
 </script>
 
 <template>

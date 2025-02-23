@@ -1,6 +1,7 @@
 {
   "items": [
     {
+      "id": "inmetro",
       "name": "巴西inmetro认证",
       "introduction": [
         "是巴西的国家认可机构（Accreditation Body），负责制定巴西国家标准。巴西的产品标准大部分以IEC和ISO标准为基础，需要把产品出口到巴西的制造商在设计产品时应该参考这两套标准。凡符合巴西标准及其他技术性要求的产品，必须加上强制性的INMETRO标志及经认可的第三方认证机构的标志，才能进入巴西市场。"
@@ -32,6 +33,7 @@
       ]
     },
     {
+      "id": "NOM",
       "name": "墨西哥NOM认证",
       "introduction": [
         "Normas Oficiales Mexicanas标志是墨西哥的强制性安全标志，用以表示产品是符合相关的NOM标准。NOM标志适用于大部分产品，包括电信及信息技术设备、家庭电气用品、灯具和其他对健康及安全具有潜在危险的产品。不论是在墨西哥本地制造或是进口的产品，均须符合相关的NOM标准及产品标注规定。",
@@ -58,6 +60,7 @@
       ]
     },
     {
+      "id": "IRAM",
       "name": "阿根廷IRAM认证",
       "introduction": [
         "IRAM建立于1935年，它是被OAA（Argentina Accreditation Organization — 阿根廷资格鉴定组织）认可的电子技术产品的认证机构，也是被政府认可的强制认证产品的认证机构。",
