@@ -11,29 +11,29 @@ interface Menu {
 }
 
 const services: Menu[] = [
-  { name: 'Efficiency Test', to: { name: '' } },
-  { name: 'Safety Test', to: { name: '' } },
-  { name: 'EMC Test', to: { name: '' } },
-  { name: 'RF Test', to: { name: '' } },
-  { name: 'Chemical Test', to: { name: '' } },
-  { name: 'Laser Product Test', to: { name: '' } },
-  { name: 'Reliability Test', to: { name: '' } },
+  { name: 'Safety Test', to: { name: 'services-test-items-safety' } },
+  { name: 'Efficiency Test', to: { name: 'services-test-items-efficiency' } },
+  { name: 'EMC Test', to: { name: 'services-test-items-emc' } },
+  { name: 'RF Test', to: { name: 'services-test-items-rf' } },
+  { name: 'Chemical Test', to: { name: 'services-test-items-chemical' } },
+  { name: 'Laser Product Test', to: { name: 'services-test-items-laser' } },
+  { name: 'Reliability Test', to: { name: 'services-test-items-reliability' } },
 ]
 
 const powers: Menu[] = [
-  { name: 'North America Certification', to: { name: '' } },
-  { name: 'European Certification', to: { name: '' } },
-  { name: 'Australia Certification', to: { name: '' } },
-  { name: 'Asia Certification', to: { name: '' } },
-  { name: 'South America Certification', to: { name: '' } },
-  { name: 'China Certification', to: { name: '' } },
-  { name: 'Other Certifications', to: { name: '' } },
+  { name: 'North America Certification', to: { name: 'services-certification-north-america-tab' }, tab: 'UL' },
+  { name: 'European Certification', to: { name: 'services-certification-european-tab' }, tab: 'CE' },
+  { name: 'Australia Certification', to: { name: 'services-certification-australia-tab' }, tab: 'SAA' },
+  { name: 'China Certification', to: { name: 'services-certification-china-tab' }, tab: 'CCC' },
+  { name: 'Asia Certification', to: { name: 'services-certification-asia-tab' }, tab: 'MIC' },
+  { name: 'South America Certification', to: { name: 'services-certification-south-america-tab' }, tab: 'INMETRO' },
+  { name: 'Other Certifications', to: { name: 'services-certification-other-tab' }, tab: 'CB' },
 ]
 
 const news: Menu[] = [
-  { name: 'Company News', to: { name: '' } },
-  { name: 'Industry Information', to: { name: '' } },
-  { name: 'Standard Code', to: { name: '' } },
+  { name: 'Company News', to: { name: 'news-company' }, tab: 'company' },
+  { name: 'Industry Information', to: { name: 'news-industry' }, tab: 'industry' },
+  { name: 'Technical Articles', to: { name: 'news-technology' }, tab: 'technology' },
 ]
 
 const products: Menu[] = [
@@ -110,7 +110,7 @@ const products: Menu[] = [
                   >
                     <RouterLink
                       class="footer-text text-no-wrap"
-                      :to="item.to"
+                      :to="{ name: item.to.name, params: { tab: item.tab } }"
                     >
                       <div class="d-flex align-center">
                         <div>{{ $t(item.name) }}</div>
@@ -152,7 +152,7 @@ const products: Menu[] = [
                   >
                     <RouterLink
                       class="footer-text text-no-wrap"
-                      :to="item.to"
+                      :to="{ name: item.to.name, params: { tab: item.tab } }"
                     >
                       <div class="d-flex align-center">
                         <div>{{ $t(item.name) }}</div>

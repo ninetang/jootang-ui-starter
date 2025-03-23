@@ -47,12 +47,13 @@ const partners = [
         <VImg
           :src="data.img"
           width="200"
-          height=""
+          height="180"
         />
       </a>
     </VCard>
   </VRow>
 </template>
+
 <style lang="scss" scoped>
 .feature-card {
   margin-block-end: 4.25rem;
