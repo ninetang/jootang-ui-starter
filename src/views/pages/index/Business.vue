@@ -8,62 +8,48 @@ import china from '@images/areas/china.webp'
 import north from '@images/areas/north-america.webp'
 import eourape from '@images/areas/eourape.webp'
 import australia from '@images/areas/australia.webp'
-import zhongdong from '@images/areas/zhongdong.webp'
 import more from '@images/areas/more.webp'
-import japan from '@images/areas/japan.webp'
-import korea from '@images/areas/korea.webp'
 
 const testService = [
   {
     title: 'Safety安全检测',
     img: LaptopCharging,
+    url: 'services-test-items-safety',
   },
   {
     title: 'Efficiency能效检测',
     img: TransitionUp,
+    url: 'services-test-items-efficiency',
   },
   {
     title: 'EMC电磁兼容检测',
     img: Edit,
+    url: 'services-test-items-emc',
   },
   {
     title: '射频测试',
     img: SelectSolid,
+    url: 'services-test-items-rf',
   },
   {
     title: '化学检测',
     img: Lifebelt,
+    url: 'services-test-items-chemical',
   },
   {
     title: '光生物激光测试',
     img: Lifebelt,
+    url: 'services-test-items-laser',
   },
   {
     title: '可靠性测试',
     img: Lifebelt,
+    url: 'services-test-items-reliability',
   },
   {
     title: '更多测试',
     img: Lifebelt,
-  },
-]
-
-const technologyService = [
-  {
-    title: '安规整改',
-    img: LaptopCharging,
-  },
-  {
-    title: '验厂辅导',
-    img: TransitionUp,
-  },
-  {
-    title: 'EMC整改',
-    img: Edit,
-  },
-  {
-    title: '跨境电商合规辅导',
-    img: SelectSolid,
+    url: 'services-test-items-safety',
   },
 ]
 
@@ -71,22 +57,32 @@ const authentication = [
   {
     title: '北美认证',
     img: north,
+    url: 'services-certification-north-america-tab',
+    tab: 'UL',
   },
   {
     title: '欧盟认证',
     img: eourape,
+    url: 'services-certification-european-tab',
+    tab: 'CE',
   },
   {
     title: '澳洲认证',
     img: australia,
+    url: 'services-certification-australia-tab',
+    tab: 'SAA',
   },
   {
     title: '中国认证',
     img: china,
+    url: 'services-certification-china-tab',
+    tab: 'CCC',
   },
   {
     title: '其他国家认证',
     img: more,
+    url: 'services-certification-north-america-tab',
+    tab: 'UL',
   },
 ]
 
@@ -127,14 +123,16 @@ const tabItems = ['检测项目', '国际认证']
                   md="3"
                 >
                   <div class="feature d-flex flex-column gap-y-2 align-center justify-center mt-2">
-                    <VAvatar
-                      variant="outlined"
-                      size="84"
-                      color="primary"
-                      class="mb-2"
-                    >
-                      <Component :is="data.img" />
-                    </VAvatar>
+                    <RouterLink :to="{ name: data.url }">
+                      <VAvatar
+                        variant="outlined"
+                        size="84"
+                        color="primary"
+                        class="mb-2"
+                      >
+                        <Component :is="data.img" />
+                      </VAvatar>
+                    </RouterLink>
 
                     <h5 class="text-h5">
                       {{ data.title }}
@@ -145,39 +143,6 @@ const tabItems = ['检测项目', '国际认证']
             </div>
           </VContainer>
         </VWindowItem>
-        <!--        <VWindowItem -->
-        <!--          value="技术服务" -->
-        <!--          class="text-center" -->
-        <!--        > -->
-        <!--          <VContainer id="features"> -->
-        <!--            <div class="feature-cards"> -->
-        <!--              <VRow> -->
-        <!--                <VCol -->
-        <!--                  v-for="(data, index) in technologyService" -->
-        <!--                  :key="index" -->
-        <!--                  cols="12" -->
-        <!--                  sm="6" -->
-        <!--                  md="3" -->
-        <!--                > -->
-        <!--                  <div class="feature d-flex flex-column gap-y-2 align-center justify-center mt-2"> -->
-        <!--                    <VAvatar -->
-        <!--                      variant="outlined" -->
-        <!--                      size="84" -->
-        <!--                      color="primary" -->
-        <!--                      class="mb-2" -->
-        <!--                    > -->
-        <!--                      <Component :is="data.img"/> -->
-        <!--                    </VAvatar> -->
-
-        <!--                    <h5 class="text-h5"> -->
-        <!--                      {{ data.title }} -->
-        <!--                    </h5> -->
-        <!--                  </div> -->
-        <!--                </VCol> -->
-        <!--              </VRow> -->
-        <!--            </div> -->
-        <!--          </VContainer> -->
-        <!--        </VWindowItem> -->
         <VWindowItem
           value="国际认证"
           class="text-center"
@@ -193,14 +158,16 @@ const tabItems = ['检测项目', '国际认证']
                   md="3"
                 >
                   <div class="feature d-flex flex-column gap-y-2 align-center justify-center mt-2">
-                    <VAvatar
-                      variant="outlined"
-                      size="84"
-                      color="primary"
-                      class="mb-2"
-                    >
-                      <VImg :src="data.img" />
-                    </VAvatar>
+                    <RouterLink :to="{ name: data.url, params: { tab: data.tab } }">
+                      <VAvatar
+                        variant="outlined"
+                        size="84"
+                        color="primary"
+                        class="mb-2"
+                      >
+                        <VImg :src="data.img" />
+                      </VAvatar>
+                    </RouterLink>
 
                     <h5 class="text-h5">
                       {{ data.title }}
