@@ -47,8 +47,6 @@ declare module 'vue-router/auto/routes' {
     'info-query-detail': RouteRecordInfo<'info-query-detail', '/info-query/detail', Record<never, never>, Record<never, never>>,
     'info-query-result': RouteRecordInfo<'info-query-result', '/info-query/result', Record<never, never>, Record<never, never>>,
     'login': RouteRecordInfo<'login', '/login', Record<never, never>, Record<never, never>>,
-    'news-tab': RouteRecordInfo<'news-tab', '/news/:tab', { tab: ParamValue<true> }, { tab: ParamValue<false> }>,
-    'news-tab-id': RouteRecordInfo<'news-tab-id', '/news/:tab/:id', { tab: ParamValue<true>, id: ParamValue<true> }, { tab: ParamValue<false>, id: ParamValue<false> }>,
     'news-company': RouteRecordInfo<'news-company', '/news/company', Record<never, never>, Record<never, never>>,
     'news-company-id': RouteRecordInfo<'news-company-id', '/news/company/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     'news-industry': RouteRecordInfo<'news-industry', '/news/industry', Record<never, never>, Record<never, never>>,

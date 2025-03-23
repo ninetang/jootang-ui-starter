@@ -9,137 +9,137 @@ export default [
     to: { name: 'about' },
     icon: { icon: 'ri-team-line' },
 
-    children: [
-      {
-        title: 'Company Profile',
-        icon: { icon: 'ri-community-line' },
-        to: 'about',
-      },
-      {
-        title: 'Corporate Vision',
-        icon: { icon: 'ri-eye-line' },
-        to: 'about',
-      },
-      {
-        title: 'Company History',
-        icon: { icon: 'ri-timer-2-line' },
-        to: { name: 'about', hash: '#history' },
-      },
-      {
-        title: 'Certifications',
-        icon: { icon: 'ri-award-line' },
-        to: { name: 'about', hash: '#certification' },
-      },
-      {
-        title: 'Team Introduction',
-        icon: { icon: 'ri-group-line' },
-        to: { name: 'about', hash: '#team' },
-      },
-      {
-        title: 'Company Philosophy',
-        icon: { icon: 'ri-megaphone-line' },
-        to: { name: 'about', hash: '#culture' },
-      },
-    ],
+    // children: [
+    //   {
+    //     title: 'Company Profile',
+    //     icon: { icon: 'ri-community-line' },
+    //     to: { name: 'about', hash: '#profile' },
+    //   },
+    //   {
+    //     title: 'Corporate Vision',
+    //     icon: { icon: 'ri-eye-line' },
+    //     to: { name: 'about', hash: '#wish' },
+    //   },
+    //   {
+    //     title: 'Company History',
+    //     icon: { icon: 'ri-timer-2-line' },
+    //     to: { name: 'about', hash: '#history' },
+    //   },
+    //   {
+    //     title: 'Certifications',
+    //     icon: { icon: 'ri-award-line' },
+    //     to: { name: 'about', hash: '#certification' },
+    //   },
+    //   {
+    //     title: 'Team Introduction',
+    //     icon: { icon: 'ri-group-line' },
+    //     to: { name: 'about', hash: '#team' },
+    //   },
+    //   {
+    //     title: 'Company Philosophy',
+    //     icon: { icon: 'ri-megaphone-line' },
+    //     to: { name: 'about', hash: '#culture' },
+    //   },
+    // ],
   },
   {
-    title: 'Service Items',
+    title: 'Test Service',
     to: { name: 'about' },
     icon: { icon: 'ri-service-line' },
 
     children: [
       {
-        title: 'Testing Services',
+        title: 'Test Items',
         icon: { icon: 'ri-bug-line' },
         children: [
           {
-            title: 'Efficiency Testing',
-            to: { name: 'services-tab', params: { tab: 'efficiency' } },
+            title: 'Safety Test',
+            to: { name: 'services-test-items-safety' },
+            exact: true,
           },
           {
-            title: 'Electrical Safety',
-            to: { name: 'services-tab', params: { tab: 'safety' } },
+            title: 'Efficiency Test',
+            to: { name: 'services-test-items-efficiency' },
           },
           {
-            title: 'EMC Testing',
-            to: { name: 'services-tab', params: { tab: 'emc' } },
+            title: 'EMC Test',
+            to: { name: 'services-test-items-emc' },
           },
           {
-            title: 'Chemical Testing',
-            to: { name: 'services-tab', params: { tab: 'chemical' } },
+            title: 'RF Test',
+            to: { name: 'services-test-items-rf' },
           },
           {
-            title: 'Reliability Testing',
-            to: { name: 'services-tab', params: { tab: 'reliability' } },
+            title: 'Chemical Test',
+            to: { name: 'services-test-items-chemical' },
+          },
+          {
+            title: 'Laser Product Test',
+            to: { name: 'services-test-items-laser' },
+          },
+          {
+            title: 'Reliability Test',
+            to: { name: 'services-test-items-reliability' },
           },
         ],
       },
       {
-        title: 'Technical Services',
-        icon: { icon: 'ri-tools-line' },
-        children: [
-          {
-            title: 'Safety Regulation Rectification',
-            to: { name: 'services-tab', params: { tab: 'regulation' } },
-          },
-          {
-            title: 'Factory Audit Consultation',
-            to: { name: 'services-tab', params: { tab: 'factory' } },
-          },
-          {
-            title: 'EMC Rectification',
-            to: { name: 'services-tab', params: { tab: 'rectification' } },
-          },
-          {
-            title: 'Cross-Border E-Commerce Compliance Consultation',
-            to: { name: 'services-tab', params: { tab: 'e-commerce' } },
-          },
-        ],
-      },
-
-      {
-        title: 'Certification Services',
+        title: 'Global Certification',
         icon: { icon: 'ri-verified-badge-line' },
         children: [
           {
-            title: 'China Certification',
-            to: null,
-          },
-          {
-            title: 'Asia Certification',
-            to: null,
-          },
-          {
-            title: 'Middle East Certification',
-            to: null,
-          },
-          {
             title: 'North America Certification',
-            to: null,
+            to: { name: 'services-certification-north-america-tab', params: { tab: 'UL' } },
           },
           {
-            title: 'South America Certification',
-            to: null,
-          },
-          {
-            title: 'Europe Certification',
-            to: null,
+            title: 'European Certification',
+            to: { name: 'services-certification-european-tab', params: { tab: 'CE' } },
           },
           {
             title: 'Australia Certification',
-            to: null,
+            to: { name: 'services-certification-australia-tab', params: { tab: 'SAA' } },
           },
           {
-            title: 'Africa Certification',
-            to: null,
+            title: 'China Certification',
+            to: { name: 'services-certification-china-tab', params: { tab: 'CCC' } },
           },
           {
-            title: 'Other Certification',
-            to: null,
+            title: 'Asia Certification',
+            to: { name: 'services-certification-asia-tab', params: { tab: 'MIC' } },
+          },
+          {
+            title: 'South America Certification',
+            to: { name: 'services-certification-south-america-tab', params: { tab: 'INMETRO' } },
+          },
+          {
+            title: 'Other Certifications',
+            to: { name: 'services-certification-other-tab', params: { tab: 'CB' } },
           },
         ],
       },
 
+      // {
+      //   title: 'Technical Services',
+      //   icon: { icon: 'ri-tools-line' },
+      //   children: [
+      //     {
+      //       title: 'Safety Regulation Rectification',
+      //       to: { name: 'services-tab', params: { tab: 'regulation' } },
+      //     },
+      //     {
+      //       title: 'Factory Audit Consultation',
+      //       to: { name: 'services-tab', params: { tab: 'factory' } },
+      //     },
+      //     {
+      //       title: 'EMC Rectification',
+      //       to: { name: 'services-tab', params: { tab: 'rectification' } },
+      //     },
+      //     {
+      //       title: 'Cross-Border E-Commerce Compliance Consultation',
+      //       to: { name: 'services-tab', params: { tab: 'e-commerce' } },
+      //     },
+      //   ],
+      // },
     ],
   },
   {
@@ -151,22 +151,22 @@ export default [
       {
         title: 'Company News',
         icon: { icon: 'ri-newspaper-line' },
-        to: { name: 'news-tab', params: { tab: 'company' } },
+        to: { name: 'news-company', params: { tab: 'company' } },
       },
       {
         title: 'Industry Information',
         icon: { icon: 'ri-file-info-line' },
-        to: { name: 'news-tab', params: { tab: 'industry' } },
+        to: { name: 'news-industry', params: { tab: 'industry' } },
       },
       {
         title: 'Technical Articles',
         icon: { icon: 'ri-article-line' },
-        to: { name: 'news-tab', params: { tab: 'technical' } },
+        to: { name: 'news-technology', params: { tab: 'technology' } },
       },
     ],
   },
   {
-    title: 'Information Query',
+    title: 'Certificate inquires',
     to: { name: 'info-query' },
     icon: { icon: 'ri-search-line' },
   },
