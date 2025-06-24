@@ -1,12 +1,38 @@
 <script lang="ts" setup>
-import axios from 'axios'
 import TopImg from '@/views/pages/TopImg.vue'
+import axios from 'axios'
+
+// 类型定义
+interface CertificateItem {
+  id: number
+  documentId: string
+  documentNumber: string
+  applicant: string
+  applicantAddress: string
+  product: string
+  documentDate: string
+  createdAt: string
+  updatedAt: string
+  publishedAt: string
+}
+
+interface ApiResponse {
+  data: CertificateItem[]
+  meta: {
+    pagination: {
+      page: number
+      pageSize: number
+      pageCount: number
+      total: number
+    }
+  }
+}
 
 const code = ref('')
 const router = useRouter()
 const isDialogVisible = ref(false)
 const isUploadFile = ref(false)
-const files = ref([])
+const files = ref<File[]>([])
 
 // 筛选框
 const searchQuery = ref('')
@@ -17,8 +43,8 @@ const itemsPerPage = ref(10)
 
 // 表头
 const headers = [
-  { title: '编号', key: 'number', sortable: false },
-  { title: '公司名称', key: 'company', sortable: false },
+  { title: '编号', key: 'documentNumber', sortable: false },
+  { title: '公司名称', key: 'applicant', sortable: false },
   { title: '产品名称', key: 'product', sortable: false },
   { title: '操作', key: 'operation', sortable: false },
 ]
@@ -27,23 +53,26 @@ const headers = [
 const page = ref(1)
 
 // 证书列表
-const certificateList = ref([])
+const certificateList = ref<CertificateItem[]>([])
 
 // 过滤证书列表 筛选数据
 const filterCertificates = computed(() => {
   return certificateList.value.filter(certificate =>
-    certificate.number.toString().toLowerCase().includes(searchQuery.value.toLowerCase())
-    || certificate.company.toString().toLowerCase().includes(searchQuery.value.toLowerCase())
+    certificate.documentNumber.toString().toLowerCase().includes(searchQuery.value.toLowerCase())
+    || certificate.applicant.toString().toLowerCase().includes(searchQuery.value.toLowerCase())
     || certificate.product.toString().toLowerCase().includes(searchQuery.value.toLowerCase()),
   )
 })
 
 // 查询所有记录请求
-async function getList(search) {
+async function getList(search: string) {
   try {
-    const res = await axios.post('http://api.xxx.com/api/pdf', {
-      search: search || '',
-    }, {
+    // 构建查询参数
+    const params = new URLSearchParams()
+    if (search)
+      params.append('filters[documentNumber][$contains]', search)
+
+    const res = await axios.get<ApiResponse>(`//belling-cms.jootang.cn/api/pdf-documents?${params.toString()}`, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -54,7 +83,6 @@ async function getList(search) {
     certificateList.value = result
   }
   catch (err) {
-    // isFind.value = false
     console.log(`查询失败：${err}`)
   }
 }
@@ -69,8 +97,6 @@ const updateOptions = (option: any) => {
 function navigateTo() {
   if (code.value)
     getList(code.value)
-
-  // router.push({ name: 'info-query-result', query: { id: code.value } })
   else
     isDialogVisible.value = true
 }
@@ -95,8 +121,10 @@ async function uploadFiles() {
   })
 }
 
-function handleUploadFile(event) {
-  files.value = Array.from(event.target.files)
+function handleUploadFile(event: Event) {
+  const target = event.target as HTMLInputElement
+  if (target.files)
+    files.value = Array.from(target.files)
 }
 </script>
 
@@ -231,7 +259,7 @@ function handleUploadFile(event) {
             @update:options="updateOptions"
           >
             <template #item.operation="{ item }">
-              <RouterLink :to="{ name: 'info-query-detail', query: { id: item.number } }">
+              <RouterLink :to="{ name: 'info-query-detail', query: { id: item.documentId } }">
                 详情
               </RouterLink>
             </template>
@@ -246,6 +274,7 @@ function handleUploadFile(event) {
 .v-row {
   margin-block: 1rem;
 }
+
 .search-filter {
   inline-size: 24.0625rem;
 }

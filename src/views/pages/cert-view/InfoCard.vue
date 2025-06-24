@@ -1,45 +1,65 @@
 <script setup lang="ts">
 import axios from 'axios'
 
+// 类型定义
+interface CertificateData {
+  id: number
+  documentId: string
+  documentNumber: string
+  applicant: string
+  applicantAddress: string
+  product: string
+  documentDate: string
+  createdAt: string
+  updatedAt: string
+  publishedAt: string
+}
+
+interface ApiResponse {
+  data: CertificateData
+  meta: Record<string, any>
+}
+
 const route = useRoute('info-query-detail')
 const isFind = ref(true)
+const msg = ref<CertificateData | null>(null)
 
-const msg = {
-  number: 1234,
-  company: 'xxxx',
-  product: 'xxxx',
-  model: 'xxx',
-  tradeMark: 'N/A',
-  testReportNumber: '12345888',
-  standard: 'EN ',
-  issueDate: '2024-10-01',
+// 获取证书详情
+async function fetchCertificateDetail() {
+  try {
+    const response = await axios.get<ApiResponse>(`//belling-cms.jootang.cn/api/pdf-documents/${route.query.id}`)
+
+    msg.value = response.data.data
+    isFind.value = true
+  }
+  catch (err) {
+    console.log(`查询失败：${err}`)
+    isFind.value = false
+  }
 }
 
-try {
-  const response = await axios.get(`http://api.xxx.com/pdf/${route.query.id}`)
+// 在组件挂载时获取数据
+onMounted(() => {
+  fetchCertificateDetail()
+})
 
-  // msg = response.data.data
-  isFind.value = true
-}
-catch (err) {
-  // isFind.value = false
+// 证书信息配置 - 使用 computed 确保响应式更新
+const certInfo = computed(() => {
+  if (!msg.value)
+    return []
 
-  // console.log(`查询失败：${err}`)
-}
-
-console.log(msg)
-
-const certInfo = [
-  { label: '证书编号', value: msg.number },
-  { label: '公司名称', value: msg.company },
-  { label: '产品名称', value: msg.product },
-  { label: '产品型号', value: msg.model },
-  { label: '认证时间', value: msg.issueDate },
-]
+  return [
+    { label: '证书编号', value: msg.value.documentNumber },
+    { label: '公司名称', value: msg.value.applicant },
+    { label: '产品名称', value: msg.value.product },
+    { label: '公司地址', value: msg.value.applicantAddress },
+    { label: '证书日期', value: msg.value.documentDate },
+  ]
+})
 </script>
 
 <template>
-  <VRow v-if="isFind">
+  <VRow v-if="isFind && msg">
     <VCol
       v-for="(item, idx) in certInfo"
       :key="idx"
