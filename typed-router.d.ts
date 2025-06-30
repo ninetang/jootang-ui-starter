@@ -69,6 +69,7 @@ declare module 'vue-router/auto/routes' {
     'services-test-items-reliability': RouteRecordInfo<'services-test-items-reliability', '/services/test-items/reliability', Record<never, never>, Record<never, never>>,
     'services-test-items-rf': RouteRecordInfo<'services-test-items-rf', '/services/test-items/rf', Record<never, never>, Record<never, never>>,
     'services-test-items-safety': RouteRecordInfo<'services-test-items-safety', '/services/test-items/safety', Record<never, never>, Record<never, never>>,
+    'statement': RouteRecordInfo<'statement', '/Statement', Record<never, never>, Record<never, never>>,
   }
 }
 

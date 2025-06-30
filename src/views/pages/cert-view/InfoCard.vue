@@ -49,9 +49,10 @@ const certInfo = computed(() => {
     return []
 
   return [
-    { label: '证书编号', value: msg.value.documentNumber },
+    { label: 'Certificate No.', value: msg.value.documentNumber },
     { label: '公司名称', value: msg.value.applicant },
     { label: '产品名称', value: msg.value.product },
+    { label: '产品地址', value: msg.value.product },
     { label: '公司地址', value: msg.value.applicantAddress },
     { label: '证书日期', value: msg.value.documentDate },
   ]

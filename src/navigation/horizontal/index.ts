@@ -166,9 +166,21 @@ export default [
     ],
   },
   {
-    title: 'Certificate inquires',
+    title: 'Certificate Inquires',
     to: { name: 'info-query' },
     icon: { icon: 'ri-search-line' },
+  },
+  {
+    title: 'Service Center',
+    to: { name: 'service-center' },
+    icon: { icon: 'ri-customer-service-line' },
+    children: [
+      {
+        title: 'Statement',
+        to: { name: 'statement' },
+        icon: { icon: 'ri-file-marked-line' },
+      },
+    ],
   },
   {
     title: 'Contact Us',
