@@ -22,14 +22,14 @@ interface ApiResponse {
 
 const route = useRoute('info-query-detail')
 const isFind = ref(true)
-const msg = ref<CertificateData | null>(null)
+const resData = ref<CertificateData | null>(null)
 
 // 获取证书详情
 async function fetchCertificateDetail() {
   try {
     const response = await axios.get<ApiResponse>(`//belling-cms.jootang.cn/api/pdf-documents/${route.query.id}`)
 
-    msg.value = response.data.data
+    resData.value = response.data.data
     isFind.value = true
   }
   catch (err) {
@@ -45,22 +45,22 @@ onMounted(() => {
 
 // 证书信息配置 - 使用 computed 确保响应式更新
 const certInfo = computed(() => {
-  if (!msg.value)
+  if (!resData.value)
     return []
 
   return [
-    { label: 'Certificate No.', value: msg.value.documentNumber },
-    { label: '公司名称', value: msg.value.applicant },
-    { label: '产品名称', value: msg.value.product },
-    { label: '产品地址', value: msg.value.product },
-    { label: '公司地址', value: msg.value.applicantAddress },
-    { label: '证书日期', value: msg.value.documentDate },
+    { label: 'Certificate No.', value: resData.value.documentNumber },
+    { label: 'Applicant', value: resData.value.applicant },
+    { label: 'Product', value: resData.value.product },
+    { label: 'Model Number', value: resData.value.applicantAddress },
+    { label: 'Address', value: resData.value.applicantAddress },
+    { label: 'Date', value: resData.value.documentDate },
   ]
 })
 </script>
 
 <template>
-  <VRow v-if="isFind && msg">
+  <VRow v-if="isFind && resData">
     <VCol
       v-for="(item, idx) in certInfo"
       :key="idx"
