@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import TopImg from '@/views/pages/TopImg.vue'
 import axios from 'axios'
+import TopImg from '@/views/pages/TopImg.vue'
 
 // 类型定义
 interface CertificateItem {
@@ -29,24 +29,25 @@ interface ApiResponse {
 }
 
 const code = ref('')
-const router = useRouter()
+
+// const _router = useRouter()
 const isDialogVisible = ref(false)
 const isUploadFile = ref(false)
 const files = ref<File[]>([])
 
 // 筛选框
 const searchQuery = ref('')
-const route = useRoute('info-query-result')
+
+// const _route = useRoute('info-query-result')
 
 // 每页显示数量
 const itemsPerPage = ref(10)
 
-// 表头
+// 表头 - 删除操作列
 const headers = [
   { title: '编号', key: 'documentNumber', sortable: false },
   { title: '公司名称', key: 'applicant', sortable: false },
   { title: '产品名称', key: 'product', sortable: false },
-  { title: '操作', key: 'operation', sortable: false },
 ]
 
 // 当前页
@@ -258,9 +259,12 @@ function handleUploadFile(event: Event) {
             class="text-no-wrap rounded-0"
             @update:options="updateOptions"
           >
-            <template #item.operation="{ item }">
-              <RouterLink :to="{ name: 'info-query-detail', query: { id: item.documentId } }">
-                详情
+            <template #item.documentNumber="{ item }">
+              <RouterLink
+                :to="{ name: 'info-query-detail', query: { id: item.documentId } }"
+                class="text-decoration-none text-primary"
+              >
+                {{ item.documentNumber }}
               </RouterLink>
             </template>
           </VDataTableServer>
