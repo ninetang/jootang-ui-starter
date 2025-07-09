@@ -20,11 +20,11 @@ const statData = ref([
           <div class="py-1">
             <VRow>
               <VCol
+                v-for="(product, index) in statData"
+                :key="index"
                 cols="12"
                 md="2"
                 sm="4"
-                v-for="(product, index) in statData"
-                :key="index"
               >
                 <VCard flat>
                   <VCardText class="text-center">

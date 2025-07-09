@@ -63,9 +63,9 @@ const earnings = [
             size="small"
           >
             <template #opposite>
-          <span class="app-timeline-meta">
-            2 months ago
-          </span>
+              <span class="app-timeline-meta">
+                2 months ago
+              </span>
             </template>
             <template #icon>
               <div class="v-timeline-avatar-wrapper rounded-circle">
@@ -99,8 +99,8 @@ const earnings = [
                     alt="img"
                   >
                   <span class="app-timeline-text font-weight-medium">
-                documentation.pdf
-              </span>
+                    documentation.pdf
+                  </span>
                 </div>
               </VCardText>
             </VCard>
@@ -112,9 +112,9 @@ const earnings = [
             size="small"
           >
             <template #opposite>
-          <span class="app-timeline-meta">
-            24days ago
-          </span>
+              <span class="app-timeline-meta">
+                24days ago
+              </span>
             </template>
             <template #icon>
               <div class="v-timeline-avatar-wrapper rounded-circle">
@@ -156,9 +156,9 @@ const earnings = [
             size="small"
           >
             <template #opposite>
-          <span class="app-timeline-meta">
-            6 days ago
-          </span>
+              <span class="app-timeline-meta">
+                6 days ago
+              </span>
             </template>
             <template #icon>
               <div class="v-timeline-avatar-wrapper rounded-circle">
@@ -228,9 +228,9 @@ const earnings = [
             size="small"
           >
             <template #opposite>
-          <span class="app-timeline-meta">
-            2 days ago
-          </span>
+              <span class="app-timeline-meta">
+                2 days ago
+              </span>
             </template>
             <template #icon>
               <div class="v-timeline-avatar-wrapper rounded-circle">
@@ -326,9 +326,9 @@ const earnings = [
               </div>
             </template>
             <template #opposite>
-          <span class="app-timeline-meta">
-            2 days ago
-          </span>
+              <span class="app-timeline-meta">
+                2 days ago
+              </span>
             </template>
             <VCard class="mb-10 mt-n4">
               <VCardItem>
@@ -346,8 +346,8 @@ const earnings = [
                     alt="img"
                   >
                   <span class="app-timeline-text font-weight-medium">
-                progress-report.xls
-              </span>
+                    progress-report.xls
+                  </span>
                 </div>
                 <div class="d-flex gap-4 align-center">
                   <div class="flex-grow-1">
