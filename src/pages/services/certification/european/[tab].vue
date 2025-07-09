@@ -24,7 +24,7 @@ definePage({
       cols="12"
       md="9"
     >
-      <CertItem :items="european"/>
+      <CertItem :items="european" />
     </VCol>
   </VRow>
 </template>
