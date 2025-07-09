@@ -13,6 +13,7 @@ interface CertificateData {
   createdAt: string
   updatedAt: string
   publishedAt: string
+  modelNumbers: string[]
 }
 
 interface ApiResponse {
@@ -43,6 +44,10 @@ onMounted(() => {
   fetchCertificateDetail()
 })
 
+function formatProductName(product: string): string {
+  return product.replace(/([A-Z])/g, ' $1').trim()
+}
+
 // 证书信息配置 - 使用 computed 确保响应式更新
 const certInfo = computed(() => {
   if (!resData.value)
@@ -51,8 +56,8 @@ const certInfo = computed(() => {
   return [
     { label: 'Certificate No.', value: resData.value.documentNumber },
     { label: 'Applicant', value: resData.value.applicant },
-    { label: 'Product', value: resData.value.product },
-    { label: 'Model Number', value: resData.value.applicantAddress },
+    { label: 'Product', value: formatProductName(resData.value.product) },
+    { label: 'Model Number', value: null },
     { label: 'Address', value: resData.value.applicantAddress },
     { label: 'Date', value: resData.value.documentDate },
   ]
@@ -77,9 +82,33 @@ const certInfo = computed(() => {
         </VCol>
         <VCol cols="7">
           <div class="d-flex justify-start">
-            <span class="text-h5">
+            <span
+              v-if="item.label !== 'Model Number'"
+              class="text-h5"
+            >
               {{ item.value }}
             </span>
+            <!-- Model Number 用列表美观展示 -->
+            <template v-else>
+              <VList
+                v-if="Array.isArray(resData.modelNumbers) && resData.modelNumbers.length"
+                density="compact"
+              >
+                <VListItem
+                  v-for="(model, i) in resData.modelNumbers"
+                  :key="model + i"
+                  class="pa-0"
+                >
+                  <VListItemTitle class="text-body-1">
+                    {{ model }}
+                  </VListItemTitle>
+                </VListItem>
+              </VList>
+              <span
+                v-else
+                class="text-h5"
+              >N/A</span>
+            </template>
           </div>
         </VCol>
       </VRow>
