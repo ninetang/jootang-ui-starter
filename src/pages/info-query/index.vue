@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import axios from 'axios'
 import TopImg from '@/views/pages/TopImg.vue'
+import axios from 'axios'
 
 // 类型定义
 interface CertificateItem {
@@ -281,5 +281,11 @@ function handleUploadFile(event: Event) {
 
 .search-filter {
   inline-size: 24.0625rem;
+}
+
+/* 表头字号加大 */
+.v-data-table__thead {
+  font-size: 1.15rem; /* 或 18px，根据你需求调整 */
+  font-weight: 600;
 }
 </style>

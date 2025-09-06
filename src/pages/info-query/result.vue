@@ -2,6 +2,14 @@
 import axios from 'axios'
 import TopImg from '@/views/pages/TopImg.vue'
 
+// 定义证书数据类型
+interface Certificate {
+  id: string
+  number: string
+  company: string
+  product: string
+}
+
 // 筛选框
 const searchQuery = ref('')
 const route = useRoute('info-query-result')
@@ -9,19 +17,18 @@ const route = useRoute('info-query-result')
 // 每页显示数量
 const itemsPerPage = ref(10)
 
-// 表头
+// 表头 - 删除操作列
 const headers = [
   { title: '编号', key: 'number', sortable: false },
   { title: '公司名称', key: 'company', sortable: false },
   { title: '产品名称', key: 'product', sortable: false },
-  { title: '操作', key: 'operation', sortable: false },
 ]
 
 // 当前页
 const page = ref(1)
 
 // 证书列表
-const certificateList = ref([])
+const certificateList = ref<Certificate[]>([])
 
 // 过滤证书列表 筛选数据
 const filterCertificates = computed(() => {
@@ -83,9 +90,12 @@ const updateOptions = (option: any) => {
           class="text-no-wrap rounded-0"
           @update:options="updateOptions"
         >
-          <template #item.operation="{ item }">
-            <RouterLink :to="{ name: 'info-query-detail', query: { id: item.number } }">
-              详情
+          <template #item.number="{ item }">
+            <RouterLink 
+              :to="{ name: 'info-query-detail', query: { id: item.number } }"
+              class="text-decoration-none"
+            >
+              {{ item.number }}
             </RouterLink>
           </template>
         </VDataTableServer>
@@ -98,6 +108,7 @@ const updateOptions = (option: any) => {
 .v-row {
   margin-block: 1rem;
 }
+
 .search-filter {
   inline-size: 24.0625rem;
 }
