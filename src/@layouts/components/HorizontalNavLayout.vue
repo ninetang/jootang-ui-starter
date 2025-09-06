@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { onMounted, onUnmounted, ref } from 'vue'
 import { HorizontalNav } from '@layouts/components'
 import type { HorizontalNavItems } from '@layouts/types'
 
@@ -11,6 +12,30 @@ defineProps<{
 }>()
 
 const configStore = useLayoutConfigStore()
+
+const navbar = ref(null)
+let lastScrollTop = 0
+
+const handleScroll = () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+  if (scrollTop > lastScrollTop) {
+    if (navbar.value)
+      navbar.value.style.top = '-8rem'
+  }
+  else {
+    if (navbar.value)
+      navbar.value.style.top = '0'
+  }
+  lastScrollTop = scrollTop
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 </script>
 
 <template>
@@ -19,6 +44,7 @@ const configStore = useLayoutConfigStore()
     :class="configStore._layoutClasses"
   >
     <div
+      ref="navbar"
       class="layout-navbar-and-nav-container"
       :class="configStore.isNavbarBlurEnabled && 'header-blur'"
     >
@@ -64,7 +90,7 @@ const configStore = useLayoutConfigStore()
     min-block-size: 100dvh;
 
     .layout-navbar-and-nav-container {
-      z-index: 1;
+      z-index: 2;
     }
 
     .layout-navbar {
@@ -108,6 +134,8 @@ const configStore = useLayoutConfigStore()
     .layout-footer {
       .footer-content-container {
         @include mixins.boxed-content;
+        padding-inline: 0 !important;
+        max-inline-size: none !important;
       }
     }
   }
@@ -115,7 +143,10 @@ const configStore = useLayoutConfigStore()
   // If both navbar & horizontal nav sticky
   &.layout-navbar-sticky.horizontal-nav-sticky {
     .layout-navbar-and-nav-container {
-      position: sticky;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      transition: top 0.3s;
       inset-block-start: 0;
       will-change: transform;
     }

@@ -20,7 +20,9 @@ body {
 
 .layout-footer {
   .footer-content-container {
-    block-size: variables.$layout-vertical-nav-footer-height;
+    //block-size: variables.$layout-vertical-nav-footer-height;
+    block-size: auto;
+    min-height: 56px;
   }
 
   .layout-footer-sticky & {

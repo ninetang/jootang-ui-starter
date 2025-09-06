@@ -1,67 +1,81 @@
 <script setup lang="ts">
 import Banner from '@/views/pages/index/Banner.vue'
-import Clients from '@/views/pages/index/Clients.vue'
+import News from '@/views/pages/index/News.vue'
+import Business from '@/views/pages/index/Business.vue'
+import Introduction from '@/views/pages/index/Introduction.vue'
+import Cert from '@/views/pages/index/Cert.vue'
+import Partner from '@/views/pages/index/Partner.vue'
 </script>
 
 <template>
+  <!--  顶部轮播图 -->
   <VRow>
     <VCol class="banner">
       <Banner />
     </VCol>
   </VRow>
-
+  <!--  公司简介 -->
   <VRow>
-    <VCard
-      class="mb-6"
-      :title="$t('pages.index.Company Profile')"
-    >
-      <VCardText>
-        Shenzhen Belling Energy Efficiency Technology Co., Ltd. (referred to as Belling) was
-        established in 2015 and has consistently provided advanced quality assurance solutions for
-        our clients. Our business is always customer-centric, focusing on creating a first-class
-        customer service experience. Located in Longhua, Shenzhen, we are a pioneer in the domestic
-        third-party testing and certification technical service industry. Our company is established
-        in strict accordance with the requirements of ISO/IEC 17025:2017 and has obtained
-        recognition from the China National Accreditation Service for Conformity Assessment (CNAS)
-        and the China Metrology Accreditation (CMA), as well as the National Voluntary Laboratory
-        Accreditation Program (NVLAP) in the United States.
-      </VCardText>
-    </VCard>
-    <VCard
-      title="Efficient, Authoritative, and Impartial Third-Party Testing and Certification Technical
-        Service Institution"
-    >
-      <VCardText>
-        Currently, our company primarily focuses on the testing and international certification of
-        lighting, household appliances, audio-visual, and other electronic and electrical products.
-        We have been accredited by numerous international certification bodies such as UL, Intertek,
-        CSA, MET, TUV-RH, TUV-SUD, SGS, NEMKO, FCC, and IC, enabling us to provide professional and
-        authoritative one-stop testing and certification services for our clients.
-      </VCardText>
-      <VCardText>
-        Looking to the future, we will continue to innovate and enhance our expertise, offering
-        comprehensive services from testing to certification. We will persist in our efforts to
-        deliver high-quality service value, earn the trust of our clients, and help each client
-        achieve accelerated business growth and strengthened core competitiveness.
-      </VCardText>
+    <VCard>
+      <Introduction />
     </VCard>
   </VRow>
-
+  <!--  资历授权 -->
   <VRow>
-    <VCard title="客户案例">
-      <Clients />
+    <VCard class="w-100">
+      <Cert />
     </VCard>
   </VRow>
+  <!--  主营业务 -->
+  <VRow>
+    <VCard
+      title="服务项目"
+      class="w-100 text-center"
+    >
+      <Business />
+    </VCard>
+  </VRow>
+  <!--  合作伙伴 -->
+  <VRow>
+    <VCard
+      title="合作伙伴"
+      class="w-100 text-center"
+    >
+      <Partner />
+    </VCard>
+  </VRow>
+  <!--  新闻动态 -->
+  <VRow>
+    <VCard class="w-100">
+      <VCardTitle class="text-center mt-3">
+        新闻资讯
+      </VCardTitle>
+      <News />
+    </VCard>
+  </VRow>
+  <!--  客户案例 -->
+<!--  <VRow> -->
+<!--    <VCard -->
+<!--      title="客户案例" -->
+<!--      class="w-100 text-center" -->
+<!--    > -->
+<!--      <Clients /> -->
+<!--    </VCard> -->
+<!--  </VRow> -->
 </template>
 
 <style lang="scss">
 @use "@core/scss/template/libs/swiper.scss";
 
 .v-row {
-  margin-top: -1.5rem;
+  margin-block: 1rem;
 
   .banner {
     padding: 0
   }
+}
+
+.certificate {
+  width: 20rem;
 }
 </style>

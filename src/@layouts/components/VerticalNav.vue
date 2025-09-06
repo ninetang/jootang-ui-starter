@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import type { Component } from 'vue'
 import { PerfectScrollbar } from 'vue3-perfect-scrollbar'
-import { VNodeRenderer } from './VNodeRenderer'
 import { layoutConfig } from '@layouts'
 import { VerticalNavGroup, VerticalNavLink, VerticalNavSectionTitle } from '@layouts/components'
 import { useLayoutConfigStore } from '@layouts/stores/config'
 import { injectionKeyIsVerticalNavHovered } from '@layouts/symbols'
 import type { NavGroup, NavLink, NavSectionTitle, VerticalNavItems } from '@layouts/types'
+import logo32 from '@images/logo/belling-logo-32.png'
 
 interface Props {
   tag?: string | Component
@@ -77,8 +77,11 @@ const hideTitleAndIcon = configStore.isVerticalNavMini(isHovered)
           to="/"
           class="app-logo app-title-wrapper"
         >
-          <VNodeRenderer :nodes="layoutConfig.app.logo" />
-
+          <!--          <VNodeRenderer :nodes="layoutConfig.app.logo" /> -->
+          <img
+            :src="logo32"
+            alt="Belling Logo"
+          >
           <Transition name="vertical-nav-app-title">
             <h1
               v-show="!hideTitleAndIcon"
