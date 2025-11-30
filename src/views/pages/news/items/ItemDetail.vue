@@ -1,12 +1,45 @@
 <script lang="ts" setup>
-const props = defineProps<{ id: string }>()
+const props = withDefaults(defineProps<{ id?: string }>(), {
+  id: '',
+})
+
+const route = useRoute()
+const router = useRouter()
+
+// 优先从路由参数获取id，如果没有则使用props
+const newsId = computed(() => {
+  const params = route.params as { id?: string }
+  if (params?.id)
+    return String(params.id)
+
+  return props.id
+})
+
+// 根据当前路由确定返回列表的路由
+const getListRoute = (): { name: 'news-company' | 'news-industry' | 'news-technology' } => {
+  const routeName = String(route.name || '')
+  if (routeName.includes('company'))
+    return { name: 'news-company' }
+
+  if (routeName.includes('industry'))
+    return { name: 'news-industry' }
+
+  if (routeName.includes('technology'))
+    return { name: 'news-technology' }
+
+  return { name: 'news-company' }
+}
+
+const goBack = () => {
+  router.push(getListRoute())
+}
 </script>
 
 <template>
   <VRow>
     <VCard class="w-100 pa-5">
       <VCardTitle class="text-center">
-        Title {{ props.id }}
+        Title {{ newsId }}
       </VCardTitle>
       <div class="d-flex justify-center mb-2">
         <VCardSubtitle>
@@ -28,7 +61,9 @@ const props = defineProps<{ id: string }>()
         <VBtn prepend-icon="ri-arrow-left-line">
           上一篇
         </VBtn>
-        <VBtn>返回</VBtn>
+        <VBtn @click="goBack">
+          返回
+        </VBtn>
         <VBtn append-icon="ri-arrow-right-line">
           下一篇
         </VBtn>
@@ -36,7 +71,3 @@ const props = defineProps<{ id: string }>()
     </VCard>
   </VRow>
 </template>
-
-<style scoped>
-
-</style>

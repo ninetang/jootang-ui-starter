@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import Banner from '@/views/pages/news/Banner.vue'
 
+const router = useRouter()
+
 const items = [
   {
     id: 1,
@@ -31,6 +33,10 @@ const items = [
     month: '2024-08-11',
   },
 ]
+
+const goToDetail = (id: number) => {
+  router.push({ name: 'news-technology-id', params: { id: String(id) } })
+}
 </script>
 
 <template>
@@ -66,7 +72,8 @@ const items = [
               <div
                 v-for="item in items"
                 :key="item.id"
-                class="d-flex flex-column"
+                class="d-flex flex-column cursor-pointer"
+                @click="goToDetail(item.id)"
               >
                 <div class="d-flex align-center justify-center">
                   <div class="d-flex flex-column justify-center align-center w-25">
@@ -99,5 +106,14 @@ const items = [
 }
 .banner {
   width: 25rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
 </style>

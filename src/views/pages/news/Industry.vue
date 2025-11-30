@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import pages5 from '@images/pages/5.jpg'
 
+const router = useRouter()
+
 const items = [
   {
     id: 1,
@@ -21,6 +23,10 @@ const items = [
     time: '2024-08-11',
   },
 ]
+
+const goToDetail = (id: number) => {
+  router.push({ name: 'news-industry-id', params: { id: String(id) } })
+}
 </script>
 
 <template>
@@ -40,7 +46,10 @@ const items = [
         v-for="item in items"
         :key="item.id"
       >
-        <VCard>
+        <VCard
+          class="cursor-pointer"
+          @click="goToDetail(item.id)"
+        >
           <div class="d-flex flex-column-reverse flex-md-row align-center justify-space-between">
             <div>
               <VCardItem>
@@ -80,5 +89,15 @@ const items = [
 <style scoped lang="scss">
 .title {
   margin-block: 1rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
 }
 </style>

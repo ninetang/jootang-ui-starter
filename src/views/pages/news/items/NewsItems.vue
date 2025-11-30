@@ -1,15 +1,24 @@
 <script setup lang="ts">
-import ItemDetail from '@/views/pages/news/items/ItemDetail.vue'
 import pages5 from '@images/pages/5.jpg'
 
 const props = defineProps<{ title: string }>()
+const router = useRouter()
 
-const isShowDetail = ref(false)
-const newsId = ref('')
+// 根据标题确定新闻类型和路由名称
+const getNewsRouteName = (): 'news-company-id' | 'news-industry-id' | 'news-technology-id' => {
+  const titleMap: Record<string, 'news-company-id' | 'news-industry-id' | 'news-technology-id'> = {
+    公司新闻: 'news-company-id',
+    行业资讯: 'news-industry-id',
+    技术文章: 'news-technology-id',
+  }
 
-const showDetail = (id: string) => {
-  isShowDetail.value = true
-  newsId.value = id
+  return titleMap[props.title] || 'news-company-id'
+}
+
+const goToDetail = (id: string) => {
+  const routeName = getNewsRouteName()
+
+  router.push({ name: routeName, params: { id } })
 }
 
 const articles = [
@@ -57,10 +66,7 @@ const currentPage = ref(1)
 
 <template>
   <VRow>
-    <VCard
-      v-if="!isShowDetail"
-      class="w-100 pa-3"
-    >
+    <VCard class="w-100 pa-3">
       <VCol class="d-flex justify-space-between align-center title">
         <h2>{{ props.title }}</h2>
         <div>
@@ -88,8 +94,8 @@ const currentPage = ref(1)
             md="4"
           >
             <VCard
-              class="h-100"
-              @click="showDetail(item.id)"
+              class="h-100 cursor-pointer"
+              @click="goToDetail(item.id)"
             >
               <VImg
                 :height="200"
@@ -116,7 +122,10 @@ const currentPage = ref(1)
             :key="item.id"
             cols="12"
           >
-            <VCard @click="showDetail(item.id)">
+            <VCard
+              class="cursor-pointer"
+              @click="goToDetail(item.id)"
+            >
               <div class="item-container">
                 <div class="item-txt">
                   <VCardItem>
@@ -156,12 +165,6 @@ const currentPage = ref(1)
           :total-visible="$vuetify.display.mdAndUp ? 4 : $vuetify.display.sm ? 2 : 1 "
         />
       </div>
-    </VCard>
-    <VCard class="w-100 pa-3">
-      <ItemDetail
-        v-if="isShowDetail"
-        :id="newsId"
-      />
     </VCard>
   </VRow>
 </template>
