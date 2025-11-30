@@ -25,7 +25,7 @@ const isDialogVisible = ref(false)
                 深圳市贝岭能效技术有限公司
               </VCardText>
               <VCardText>
-                地址：深圳市龙华区大浪街道新石社区石龙仔路14号美宝和工业园1栋西侧
+                地址：深圳市龙华区大浪街道新石社区石龙仔路14号美宝和工业园1栋1楼西侧
               </VCardText>
               <VCardText>
                 电话：0755-21038430
