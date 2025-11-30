@@ -4,12 +4,11 @@ import certificate2 from '@images/certificates/certificate2.webp'
 import certificate3 from '@images/certificates/certificate3.webp'
 import certificate4 from '@images/certificates/certificate4.webp'
 import certificate5 from '@images/certificates/certificate5.webp'
-import lab1 from '@images/laboratorys/1.webp'
 import lab2 from '@images/laboratorys/2.webp'
-import lab3 from '@images/laboratorys/3.webp'
 import lab4 from '@images/laboratorys/4.webp'
-import lab6 from '@images/laboratorys/6.webp'
+import lab6 from '@images/laboratorys/nenxiao2.webp'
 import lab7 from '@images/laboratorys/7.webp'
+import emc from '@images/laboratorys/EMC.webp'
 import client1 from '@images/clients/unilumin.webp'
 import client2 from '@images/clients/bravoled.webp'
 import client3 from '@images/clients/fsl.webp'
@@ -48,15 +47,15 @@ const certificates = [
 const labs = [
   {
     title: '安规实验室',
-    img: lab1,
-  },
-  {
-    title: '能效实验室',
     img: lab2,
   },
   {
+    title: '能效实验室',
+    img: lab6,
+  },
+  {
     title: 'EMC实验环境',
-    img: lab3,
+    img: emc,
   },
   {
     title: '环境可靠性实验室',
