@@ -65,7 +65,7 @@ const currentPage = ref(1)
 </script>
 
 <template>
-  <VRow>
+  <VRow class="mt-4">
     <VCard class="w-100 pa-3">
       <VCol class="d-flex justify-space-between align-center title">
         <h2>{{ props.title }}</h2>
