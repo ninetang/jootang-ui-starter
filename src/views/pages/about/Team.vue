@@ -1,123 +1,72 @@
 <script setup lang="ts">
-import teamPerson1 from '@images/pages/teamPerson1.png'
-import teamPerson2 from '@images/pages/teamPerson2.png'
-import teamPerson3 from '@images/pages/teamPerson3.png'
-import teamPerson4 from '@images/pages/teamPerson4.png'
+import cultureBg from '@images/banner/culture.jpg'
 
-const teamData = ref([
-  { name: 'Sophie Gilbert', position: 'Project Manager', image: teamPerson1, backgroundColor: 'rgba(144, 85, 253, 0.16)', borderColor: 'rgba(144, 85, 253,0.38)', isHover: true },
-  { name: 'Nannie Ford', position: 'Development Lead', image: teamPerson2, backgroundColor: 'rgba(255, 76, 81, 0.16)', borderColor: 'rgba(255, 76, 81,0.38)', isHover: false },
-  { name: 'Chris Watkins', position: 'Marketing Manager', image: teamPerson3, backgroundColor: 'rgba(86, 202, 0, 0.16)', borderColor: 'rgba(86, 202, 0,0.38)', isHover: false },
-  { name: 'Paul Miles', position: 'UI Designer', image: teamPerson4, backgroundColor: 'rgba(22, 177, 255, 0.16)', borderColor: 'rgba(22, 177, 255,0.38)', isHover: false },
+const cultureData = ref([
+  {
+    icon: 'ri-stack-line',
+    title: '我们的使命',
+    description: '在追求全体员工物质和精神两方面幸福的同时，为人类社会的进步发展做出贡献',
+  },
+  {
+    icon: 'ri-rocket-line',
+    title: '我们的愿景',
+    description: '致力于成为全球行业的领航者',
+  },
+  {
+    icon: 'ri-heart-line',
+    title: '核心价值观',
+    description: '心存敬畏，行有所止',
+  },
+  {
+    icon: 'ri-medal-2-line',
+    title: '我们的宗旨',
+    description: '以心为本的经营，贯彻顾客至上主义，为员工为公司创造财富，为人类社会作出应有的贡献',
+  },
 ])
-
-const isDialogVisible = ref(false)
-const member = ref()
-
-const showMessage = data => {
-  isDialogVisible.value = true
-  member.value = data
-  console.log(member.value.image)
-}
 </script>
 
 <template>
   <VRow>
-    <VCard class="w-100">
-      <div class="our-team">
-        <h2 class="text-center">
+    <VCard
+      flat
+      class="w-100 company-culture-wrapper"
+    >
+      <div
+        class="culture-background"
+        :style="`background-image: url(${cultureBg});`"
+      />
+      <div class="company-culture">
+        <h2 class="text-center text-h4 mb-6 text-white">
           企业文化
         </h2>
-        <VRow>
+        <VRow class="culture-cards-row">
           <VCol
-            v-for="(data, index) in teamData"
+            v-for="(item, index) in cultureData"
             :key="index"
             cols="12"
-            lg="3"
+            lg="6"
+            md="6"
             sm="6"
           >
             <VCard
               flat
-              variant="outlined"
-              min-width="267"
-              class="position-relative overflow-visible mt-16"
-              :style="data.isHover ? { border: `1px solid ${data.borderColor}` } : {}"
-              @mouseenter="data.isHover = true"
-              @mouseleave="data.isHover = false"
-              @click="showMessage(data)"
+              class="culture-card"
             >
-              <VImg
-                :src="data.image"
-                height="240px"
-                class="team-image"
-              />
-              <div :style="{ maxHeight: '185px', minHeight: '185px', backgroundColor: data.backgroundColor }" />
-              <VCardText class="text-center">
-                <div class="mb-3">
-                  <h5 class="text-h5">
-                    {{ data.name }}
-                  </h5>
-                  <div class="text-body-1 text-medium-emphasis">
-                    {{ data.position }}
-                  </div>
-                </div>
-
-                <div class="d-flex gap-x-2 align-center justify-center">
-                  <template
-                    v-for="{ icon, color } in [
-                      { icon: 'ri-mail-line', color: 'rgba(0, 119, 181, 1)', link: 'https://linkedin.com' },
-                    ]"
-                    :key="color"
-                  >
-                    <VIcon
-                      :icon="icon"
-                      size="22"
-                      :color="data.isHover ? color : ''"
-                      class="cursor-pointer"
-                    />
-                  </template>
-                </div>
+              <VCardText class="text-center culture-card-content">
+                <VIcon
+                  :icon="item.icon"
+                  size="64"
+                  color="primary"
+                  class="mb-4 culture-icon"
+                />
+                <h4 class="text-h5 font-weight-bold mb-3">
+                  {{ item.title }}
+                </h4>
+                <p class="text-body-1">
+                  {{ item.description }}
+                </p>
               </VCardText>
             </VCard>
-            <VDialog
-              v-model="isDialogVisible"
-              width="500"
-            >
-              <VCard title="成员信息">
-                <DialogCloseBtn
-                  variant="text"
-                  size="default"
-                  @click="isDialogVisible = false"
-                />
-                <VRow>
-                  <VCol
-                    cols="12"
-                    md="5"
-                    class="pa-5"
-                  >
-                    <VImg
-                      :src="member.image"
-                      width="200"
-                      class="ma-auto"
-                    />
-                  </VCol>
-                  <VCol
-                    cols="12"
-                    md="7"
-                  >
-                    <VCardText class="text-h5">
-                      {{ member.name }}
-                    </VCardText>
-                    <VCardText class="text-h5">
-                      {{ member.position }}
-                    </VCardText>
-                    <VCardText class="text-body-1">
-                      content
-                    </VCardText>
-                  </VCol>
-                </VRow>
-              </VCard>
-            </VDialog>
           </VCol>
         </VRow>
       </div>
@@ -126,18 +75,74 @@ const showMessage = data => {
 </template>
 
 <style lang="scss" scoped>
-.team-image {
+.company-culture-wrapper {
+  position: relative;
+  overflow: hidden;
+  min-height: 500px;
+}
+
+.culture-background {
   position: absolute;
-  inset-block-start: -3.4rem;
-  inset-inline: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(1px);
+  }
 }
 
-.headers {
-  margin-block-end: 1.25rem;
+.company-culture {
+  position: relative;
+  z-index: 2;
+  padding: 2rem 1.5rem;
+  margin-block: 2rem;
+
+  @media (max-width: 600px) {
+    padding: 1.5rem 1rem;
+  }
 }
 
-.our-team {
-  padding: 1rem;
-  margin-block: 3.25rem;
+.culture-cards-row {
+  margin-top: 0;
+}
+
+.culture-card {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .culture-card-content {
+    padding: 1.5rem 1rem !important;
+    width: 100%;
+  }
+
+  .culture-icon {
+    opacity: 0.9;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  }
+}
+
+:deep(.text-body-1) {
+  line-height: 1.8;
+  color: rgba(var(--v-theme-on-surface), 0.87);
+  font-size: 1rem;
 }
 </style>
