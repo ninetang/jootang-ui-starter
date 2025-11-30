@@ -4,6 +4,7 @@ import certificate2 from '@images/certificates/certificate2.webp'
 import certificate3 from '@images/certificates/certificate3.webp'
 import certificate4 from '@images/certificates/certificate4.webp'
 import certificate5 from '@images/certificates/certificate5.webp'
+import lab1 from '@images/laboratorys/1.webp'
 import lab2 from '@images/laboratorys/2.webp'
 import lab4 from '@images/laboratorys/4.webp'
 import lab6 from '@images/laboratorys/nenxiao2.webp'
@@ -62,8 +63,8 @@ const labs = [
     img: lab4,
   },
   {
-    title: '生物实验室',
-    img: lab6,
+    title: '化学实验室',
+    img: lab1,
   },
   {
     title: '射频实验室',

@@ -30,6 +30,12 @@ const isDialogVisible = ref(false)
               <VCardText>
                 电话：0755-21038430
               </VCardText>
+              <VCardText>
+                Bonnie Lai：159-8938-1627
+              </VCardText>
+              <VCardText>
+                Kewin Liu：137-2348-0550
+              </VCardText>
             </div>
             <div>
               <VImg

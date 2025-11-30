@@ -21,7 +21,7 @@ const navTabs = [
     value: 'certification',
   },
   {
-    name: '团队介绍',
+    name: '企业文化',
     value: 'team',
   },
   {

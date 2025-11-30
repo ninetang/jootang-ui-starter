@@ -52,7 +52,7 @@ useIntersectionObserver(
     id="certification"
     ref="certification"
   />
-  <!-- 团队介绍 -->
+  <!-- 企业文化 -->
   <Team
     id="team"
     ref="team"

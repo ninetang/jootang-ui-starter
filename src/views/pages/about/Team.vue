@@ -26,7 +26,7 @@ const showMessage = data => {
     <VCard class="w-100">
       <div class="our-team">
         <h2 class="text-center">
-          团队介绍
+          企业文化
         </h2>
         <VRow>
           <VCol
