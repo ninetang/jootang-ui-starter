@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import page5 from '@images/pages/5.jpg'
+import page5 from '@images/logo/address.webp'
 import TopImg from '@/views/pages/TopImg.vue'
 import Map from '@/views/pages/Map.vue'
 
