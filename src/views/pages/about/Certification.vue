@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { register } from 'swiper/element/bundle'
 
-import logo1 from '@images/certificates/certificate1.webp'
+import logo1 from '@images/certificates/certificate1-1.png'
 import logo2 from '@images/certificates/certificate2.webp'
 import logo3 from '@images/certificates/certificate3.webp'
 import logo4 from '@images/certificates/certificate4.webp'

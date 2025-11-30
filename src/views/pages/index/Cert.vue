@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import certificate1 from '@images/certificates/certificate1.webp'
+import certificate1 from '@images/certificates/certificate1-1.png'
 import certificate2 from '@images/certificates/certificate2.webp'
 import certificate3 from '@images/certificates/certificate3.webp'
 import certificate4 from '@images/certificates/certificate4.webp'
@@ -136,19 +136,19 @@ const cooperators = [
         >
           <VContainer id="features">
             <div>
-              <VRow class="justify-center gap-8">
+              <VRow class="justify-center">
                 <VCol
                   v-for="(data, index) in certificates"
                   :key="index"
-                  cols="12"
-                  sm="3"
-                  md="2"
+                  :cols="index === 0 ? '12' : '6'"
+                  :sm="index === 0 ? '12' : '6'"
+                  :md="index === 0 ? '12' : '3'"
                 >
                   <div class="feature d-flex flex-column gap-y-2 align-center justify-center mt-2">
                     <div class="border image-container">
                       <VImg
                         :src="data.img"
-                        width="200"
+                        :width="index === 0 ? '800' : '200'"
                         border="border"
                         class="mb-2 image-zoom"
                       />
