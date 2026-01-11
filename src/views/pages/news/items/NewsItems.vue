@@ -1,5 +1,42 @@
 <script setup lang="ts">
+import axios from 'axios'
 import pages5 from '@images/pages/5.jpg'
+
+// 类型定义
+interface CoverImage {
+  id: number
+  documentId: string
+  url: string
+  alternativeText: string | null
+  formats?: {
+    thumbnail?: { url: string }
+    small?: { url: string }
+  }
+}
+
+interface Article {
+  id: number
+  documentId: string
+  title: string
+  description: string
+  slug: string
+  createdAt: string
+  updatedAt: string
+  publishedAt: string
+  cover?: CoverImage | null
+}
+
+interface ApiResponse {
+  data: Article[]
+  meta: {
+    pagination: {
+      page: number
+      pageSize: number
+      pageCount: number
+      total: number
+    }
+  }
+}
 
 const props = defineProps<{ title: string }>()
 const router = useRouter()
@@ -15,44 +52,90 @@ const getNewsRouteName = (): 'news-company-id' | 'news-industry-id' | 'news-tech
   return titleMap[props.title] || 'news-company-id'
 }
 
-const goToDetail = (id: string) => {
-  const routeName = getNewsRouteName()
+// 根据标题获取对应的 slug
+const getSlugByTitle = (): string => {
+  const slugMap: Record<string, string> = {
+    公司新闻: 'company',
+    行业资讯: 'industry',
+    技术文章: 'technology',
+  }
 
-  router.push({ name: routeName, params: { id } })
+  return slugMap[props.title] || 'company'
 }
 
-const articles = [
-  {
-    id: '1',
-    title: 'Influencing The Influencer',
-    content: 'Cancun is back, better than ever! Over a hundred Mexico resorts have reopened and the state tourism',
-    time: '2024-08-11',
-  },
-  {
-    id: '2',
-    title: 'Influencing The Influencer',
-    content: 'Cancun is back, better than ever! Over a hundred Mexico resorts have reopened and the state tourism',
-    time: '2024-08-11',
-  },
-  {
-    id: '3',
-    title: 'Influencing The Influencer',
-    content: 'Cancun is back, better than ever! Over a hundred Mexico resorts have reopened and the state tourism',
-    time: '2024-08-11',
-  },
-  {
-    id: '4',
-    title: 'Influencing The Influencer',
-    content: 'Cancun is back, better than ever! Over a hundred Mexico resorts have reopened and the state tourism',
-    time: '2024-08-11',
-  },
-  {
-    id: '5',
-    title: 'Influencing The Influencer',
-    content: 'Cancun is back, better than ever! Over a hundred Mexico resorts have reopened and the state tourism',
-    time: '2024-08-11',
-  },
-]
+const goToDetail = (documentId: string) => {
+  const routeName = getNewsRouteName()
+
+  router.push({ name: routeName, params: { id: documentId } })
+}
+
+// 文章列表
+const articles = ref<Article[]>([])
+const currentPage = ref(1)
+const pageSize = ref(9)
+const totalPages = ref(1)
+const loading = ref(false)
+
+// 获取文章列表
+async function fetchArticles() {
+  loading.value = true
+  try {
+    const slug = getSlugByTitle()
+    const params = new URLSearchParams()
+
+    params.append('filters[slug][$eq]', slug)
+    params.append('pagination[page]', String(currentPage.value))
+    params.append('pagination[pageSize]', String(pageSize.value))
+    params.append('sort[0]', 'publishedAt:desc')
+
+    // 添加 populate 获取关联字段（如封面图、作者等）
+    params.append('populate', '*')
+
+    const res = await axios.get<ApiResponse>(`//belling-cms.jootang.cn/api/articles?${params.toString()}`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+
+    articles.value = res.data.data
+    totalPages.value = res.data.meta.pagination.pageCount
+  }
+  catch (err) {
+    console.error(`获取文章列表失败：${err}`)
+    articles.value = []
+  }
+  finally {
+    loading.value = false
+  }
+}
+
+// 格式化日期
+const formatDate = (dateString: string) => {
+  return new Date(dateString).toLocaleDateString('zh-CN')
+}
+
+// 获取封面图 URL
+const getCoverUrl = (cover?: CoverImage | null): string => {
+  if (!cover)
+    return pages5 // 使用默认图片
+
+  const baseUrl = 'http://belling-cms.jootang.cn'
+
+  // 优先使用 small 格式，如果没有则使用原图
+  const url = cover.formats?.small?.url || cover.url
+
+  return url.startsWith('http') ? url : `${baseUrl}${url}`
+}
+
+// 监听页码变化
+watch(currentPage, () => {
+  fetchArticles()
+})
+
+// 组件挂载时获取数据
+onMounted(() => {
+  fetchArticles()
+})
 
 const toggle = ref(true)
 function changeGrid() {
@@ -61,7 +144,6 @@ function changeGrid() {
 function changeList() {
   toggle.value = false
 }
-const currentPage = ref(1)
 </script>
 
 <template>
@@ -85,21 +167,43 @@ const currentPage = ref(1)
           />
         </div>
       </VCol>
-      <div class="d-flex mb-5 flex-wrap">
+
+      <div
+        v-if="loading"
+        class="d-flex justify-center align-center pa-10"
+      >
+        <VProgressCircular
+          indeterminate
+          color="primary"
+        />
+      </div>
+
+      <div
+        v-else-if="articles.length === 0"
+        class="d-flex justify-center align-center pa-10"
+      >
+        <VCardText>暂无数据</VCardText>
+      </div>
+
+      <div
+        v-else
+        class="d-flex mb-5 flex-wrap"
+      >
         <template v-if="toggle">
           <VCol
             v-for="item in articles"
-            :key="item.id"
+            :key="item.documentId"
             cols="12"
             md="4"
           >
             <VCard
               class="h-100 cursor-pointer"
-              @click="goToDetail(item.id)"
+              @click="goToDetail(item.documentId)"
             >
               <VImg
                 :height="200"
-                :src="pages5"
+                :src="getCoverUrl(item.cover)"
+                :alt="item.cover?.alternativeText || item.title"
                 cover
               />
 
@@ -108,23 +212,23 @@ const currentPage = ref(1)
               </VCardItem>
 
               <VCardText>
-                {{ item.content }}
+                {{ item.description }}
               </VCardText>
               <VCardText>
-                {{ item.time }}
+                {{ formatDate(item.publishedAt) }}
               </VCardText>
             </VCard>
           </VCol>
         </template>
-        <template v-if="!toggle">
+        <template v-else>
           <VCol
             v-for="item in articles"
-            :key="item.id"
+            :key="item.documentId"
             cols="12"
           >
             <VCard
               class="cursor-pointer"
-              @click="goToDetail(item.id)"
+              @click="goToDetail(item.documentId)"
             >
               <div class="item-container">
                 <div class="item-txt">
@@ -133,11 +237,11 @@ const currentPage = ref(1)
                   </VCardItem>
 
                   <VCardText>
-                    {{ item.content }}
+                    {{ item.description }}
                   </VCardText>
 
                   <VCardText class="text-body-1">
-                    <span>Time :</span> <span class="font-weight-medium">{{ item.time }}</span>
+                    <span>Time :</span> <span class="font-weight-medium">{{ formatDate(item.publishedAt) }}</span>
                   </VCardText>
 
                   <VCardActions class="justify-space-between">
@@ -149,7 +253,8 @@ const currentPage = ref(1)
                 </div>
                 <div class="item-img">
                   <VImg
-                    :src="pages5"
+                    :src="getCoverUrl(item.cover)"
+                    :alt="item.cover?.alternativeText || item.title"
                     cover
                   />
                 </div>
@@ -158,10 +263,10 @@ const currentPage = ref(1)
           </VCol>
         </template>
       </div>
-      <div>
+      <div v-if="!loading && articles.length > 0">
         <VPagination
           v-model="currentPage"
-          :length="15"
+          :length="totalPages"
           :total-visible="$vuetify.display.mdAndUp ? 4 : $vuetify.display.sm ? 2 : 1 "
         />
       </div>
